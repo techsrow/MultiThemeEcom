@@ -1,0 +1,46 @@
+﻿@model BasePackageModule2.ViewModels.NavViewModel
+
+<nav class="navbar navbar-expand-lg fixed-top navbar-light text-dark border-bottom">
+    <a class="navbar-brand" asp-action="Index" asp-controller="Home">
+        <img src="https://www.meplsky.com/theme/xmin/assets/img/new-mepl-sky-logo.jpg" height="30" />
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto ml-auto">
+            @foreach (var menu in Model.Menus)
+            {
+                @if (menu.Type == "categoryCollection")
+                {
+
+
+                    @foreach (var menuCategory in menu.MenuCategories)
+                    {
+                        <li class="nav-item"><a class="nav-link text-dark" asp-controller="Products" asp-action="Index" asp-route-category="@menuCategory.Category.Name">@menuCategory.Category.Name</a></li>
+
+
+                    }
+
+
+
+                }
+                if (menu.Type == "interLink" || menu.Type == null)
+                {
+                    <li class="nav-item"><a class="nav-link text-dark" href="@menu.Url"> @menu.Name </a></li>
+                }
+                if (menu.Type == "external" || menu.Type == null)
+                {
+                    <li class="nav-item"><a class="nav-link text-dark" href="@menu.Url"> @menu.Name </a></li>
+                }
+
+            }
+
+        </ul>
+        <form method="get" class="form-inline my-2 my-lg-0" role="search" asp-controller="Search" asp-action="Index">
+            <input class="form-control mr-sm-2"name="query" type="text" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>

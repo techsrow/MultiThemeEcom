@@ -1,0 +1,345 @@
+﻿@model TomBase.Models.ShipRocket.OrderInfoData
+@{
+    ViewData["Title"] = "OrderInfo";
+}
+
+
+
+
+<div class=" col-md-12 row ">
+    <div class=" col-md-4">
+
+        @if (Model.order != null)
+        {
+            <div class=" container-fluid  mt-lg-5">
+
+                <div class="steppercontainer" style=" font-size: 15px !important; color: #000 !important;  ">
+                    @for (int i = 0; i < Model.ShipRocketTracking.tracking_data.shipment_track_activities.Count; i++)
+                    {
+                        <div class="stepperSteps completed">
+                            <div class="v-stepperStepsper">
+                                <div class="circle"></div>
+                                <div class="line"></div>
+                            </div>
+                            <div class="Mycontent">
+                                @Model.ShipRocketTracking.tracking_data.shipment_track_activities[i].activity
+                                @Model.ShipRocketTracking.tracking_data.shipment_track_activities[i].location
+                                @Model.ShipRocketTracking.tracking_data.shipment_track_activities[i].date
+                            </div>
+                        </div>
+                    }
+                </div>
+
+            </div>
+        }
+
+
+
+    </div>
+    <div class=" col-md-8  ">
+        <div class=" padding-bottom-3x mb-1">
+            <br />
+            <br />
+            <div class="card mb-3">
+                <div class="p-4 text-center text-white text-lg bg-dark rounded-top"><span class="text-uppercase">Tracking Order No - </span><span class="text-medium">@ViewBag.orderid</span></div>
+                <div class="card-body">
+                    <div class="steps d-flex flex-wrap flex-sm-nowrap justify-content-between padding-top-2x padding-bottom-1x">
+                        <div class="step completed">
+                            <div class="step-icon-wrap">
+                                <div class="step-icon"><i class="fa fa-cog" aria-hidden="true"></i></div>
+                            </div>
+                            <h4 class="step-title">Confirmed Order</h4>
+                        </div>
+                        @if (Model.ShipRocketTracking != null)
+                        {
+                            <div class="step  completed">
+                                <div class="step-icon-wrap">
+                                    <div class="step-icon"><i class="fa fa-car" aria-hidden="true"></i></div>
+                                </div>
+                                <h4 class="step-title">Product Dispatched</h4>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="step  ">
+                                <div class="step-icon-wrap">
+                                    <div class="step-icon"><i class="fa fa-car" aria-hidden="true"></i></div>
+                                </div>
+                                <h4 class="step-title">Product Dispatched</h4>
+                            </div>
+                        }
+                        @if (Model.ShipRocketTracking != null)
+                        {
+                            if (Model.ShipRocketTracking.tracking_data.shipment_track[0].current_status == "Delivered")
+                            {
+                                <div class="step completed">
+                                    <div class="step-icon-wrap">
+                                        <div class="step-icon"><i class="fa fa-home" aria-hidden="true"></i></div>
+                                    </div>
+                                    <h4 class="step-title">Product Delivered</h4>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="step">
+                                    <div class="step-icon-wrap">
+                                        <div class="step-icon"><i class="fa fa-home" aria-hidden="true"></i></div>
+                                    </div>
+                                    <h4 class="step-title">Product Delivered</h4>
+                                </div>
+                            }
+
+                        }
+                        else
+                        {
+                            <div class="step">
+                                <div class="step-icon-wrap">
+                                    <div class="step-icon"><i class="fa fa-home" aria-hidden="true"></i></div>
+                                </div>
+                                <h4 class="step-title">Product Delivered</h4>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <br />
+        <br />
+        <br />
+        <div class="col-md-12">
+            <table class="table table-danger table-hover">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Product</th>
+                        <th>Quantity</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+
+
+                    @foreach (var item in Model.order.OrderProducts)
+                    {
+                        <tr>
+                            <td>
+                                @if (item.Product.Image != null)
+                                {
+                                    <img src="@item.Product.Image " style="height: 80px ; width:70px" />
+                                }
+                            </td>
+                            <td>@item.Product.Name</td>
+                            <td>@item.Quantity</td>
+                        </tr>
+                    }
+
+
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+<style>
+
+    .steppercontainer {
+        width: 100%;
+    }
+
+    .stepperSteps {
+        padding: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        background-color: cream;
+    }
+
+    .v-stepperStepsper {
+        position: relative;
+        /*   visibility: visible; */
+    }
+
+
+    /* regular stepperSteps */
+    .stepperSteps .circle {
+        background-color: white;
+        border: 3px solid gray;
+        border-radius: 100%;
+        width: 20px; /* +6 for border */
+        height: 20px;
+        display: inline-block;
+    }
+
+    .stepperSteps .line {
+        top: 23px;
+        left: 9.5px;
+        /*   height: 120px; */
+        height: 100%;
+        position: absolute;
+        border-left: 3px solid gray;
+    }
+
+    .stepperSteps.completed .circle {
+        visibility: visible;
+        background-color: rgb(6,150,215);
+        border-color: rgb(6,150,215);
+    }
+
+    .stepperSteps.completed .line {
+        border-left: 3px solid rgb(6,150,215);
+    }
+
+    .stepperSteps.active .circle {
+        visibility: visible;
+        border-color: rgb(6,150,215);
+    }
+
+    .stepperSteps.empty .circle {
+        visibility: hidden;
+    }
+
+    .stepperSteps.empty .line {
+        /*     visibility: hidden; */
+        /*   height: 150%; */
+        top: 0;
+        height: 150%;
+    }
+
+
+    .stepperSteps:last-child .line {
+        border-left: 3px solid white;
+        z-index: -1; /* behind the circle to completely hide */
+    }
+
+    .Mycontent {
+        margin-left: 20px;
+        display: inline-block;
+    }
+
+
+    /* codepen override */
+
+
+
+
+
+
+
+
+
+
+
+    .steps .step {
+        display: block;
+        width: 100%;
+        margin-bottom: 35px;
+        text-align: center
+    }
+
+        .steps .step .step-icon-wrap {
+            display: block;
+            position: relative;
+            width: 100%;
+            height: 80px;
+            text-align: center
+        }
+
+            .steps .step .step-icon-wrap::before,
+            .steps .step .step-icon-wrap::after {
+                display: block;
+                position: absolute;
+                top: 50%;
+                width: 50%;
+                height: 3px;
+                margin-top: -1px;
+                background-color: #e1e7ec;
+                content: '';
+                z-index: 1
+            }
+
+            .steps .step .step-icon-wrap::before {
+                left: 0
+            }
+
+            .steps .step .step-icon-wrap::after {
+                right: 0
+            }
+
+        .steps .step .step-icon {
+            display: inline-block;
+            position: relative;
+            width: 80px;
+            height: 80px;
+            border: 1px solid #e1e7ec;
+            border-radius: 50%;
+            background-color: #f5f5f5;
+            color: #374250;
+            font-size: 38px;
+            line-height: 81px;
+            z-index: 5
+        }
+
+        .steps .step .step-title {
+            margin-top: 16px;
+            margin-bottom: 0;
+            color: #606975;
+            font-size: 14px;
+            font-weight: 500
+        }
+
+        .steps .step:first-child .step-icon-wrap::before {
+            display: none
+        }
+
+        .steps .step:last-child .step-icon-wrap::after {
+            display: none
+        }
+
+        .steps .step.completed .step-icon-wrap::before,
+        .steps .step.completed .step-icon-wrap::after {
+            background-color: #0da9ef
+        }
+
+        .steps .step.completed .step-icon {
+            border-color: #0da9ef;
+            background-color: #0da9ef;
+            color: #fff
+        }
+
+    @@media (max-width: 576px) {
+        .flex-sm-nowrap .step .step-icon-wrap::before,
+        .flex-sm-nowrap .step .step-icon-wrap::after {
+            display: none
+        }
+    }
+
+    @@media (max-width: 768px) {
+        .flex-md-nowrap .step .step-icon-wrap::before,
+        .flex-md-nowrap .step .step-icon-wrap::after {
+            display: none
+        }
+    }
+
+    @@media (max-width: 991px) {
+        .flex-lg-nowrap .step .step-icon-wrap::before,
+        .flex-lg-nowrap .step .step-icon-wrap::after {
+            display: none
+        }
+    }
+
+    @@media (max-width: 1200px) {
+        .flex-xl-nowrap .step .step-icon-wrap::before,
+        .flex-xl-nowrap .step .step-icon-wrap::after {
+            display: none
+        }
+    }
+
+    .bg-faded, .bg-secondary {
+        background-color: #f5f5f5 !important;
+    }
+</style>

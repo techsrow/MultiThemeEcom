@@ -1,0 +1,516 @@
+﻿@model BasePackageModule1.ViewModels.HomeViewModel
+
+<div class="header-slider">
+
+    @foreach (var slider in Model.SliderImages)
+    {
+        <div class="header-area header-bg overly" style="background-image:url(@slider.Image)">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="header-inner">
+                            <!-- header inner -->
+                            <h1 class="title">@slider.SliderTitle</h1>
+                            <div class="btn-wrapper  desktop-left padding-top-30">
+                                <a href ="@slider.BtnLink" class="boxed-btn">@slider.BtnText</a>
+                            </div>
+                        </div>
+                        <!-- //.header inner -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+
+</div>
+        <div class="counterup-area padding-bottom-80">
+            <div class="container">
+                <div class="counter-area m-top bg-white padding-top-110 padding-bottom-105">
+                 @if (Model._CounterSection != null)
+                 {
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="section-inner">
+                                    <h2 class="section-inner-title">
+
+                                        @Model._CounterSection.Heading <span>@Model._CounterSection.Subheading</span>
+                                        
+
+                                    </h2>
+                                    <div class="btn-wrapper">
+                                        <a class="who-btn" href="@Model._CounterSection.BtnLink">@Model._CounterSection.BtnText</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="counter-content">
+                                            
+                                            <p>@Model._CounterSection.ShortDescription</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-4 col-6">
+                                        <div class="single-counterup-01">
+                                            <div class="content">
+                                                <div class="count-wrap"><span class="count-num">250</span>+</div>
+                                                <h4 class="title">Screens Place</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-4 col-6">
+                                        <div class="single-counterup-01">
+                                            <div class="content">
+                                                <div class="count-wrap"><span class="count-num">79</span>k</div>
+                                                <h4 class="title">Peoples Reached</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-4 col-6">
+                                        <div class="single-counterup-01">
+                                            <div class="content">
+                                                <div class="count-wrap"><span class="count-num">49</span>+</div>
+                                                <h4 class="title">Country Cover</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                 }
+                    </div>
+            </div>
+        </div>
+
+        <!-- Our Provide Area -->
+        <section class="our-service-area padding-bottom-120">
+            <div class="bg-text">
+                <span class="title">Service</span>
+            </div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="section-title desktop-center padding-top-25 margin-bottom-55">
+                            <p class="meta">what we do</p>
+                            <h2 class="title">
+                                our SERVICES <span>.</span>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    @if (Model._items != null)
+                    {
+                        @foreach (var item in Model._items)
+                        {
+                            <div class="col-md-4 col-sm-6 item mb-4 ">
+
+                                <div class="card" style=" box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                                    <img src="@item.Image" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title">@item.Name</h5>
+                                        @Html.Raw(item.ShortDescription)
+                                        <div class="btn-wrapper  desktop-left padding-top-30">
+                                            <a class="boxed-btn" asp-controller="Products" asp-action="Details" asp-route-id="@item.Id">Know More !</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        }
+                    }
+
+                    <div class="col-lg-12">
+                        <div class="btn-wrapper desktop-center margin-top-30">
+                            <a asp-controller="Products" asp-action="Index" class="boxed-btn blank">explore all services</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Advertising -->
+        <div class="our-advertising-area bg-image padding-top-110 padding-bottom-110">
+            <div class="line-b"></div>
+            <div class="container">
+                @if (Model._HomeProgessBar != null)
+                {
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="section-title white">
+                                <h2 class="title">
+                                    @Model._HomeProgessBar.TitleOne
+                                </h2>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="our-milestone">
+                                <h2 class="title">     @Model._HomeProgessBar.TitleTwo</h2>
+                                <div class="milestone-plan">
+                                    <div class="progress-item-wrapper">
+                                        <div class="progress-item">
+                                            <div class="single-progressbar">
+                                                <h4 class="subtitle">Planning</h4>
+                                                <div class="html"></div>
+                                            </div>
+                                            <div class="single-progressbar">
+                                                <h4 class="subtitle">Strategy</h4>
+                                                <div class="css"></div>
+                                            </div>
+                                            <div class="single-progressbar">
+                                                <h4 class="subtitle">Performance</h4>
+                                                <div class="php"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+
+
+        <!-- Our Business Growth -->
+        <section class="our-business-area padding-bottom-120 padding-top-120">
+            <div class="container">
+                <div class="business-growth bg-image margin-bottom-90">
+                    <div class="row justify-content-center">
+                        <div class="col-md-6 offset-md-6">
+
+                            @if(Model._HomeBusinessGrowth!=null)
+            {
+
+                            <div class="business-growth-top">
+                                <div class="section-title padding-top-40 margin-bottom-55">
+                                    <h2 class="title">
+                                       @Model._HomeBusinessGrowth.BussinessGrowthTitle
+                                    </h2>
+                                    <p>@Model._HomeBusinessGrowth.ShortDescription</p>
+                                    <div class="vdo-btn">
+                                        <a class="mfp-iframe video-play-btn" href="@Model._HomeBusinessGrowth.VideoLink"><span class="video-play"><i class="fas fa-play mfp-iframe"></i></span>Play video</a>
+                                    </div>
+                                </div>
+                            </div>
+            }
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="single-why-us-box margin-bottom-20">
+                            <div class="icon">
+                                <i class="flaticon-3-layers"></i>
+                            </div>
+                            <div class="content">
+                                <h4 class="title">Multi Format Media</h4>
+                                <p>
+                                    Media refers to media that can be consumed or displayed in various formats or platforms.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="single-why-us-box margin-bottom-20">
+                            <div class="icon">
+                                <i class="flaticon-3-favorites"></i>
+                            </div>
+                            <div class="content">
+                                <h4 class="title">Smartly Planned</h4>
+                                <p>
+                                    Smartly planned refers to a situation or process that has been carefully and thoughtfully designed and organized
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="single-why-us-box margin-bottom-20">
+                            <div class="icon">
+                                <i class="flaticon-3-checked"></i>
+                            </div>
+                            <div class="content">
+                                <h4 class="title">Build Brands</h4>
+                                <p>
+                                    Creating and establishing a unique identity, image, and reputation for a product, service, or company.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Our Project Gallery -->
+        <section class="our-project-area bg-image padding-top-110 padding-bottom-120">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="section-title white desktop-center margin-bottom-55">
+                            <p class="meta">What we done</p>
+                            <h2 class="title">our projects <span>.</span> </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row no-gutters">
+                    @if (Model._Image != null)
+                    {
+                        @foreach (var item in Model._Image.OrderByDescending(o=>o.Order))
+                        {
+                            <div class="col-lg-6">
+                                <div class="project-gallery-item">
+                                    <img src="@item.Img" alt="">
+                                   
+                                </div>
+                            </div>
+                        }
+                    }
+
+                    
+                </div>
+            </div>
+        </section>
+
+
+        <!-- testimonial area start  -->
+        <section class="testimonial-area padding-bottom-120">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-7 col-lg-7">
+                        <div class="testimonial-top padding-bottom-50 padding-top-55">
+                            <div class="section-title">
+                                <div class="icon">
+                                    <i class="flaticon-right-quote-1"></i>
+                                </div>
+                                <h2 class="title">Clinets testimonial </h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="testimonial-carousel-area margin-top-100">
+                            <div class="testimonial-carousel">
+                                @if (Model.Testimonials != null)
+                                {
+                                    @foreach (var item in Model.Testimonials)
+                                    {
+                                        <div class="single-testimonial-item">
+                                            <div class="content">
+                                                <div class="content-wrapper">
+                                                    <p class="description">@item.ShotDescription</p>
+                                                </div>
+                                                <div class="author-details">
+                                                   
+                                                    <div class="author-meta">
+                                                        <h4 class="title">
+                                                           @item.Name
+                                                        </h4>
+                                                        <span class="designation">@item.Designation, @item.Company</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                }
+
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- testimonial area end -->
+        <!-- Team Section -->
+        
+
+
+        <!-- Request free quote -->
+        <div class="request-area bg-image" style="background-image: url(assets/img/bg/bg-faq.jpg)">
+            <div class="container">
+                <div class="row no-gutters">
+                    <div class="col-lg-6">
+                        <div class="left-content-area">
+                            <div class="section-title padding-top-25 margin-bottom-55">
+                                <p class="meta">faqs</p>
+                                <h2 class="title">Most asked questions</h2>
+                            </div>
+                            <div class="accordion-wrapper">
+                                <div id="accordion">
+
+                                    @if (Model._Faq != null)
+                                    {
+                                        @foreach(var faq in Model._Faq)
+                {
+                                    <div class="card">
+                                        <div class="card-header" id="headingOne">
+                                            <h5 class="mb-0">
+                                                <a href="#" data-toggle="collapse" data-target="#@faq.Id" aria-expanded="true" aria-controls="@faq.Id" class="collapsed">
+                                                    @faq.FaqQuestion
+                                                </a>
+                                            </h5>
+                                        </div>
+
+                                        <div id="@faq.Id" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                            <div class="card-body">
+                                                @faq.FaqAns
+                                            </div>
+                                        </div>
+                                    </div>
+                }
+                                        
+                                    }
+
+                                  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 offset-lg-1">
+                        <div class="right-content-area">
+                            <div class="request-page-form-wrap">
+                                <h4 class="title">reach out via the from below</h4>
+                                <form action="request.html" class="request-page-form" novalidate="novalidate">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <input type="text" name="fname" placeholder="First Name" class="form-control" required="" aria-required="true">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <input type="text" name="lname" placeholder="Last Name" class="form-control" required="" aria-required="true">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <input type="text" name="telephone" placeholder="Telephone" class="form-control" required="" aria-required="true">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <input type="text" name="phone" placeholder="Phone" class="form-control" required="" aria-required="true">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <input type="submit" value="Submit Form" class="submit-btn">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--=======================
+        Client Section
+        ========================-->
+        <div class="client-section bg-liteblue padding-top-120">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="section-title desktop-center padding-bottom-50">
+                            <h3 class="client-title">
+                                We have more then 20k satified clients those happy work with us.
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-10 offset-md-1">
+                        <div class="client-area">
+                            <div class="client-active-area">
+
+                                @foreach(var client in Model._Clients)
+            {
+                                <div class="single-brand">
+                                    <a href="#"><img src="@client.ImgPath" alt=""></a>
+                                </div>
+            }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- blog area start  -->
+        <section class="blog-area padding-top-120 padding-bottom-120">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="section-title desktop-center padding-top-25 margin-bottom-55">
+                            <p class="meta">whats going on </p>
+                            <h2 class="title">Latest news<span> .</span> </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="blog-grid-carosel-wrapper">
+                            <div class="blog-grid-carousel">
+
+                                @foreach (var blog in Model.Updates)
+                                {
+                                    <div class="single-blog-grid-01">
+                                        <div class="single-blog-grid-thumb">
+                                            <img src="@blog.Image" alt="">
+                                        </div>
+                                        <a asp-controller="Blog" asp-action="Details" asp-route-id="@blog.Id">
+                                            <div class="content">
+                                                <div class="post-date">
+                                                    <h2 class="date">@blog.CreatedAt.Date.Day</h2>
+                                                    <span>@blog.CreatedAt.Date.ToString("MMM")</span>
+                                                </div>
+                                               
+                                                <h4 class="title">@blog.Title</h4>
+                                                <div class="blog-bottom">
+                                                    <span class="line-btn">Read More</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                }
+
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- blog area end -->
+        <!-- Contact area start  -->
+        <div class="contact-area padding-top-120 padding-bottom-120">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="section-title white">
+                            <h2 class="title">want to work with us ?</h2>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="contact-content">
+                            <h4 class="title">
+                                Contact us
+                            </h4>
+                            @if(Model.BusinessProfile!=null)
+            {
+                        <p>@Model.BusinessProfile.Address, @Model.BusinessProfile.Country - @Model.BusinessProfile.Pincode  @Model.BusinessProfile.EmailAddress, @Model.BusinessProfile.DisplayContact1</p>
+            }
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Contact area end -->
+
+

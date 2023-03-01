@@ -1,0 +1,83 @@
+﻿
+<!doctype html>
+<html class="no-js" lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>@ViewData["Title"] </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Place favicon.ico in the root directory -->
+    @await Component.InvokeAsync("Favicon")
+    @await Component.InvokeAsync("Seo")
+    @await RenderSectionAsync("MetaTags", required: false)
+    <meta name="robots" content="index,follow" />
+    <!-- Mobile Specific Metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- CSS
+      ================================================== -->
+    <link rel="stylesheet" type="text/css" href="~/theme/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/theme/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="~/theme/css/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="~/theme/css/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="~/theme/css/fotorama.css">
+    <link rel="stylesheet" type="text/css" href="~/theme/css/magnific-popup.css">
+    <link rel="stylesheet" type="text/css" href="~/theme/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="~/theme/css/responsive.css">
+    
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.html">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.html">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.html">
+
+
+</head>
+<body class="homepage">
+    
+    
+    <div class="main">
+
+      
+
+
+
+
+
+
+
+        @RenderBody()
+
+
+
+       </div>
+
+
+
+
+
+
+
+
+
+
+        <script src="~/theme/js/jquery-1.12.3.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+        <script src="~/theme/js/bootstrap.html"></script>
+        <script src="~/theme/js/jquery.downCount.js"></script>
+        <script src="~/theme/js/jquery-ui.min.js"></script>
+        <script src="~/theme/js/fotorama.js"></script>
+        <script src="~/theme/js/jquery.magnific-popup.js"></script>
+        <script src="~/theme/js/owl.carousel.min.js"></script>
+        <script src="~/theme/js/custom.js"></script>
+
+       
+
+
+        @RenderSection("Scripts", required: false)
+
+
+</body>
+
+</html>

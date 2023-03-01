@@ -1,0 +1,37 @@
+﻿@model BasePackageModule2.Models.Logo
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<div id="kt_content_container" class="container-xxl">
+    <div class="card p-10">
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.HeaderLogo)
+            </dt>
+            <dd class="col-sm-10">
+                <img src="@Model.HeaderLogo" height="100" width="100" />
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.FooterLogo)
+            </dt>
+            <dd class="col-sm-10">
+                <img src="@Model.FooterLogo" height="100" width="100" />
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Favicon)
+            </dt>
+            <dd class="col-sm-10">
+                <img src="@Model.Favicon" height="100" width="100" />
+            </dd>
+        </dl>
+        <div>
+            <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </div>
+    </div>
+  
+    

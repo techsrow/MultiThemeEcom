@@ -1,0 +1,103 @@
+﻿@using BasePackageModule1.Models
+@model BasePackageModule1.Models.Post
+@{
+    ViewData["Title"] = @Model.Title;
+}
+
+@section MetaTags
+{
+    <meta name="keywords" content="@Model.MetaKeywords" />
+    <meta name="description" content="@Model.MetaDescription" />
+}
+
+
+<!-- Breadcrumb Area -->
+<div class="breadcrumb-area" style="background-image:url(/theme/assets/img/breadcrumb/01.jpg);">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="breadcrumb-inner">
+                    <span>Latest Blog</span>
+                    <h2 class="page-title">@Model.Title</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page-content our-attoryney padding-top-120 padding-bottom-170">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="blog-item padding-bottom-55">
+                    <div class="thumb">
+                        <img src="@Model.Image" alt="blog">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="blog-author-item">
+                                <div class="post-time">
+                                    <h4 class="post-date">@Model.CreatedAt.Date.Day</h4>
+                                    <span class="post-month">@Model.CreatedAt.Date.ToString("MMM")</span>
+                                </div>
+                               
+                              
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="blog-content">
+                                <div class="blog-item-header">
+                                    <ul class="post-meta">
+                                        <li>
+                                            <div class="cats"><i class="far fa-bookmark"></i>@Model.MetaKeywords</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <h2 class="sub-title">
+                                    @Model.Title
+                                </h2>
+                                @Html.Raw(Model.Content)
+
+
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            <div class="col-lg-3">
+                <div class="widget-area">
+                   
+                   
+                   
+                    <div class="widget style-01 widget_recent_posts">
+                        <h4 class="widget-title style-01">Recent Post</h4>
+                        <ul class="recent_post_item">
+
+                            @foreach (Post post in ViewBag.Posts)
+                            {
+                                <li class="single-recent-post-item">
+                                    <div class="thumb">
+                                        <img src="@post.Image" alt="recent post">
+                                    </div>
+                                    <div class="content">
+                                        <h4 class="title"><a asp-controller="Blog" asp-action="Details" asp-route-id="@post.Id">@post.Title </a></h4>
+                                        <span class="time"><i class="far fa-clock"></i>@post.CreatedAt.ToShortDateString()</span>
+                                    </div>
+                                </li>
+                            }
+
+                          
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Contact area start  -->
+
+<!-- Contact area end -->
+
+

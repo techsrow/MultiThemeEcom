@@ -1,0 +1,103 @@
+﻿@model BasePackageModule2.Areas.TomBase.ViewModels.RegisterViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div id="kt_content_container" class="container-xxl" data-select2-id="select2-data-kt_content_container">
+    <div class="card card-flush py-4">
+        <!--begin::Card header-->
+        <div class="card-header">
+            <div class="card-title">
+                <h2>General</h2>
+            </div>
+        </div>
+        <!--end::Card header-->
+        <!--begin::Card body-->
+        <div class="card-body pt-0">
+            <form asp-action="Create" enctype="multipart/form-data" id="kt_ecommerce_add_product_form">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="FirstName" class="control-label"></label>
+                    <input asp-for="FirstName" class="form-control" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LastName"></label>
+                    <input asp-for="LastName" class="form-control" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="MobileNumber"></label>
+                    <input asp-for="MobileNumber" class="form-control" />
+                    <span asp-validation-for="MobileNumber" class="text-danger"></span>
+                </div>
+
+
+                <label asp-for="Roles"></label>
+                <select asp-for="Roles" asp-items="ViewBag.Roles" class="form-control">
+                    <option value="">---None---</option>
+
+                </select>
+                @*<select asp-for="Roles" class="form-control" asp-items="ViewBag.Roles"></select>
+                    <span asp-validation-for="Roles" class="text-danger"></span>*@
+
+                <select asp-for="Roles" asp-items="ViewBag.Roles" class="form-select form-select-solid" data-kt-select2="true" data-placeholder="Select option" data-dropdown-parent="#kt_menu_62797aab281af" data-allow-clear="true">
+                    <option></option>
+                    @*<option value="1">Approved</option>
+                    <option value="2">Pending</option>
+                    <option value="2">In Process</option>
+                    <option value="2">Rejected</option>*@
+                </select>
+
+                <div class="form-group">
+                    <label asp-for="Password"></label>
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ConfirmPassword"></label>
+                    <input asp-for="ConfirmPassword" class="form-control" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section styles
+{
+    <link href="~/lib/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+}
+
+@section Scripts {
+    @{
+        <script src="~/lib/jquery/jquery.js"></script>
+
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script src="~/lib/bootstrap-select/js/bootstrap-select.min.js"></script>
+    <script src="~/lib/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
+
+
+    <script>
+        $(document).ready(function () {
+
+            $("#Roles").selectpicker();
+        });
+    </script>
+}

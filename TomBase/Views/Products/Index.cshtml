@@ -1,0 +1,163 @@
+﻿@model X.PagedList.IPagedList<BasePackageModule2.Models.Product>
+@using X.PagedList.Mvc.Core
+
+<style>
+    .pagination-link {
+        height: 40px;
+        width: 40px;
+        display: inline-block;
+        line-height: 40px;
+        text-align: center;
+        background: #31b0d5;
+        color: #fff !important;
+        border-radius: 20px;
+    }
+</style>
+<!-- Bread Crumb STRAT -->
+<div class="banner inner-banner1 ">
+    <div class="container">
+        <section class="banner-detail center-xs">
+            <h1 class="banner-title">Shop</h1>
+            <div class="bread-crumb right-side float-none-xs">
+                <ul>
+                    <li><a asp-action="Index" asp-controller="Home">Home</a>/</li>
+                    <li><span>Shop</span></li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</div>
+<!-- Bread Crumb END -->
+<!-- CONTAIN START -->
+<section class="ptb-70">
+    <div class="container">
+        <div class="row">
+            <div class="">
+                <div class="sidebar-block shop-list">
+                    <div class="sidebar-box listing-box mb-40">
+                        <span class="opener plus"></span>
+                        <div class="sidebar-title">
+                            <h3><span>Categories</span></h3>
+                        </div>
+                        <div class="sidebar-contant">
+                            <ul>
+                                @await Component.InvokeAsync("Category")
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="shorting shorting-style-2  mb-30">
+                    <div class="row">
+                        <div class="col-xl-6">
+                            <div class="view">
+                                <div class="list-types grid active ">
+                                    <a>
+                                        <div class="grid-icon list-types-icon"></div>
+                                    </a>
+                                </div>
+                                <div class="list-types list">
+                                    <a>
+                                        <div class="list-icon list-types-icon"></div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="short-by">
+                                <span>Sort By :</span>
+                                <div class="select-item select-dropdown">
+                                    <fieldset>
+                                        <select name="speed" id="sort-price" class="option-drop">
+                                            <option value="" selected="selected">Name (A to Z)</option>
+                                            <option value="">Name(Z - A)</option>
+                                            <option value="">price(low&gt;high)</option>
+                                            <option value="">price(high &gt; low)</option>
+                                            <option value="">rating(highest)</option>
+                                            <option value="">rating(lowest)</option>
+                                        </select>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            <div class="slidebar-open btn-color btn closemenu fa-bar">
+                                <i class="fa-bar"></i> <span>Filter</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="product-listing grid-type">
+                    <div class="inner-listing">
+                        <div class="row">
+                            @foreach (var item in Model)
+                            {
+                                <div class="col-lg-3 col-md-4 col-6 item-width mb-30">
+                                    <div class="product-item" style="        border: 1px solid #31b0d5; padding:7px; padding-bottom:30px;">
+                                        <div class="row">
+                                            <div class="img-col col-12">
+                                                <div class="product-image">
+                                                    <a asp-action="Details" asp-controller="Products" asp-route-id="@item.Id" asp-route-slug="@item.Slug">
+                                                        <img src="@item.Image" alt="Spinners">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="detail-col col-12">
+                                                <div class="product-details">
+                                                    <div class="product-item-details">
+                                                        <div class="product-item-name">
+                                                            <a asp-action="Details" asp-controller="Products" asp-route-id="@item.Id" asp-route-slug="@item.Slug">@*@item.Name*@</a>
+                                                        </div>
+                                                        <div class="rating-summary-block">
+                                                            <div class="rating-result" title="53%"> <span style="width:53%"></span> </div>
+                                                        </div>
+                                                        <div class="price-box">
+                                                            <span class="price">Rs.@item.FinalPrice</span>
+                                                            <del class="price old-price">Rs. @item.BasePrice</del>
+                                                        </div>
+                                                        <div class="product-des">
+                                                            <p>@item.ShortDescription</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="text-center">
+                                                        <ul class="list-inline mt-3">
+                                                            <li class="list-inline-item">
+
+                                                                <a asp-controller="Cart" style="border-radius:30px;" asp-action="AddToCart" class="btn btn-info" asp-route-productId="@item.Id">Add To Cart</a>
+
+                                                            </li>
+
+
+                                                            <li class="list-inline-item mt-2">
+                                                                <a title="quick-view" asp-action="Details" asp-controller="Products" asp-route-id="@item.Id" asp-route-slug="@item.Slug" style="border-radius:30px;" class="btn btn-info popup-with-product">View</a>
+                                                            </li>
+
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="pagination-bar">
+                                    <ul>
+
+                                        @Html.PagedListPager(Model, pageindex => Url.Action("Index", new { pageindex, pageSize = ViewBag.PerPageItems, orderby = ViewBag.orderby }), new X.PagedList.Mvc.Core.Common.PagedListRenderOptions { LiElementClasses = new string[] { }, PageClasses = new string[] { "pagination-link" } })
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+

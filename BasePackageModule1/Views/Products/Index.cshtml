@@ -1,0 +1,312 @@
+﻿@model X.PagedList.IPagedList<BasePackageModule1.Models.Product>
+@using X.PagedList.Mvc.Core
+
+<!-- Breadcrumb Area -->
+<div class="breadcrumb-area  margin-bottom-120" style="background-image:url(/theme/assets/img/breadcrumb/01.jpg);">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="breadcrumb-inner">
+                    <span>What we provide for you</span>
+                    <h2 class="page-title">Offers a vast array of advertising.</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-2">
+   
+    <div class="row">
+
+        @foreach (var item in Model)
+        {
+        <div class="col-md-4 col-sm-6 item mb-4 ">
+
+            <div class="card" style=" box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                <img src="@item.Image" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">@item.Name</h5>
+                    @Html.Raw(item.ShortDescription)
+                    <div class="btn-wrapper  desktop-left padding-top-30">
+                        <a class="boxed-btn" asp-controller="Products" asp-action="Details" asp-route-id="@item.Id">Know More !</a>
+                    </div>
+                </div>
+            </div>
+
+           
+        </div>
+        }
+
+        
+    </div>
+
+</div>
+
+
+
+
+
+<!-- Our Provide Area -->
+<!--<section class="our-service-area padding-bottom-120">
+    <div class="container">
+        <div class="row">
+
+            <div class="container mt-2">-->
+                <!--   <div class="card card-block mb-2">
+                  <h4 class="card-title">Card 1</h4>
+                  <p class="card-text">Welcom to bootstrap card styles</p>
+                  <a href="#" class="btn btn-primary">Submit</a>
+                </div>   -->
+                <!--<div class="row">
+                    <div class="col-md-3 col-sm-6 item">
+                        <div class="card item-card card-block">
+                            <h4 class="card-title text-right"><i class="material-icons">settings</i></h4>
+                            <img src="https://static.pexels.com/photos/7096/people-woman-coffee-meeting.jpg" alt="Photo of sunset">
+                            <h5 class="item-card-title mt-3 mb-3">Sierra Web Development • Owner</h5>
+                            <p class="card-text">This is a company that builds websites, web apps and e-commerce solutions.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 item">
+                        <div class="card item-card card-block">
+                            <h4 class="item-card-title text-right"><i class="material-icons">settings</i></h4>
+                            <img src="https://static.pexels.com/photos/7357/startup-photos.jpg" alt="Photo of sunset">
+                            <h5 class="card-title  mt-3 mb-3">ProVyuh</h5>
+                            <p class="card-text">This is a company that builds websites, web .</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 item">
+                        <div class="card item-card card-block">
+                            <h4 class="item-card-title text-right"><i class="material-icons">settings</i></h4>
+                            <img src="https://static.pexels.com/photos/262550/pexels-photo-262550.jpeg" alt="Photo of sunset">
+                            <h5 class="card-title  mt-3 mb-3">ProVyuh</h5>
+                            <p class="card-text">This is a company that builds websites, web apps and e-commerce solutions.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 item">
+                        <div class="card item-card card-block">
+                            <h4 class="item-card-title text-right"><i class="material-icons">settings</i></h4>
+                            <img src="https://static.pexels.com/photos/326424/pexels-photo-326424.jpeg" alt="Photo of sunset">
+                            <h5 class="card-title  mt-3 mb-3">ProVyuh</h5>
+                            <p class="card-text">This is a company that builds websites, web apps and e-commerce solutions.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-what-we-service-item margin-bottom-60">
+                        <a asp-controller="Products" asp-action="Details" asp-route-id="@item.Id">
+                            <div class="single-what-img">
+                                <img src="@item.Image" alt="">
+                            </div>
+                            <div class="content-wrapper">
+                                <div class="icon">
+                                    <i class="@item.IconName"></i>
+                                </div>
+                                <div class="content">
+                                    <h4 class="title">@item.Name</h4>
+                                    <p>@Html.Raw(item.ShortDescription)</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            }
+
+
+        </div>
+    </div>
+</section>-->
+
+<!-- Inner service Area -->
+<div class="inner-service-section padding-top-105 padding-bottom-90 bg-image" style="background-image: url(/theme/assets/img/bg/team-bg.jpg);">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="single-why-us-box style-01 margin-bottom-60">
+                    <div class="icon">
+                        <i class="flaticon-3-layers"></i>
+                    </div>
+                    <div class="content">
+                        <h4 class="title">Multi Format Media</h4>
+                        <p>
+                            Media refers to media that can be consumed or displayed in various formats or platforms.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="single-why-us-box style-01 margin-bottom-60">
+                    <div class="icon">
+                        <i class="flaticon-3-favorites"></i>
+                    </div>
+                    <div class="content">
+                        <h4 class="title">Smartly Planned</h4>
+                        <p>
+                            Smartly planned refers to a situation or process that has been carefully and thoughtfully designed and organized
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="single-why-us-box style-01 margin-bottom-60">
+                    <div class="icon">
+                        <i class="flaticon-3-checked"></i>
+                    </div>
+                    <div class="content">
+                        <h4 class="title">Build Brands</h4>
+                        <p>
+                            Creating and establishing a unique identity, image, and reputation for a product, service, or company.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="single-why-us-box style-01 margin-bottom-60">
+                    <div class="icon">
+                        <i class="flaticon-3-placeholder"></i>
+                    </div>
+                    <div class="content">
+                        <h4 class="title">Retail Space</h4>
+                        <p>
+                            Physical spaces that are designed and utilized for the purpose of selling goods and services to consumers.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="single-why-us-box style-01 margin-bottom-60">
+                    <div class="icon">
+                        <i class="flaticon-3-shield"></i>
+                    </div>
+                    <div class="content">
+                        <h4 class="title">Naming Rights</h4>
+                        <p>
+                            Naming rights are the rights to name a building, facility, stadium, or events.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="single-why-us-box style-01 margin-bottom-60">
+                    <div class="icon">
+                        <i class="flaticon-3-heart"></i>
+                    </div>
+                    <div class="content">
+                        <h4 class="title">Vast Branding</h4>
+                        <p>
+                            Marketing strategy that involves maximizing a brand's exposure and reach across multiple channels and touchpoints
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<nav class="m-5" style="text-align: center">
+    @Html.PagedListPager(Model, pageindex => Url.Action("Index",
+   new { pageindex, pageSize = ViewBag.PerPageItems, orderby = ViewBag.orderby }),
+   new X.PagedList.Mvc.Core.Common.PagedListRenderOptions
+        {
+       LiElementClasses = new string[] { "page-item" },
+       PageClasses = new string[] { "page-link" }
+   })
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<div class="container mt-5">
+        <div class="row">
+
+
+            <aside class="col-md-9">
+
+                <partial name="_ItemAreaPartial" model="Model" />
+
+                <nav class="m-5" style="text-align: center">
+                    @Html.PagedListPager(Model, pageindex => Url.Action("Index",
+                   new { pageindex, pageSize = ViewBag.PerPageItems, orderby = ViewBag.orderby }),
+                   new X.PagedList.Mvc.Core.Common.PagedListRenderOptions
+                        {
+                       LiElementClasses = new string[] { "page-item" },
+                       PageClasses = new string[] { "page-link" }
+                   })
+                </nav>
+            </aside>
+            <aside class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Price range</h5>
+                        <form method="get">
+                            <input type="text" class="js-range-slider"
+                                   data-type="double"
+                                   data-min="500"
+                                   data-max="20000"
+                                   data-from="@ViewBag.minPrice"
+                                   data-to="@ViewBag.maxPrice"
+                                   data-grid="false" />
+                            <input type="hidden" id="min_price" name="minPrice" value="@ViewBag.minPrice">
+                            <input type="hidden" id="max_price" name="maxPrice" value="@ViewBag.maxPrice">
+
+                            <button type="submit" class="btn btn-block btn-primary mt-4">Apply</button>
+                        </form>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    @section Styles {
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/css/ion.rangeSlider.min.css" />
+
+    }
+
+    @section Scripts {
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/js/ion.rangeSlider.min.js"></script>
+
+
+        <script>
+
+            $(".js-range-slider").ionRangeSlider({
+                skin: "big",
+                onStart: function (data) {
+                    $('#min_price').val(data.from);
+                    $('#max_price').val(data.to);
+                },
+                onChange: function (data) {
+                    //console.dir(data);
+                    $('#min_price').val(data.from);
+                    $('#max_price').val(data.to);
+                }
+            });
+
+        </script>
+        }*@

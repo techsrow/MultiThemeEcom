@@ -1,0 +1,60 @@
+﻿@using BasePackageModule2.Models
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@using Microsoft.AspNetCore.Http
+@using BasePackageModule2.Utility
+@using Microsoft.EntityFrameworkCore
+@inject IHttpContextAccessor HttpContextAccessor
+
+@{ var user = await UserManager.Users.Include(a => a.Cart).FirstOrDefaultAsync(a => a.Id == UserManager.GetUserId(User)); }
+
+
+
+
+
+
+@if (SignInManager.IsSignedIn(User))
+{
+
+
+
+
+
+    <li class="info-link user-name">
+        <a asp-area="Identity" asp-page="/Account/Manage/Index">@user.FirstName</a>
+    </li>
+    <li class="info-link checkout-icon">
+        <a asp-area="" asp-controller="Checkout" asp-action="Index" title="Checkout"><img src="~/theme/images/top-icon4.png" alt="Roadie">Checkout</a>
+    </li>
+    <li class="info-link">
+        <a class="text-white" onclick="document.getElementById('logout').submit();return false;">Log Out</a>
+        <form id="logout" class="d-none" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new {area = ""})" method="post">
+            <button type="submit" class="nav-link btn btn-link dropdown-item">Logout</button>
+        </form>
+    </li>
+
+
+
+
+}
+else
+{
+
+
+
+
+    <li class="info-link login-icon content">
+        <a href="/Identity/Account/Login" title="Login"><img src="~/theme/images/top-icon1.png" alt="Roadie">Login</a>
+    </li>
+    <li class="info-link register-icon">
+        <a href="/Identity/Account/Register" title="Register"><img src="~/theme/images/top-icon2.png" alt="Roadie">Register</a>
+    </li>
+    <li class="info-link contact-icon">
+        <a asp-area="" asp-controller="Home" asp-action="ContactUs" title="Contact Us"><img src="~/theme/images/top-icon3.png" alt="Roadie">Contact Us</a>
+    </li>
+
+
+
+}
+

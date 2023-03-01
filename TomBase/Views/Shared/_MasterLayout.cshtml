@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @await Component.InvokeAsync("Favicon")
+    @await Component.InvokeAsync("Seo")
+    @await RenderSectionAsync("MetaTags", required: false)
+    <link rel="stylesheet" type="text/css" href="~/theme/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/theme/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="~/theme/css/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="~/theme/css/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="~/theme/css/fotorama.css">
+    <link rel="stylesheet" type="text/css" href="~/theme/css/magnific-popup.css">
+    <link rel="stylesheet" type="text/css" href="~/theme/css/custom.css">
+    <link rel="stylesheet" type="text/css" href="~/theme/css/responsive.css">
+
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.html">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.html">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.html">
+    <script src="~/theme/js/jquery-1.12.3.min.js"></script>
+
+
+</head>
+<body class="homepage">
+
+
+    <div class="main">
+        @await Component.InvokeAsync("Navigation")
+
+        @RenderBody()
+
+        @await Component.InvokeAsync("Footer")
+
+        @await Component.InvokeAsync("ChatBot")
+
+        <!-- PRODUCT-POPUP START -->
+
+        @RenderSection("Scripts", required: false)
+
+
+    </div>
+    <script src="~/theme/js/jquery-1.12.3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+    <script src="~/theme/js/bootstrap.min.js"></script>
+    <script src="~/theme/js/jquery.downCount.js"></script>
+    <script src="~/theme/js/jquery-ui.min.js"></script>
+    <script src="~/theme/js/fotorama.js"></script>
+    <script src="~/theme/js/jquery.magnific-popup.js"></script>
+    <script src="~/theme/js/owl.carousel.min.js"></script>
+    <script src="~/theme/js/custom.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CF56X2EQTD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-CF56X2EQTD');
+    </script>
+</body>
+</html>

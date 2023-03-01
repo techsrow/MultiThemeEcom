@@ -1,0 +1,29 @@
+﻿@model BasePackageModule2.ViewModels.NavViewModel
+
+<div class="header-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <div class="top-left">
+                    <ul>
+                        
+                        <li>
+                            <div class="info">
+                                Don’t miss it: Save up @Model.Coupon.Discount%
+                                <span class="coupon"> <i class="fa fa-gift"></i> Code : @Model.Coupon.Name</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="top-right-link right-side">
+                    <ul>
+                        <partial name="_LoginPartial" />
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

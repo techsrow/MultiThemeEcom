@@ -1,0 +1,36 @@
+﻿@model BasePackageModule2.Models.AboutUs
+<!-- Bread Crumb STRAT -->
+<div class="banner inner-banner1 ">
+    <div class="container">
+        <section class="banner-detail center-xs">
+            <h1 class="banner-title">About us</h1>
+            <div class="bread-crumb right-side float-none-xs">
+                <ul>
+                    <li><a asp-action="Home" asp-controller="Home">Home</a>/</li>
+                    <li><span>About us</span></li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</div>
+<!-- Bread Crumb END -->
+
+<section class="">
+    <div class="our_story gray-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 ">
+                    <div class="story_detail_part ">
+                        <div class="heading-part align-center mb-30">
+                            <h2 class="main_title heading"><span>Who We Are</span></h2>
+                        </div>
+                        <p>@Html.Raw(Model.Description)</p>
+                    </div>
+                </div>
+                <div class="col-md-6 story_img_part">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

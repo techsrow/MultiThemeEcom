@@ -1,0 +1,102 @@
+﻿@model BasePackageModule1.ViewModels.NavViewModel
+@using System.Text.Encodings.Web
+@using Microsoft.AspNetCore.Http
+@using BasePackageModule1.TagHelpers
+@using BasePackageModule1.Utility
+@inject IHttpContextAccessor HttpContextAccessor
+
+
+<div class="header">
+    <!-- support bar area end -->
+    <nav class="navbar nav-custom navbar-expand-lg">
+        <div class="container nav-custom-container">
+            <div class="responsive-mobile-menu">
+                <div class="logo-wrapper">
+                    <a href="@Url.Action("Index","Home")" class="logo">
+                        <img class="def" src="@Url.Content(Model.Logo.HeaderLogo)" alt="">
+                        <img class="alt" src="@Url.Content(Model.Logo.HeaderLogo)" alt="">
+                    </a>
+                </div>
+                <button class="navbar-toggler cross-menu" type="button" data-toggle="collapse" data-target="#bizcoxx_main_menu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="cross-menu-wrapper">
+                        <span class="bar1"></span>
+                        <span class="bar2"></span>
+                        <span class="bar3"></span>
+                    </span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="bizcoxx_main_menu">
+                <ul class="nav-custom-menu navbar-nav">
+                   
+                    @foreach (var menu in Model.Menus)
+                    {
+                        @if (menu.Type == "interLink" || menu.Type == null)
+                        {
+
+
+                            <li>
+                                <a href="@menu.Url">@menu.Name</a>
+                            </li>
+
+                        }
+                        else if (menu.Type == "externalLink")
+                        {
+                            <li>
+                                <a href="@menu.Url">@menu.Name</a>
+                            </li>
+                        }
+                    }
+                  
+
+                    @if (Model.More.Any())
+                    {
+
+                        <li class="menu-item-has-children">
+                            <a href="#">Pages</a>
+                            <ul class="sub-menu">
+                                @foreach (var service in Model.More)
+                                {
+                                    <li><a asp-controller="Page" asp-action="Details" asp-route-id="@service.Id">@service.Name</a></li>
+
+                                }
+                            </ul>
+                        </li>
+
+
+
+
+
+
+
+
+
+
+
+
+                    }
+
+                </ul>
+            </div>
+            <div class="nav-right-content">
+                <div class="icon-part">
+                    <ul class="social_link">
+                        <li><a href="@Model.BusinessProfile.FacebookPageURL"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="@Model.BusinessProfile.InstagramPageURL"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="@Model.BusinessProfile.TwitterURL"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="@Model.BusinessProfile.LinkedInURL"><i class="fab fa-linkedin-in"></i></a></li>
+                    </ul>
+                   
+                </div>
+                <div class="btn-wrapper">
+                    <a href="@Url.Action("Contact","Home")" class="boxed-btn blank">contact us</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- navbar area end -->
+</div>
+
+
+
+
+

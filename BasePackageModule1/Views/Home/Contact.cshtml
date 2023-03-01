@@ -1,0 +1,136 @@
+@model BasePackageModule1.ViewModels.ContactViewModel
+@{
+    ViewBag.Title = "Contact";
+}
+
+<!-- Breadcrumb Area -->
+<div class="breadcrumb-area  margin-bottom-120" style="background-image:url(/theme/assets/img/breadcrumb/01.jpg);">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="breadcrumb-inner">
+                    <span>Contact Us</span>
+                    <h2 class="page-title">Keep in touch with us with anytime</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Contact Area -->
+<div class="contact-inner-area padding-bottom-80">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="contact-inner-content margin-bottom-20">
+                    <h2 class="title-md">
+                        Let's discuss your new projects now
+                    </h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <div class="single-contact-item margin-bottom-40">
+                            <h3 class="title">Address</h3>
+                            <p>@Model.BusinessProfile.Address, @Model.BusinessProfile.City, @Model.BusinessProfile.Country</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <div class="single-contact-item margin-bottom-40">
+                            <h3 class="title">Call Us</h3>
+                            <p>
+                                @Model.BusinessProfile.RegisteredContactNumber <br> @Model.BusinessProfile.DisplayContact1 <br />
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <div class="single-contact-item margin-bottom-40">
+                            <h3 class="title">office time</h3>
+                            <p>
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <div class="single-contact-item margin-bottom-40">
+                            <h3 class="title">Mail Us</h3>
+                            <p>@Model.BusinessProfile.EmailAddress</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="contact-form">
+                    <form action="request.html" class="contact-page-form" novalidate="novalidate">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <input type="text" name="fname" placeholder="First Name" class="form-control" required="" aria-required="true">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <input type="text" name="lname" placeholder="Last Name" class="form-control" required="" aria-required="true">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <input type="text" name="telephone" placeholder="Telephone" class="form-control" required="" aria-required="true">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <input type="text" name="phone" placeholder="Phone" class="form-control" required="" aria-required="true">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <textarea name="msg" id="msg" cols="1" rows="4" placeholder="Send Message"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="btn-wrapper">
+                                    <a href="#" class="boxed-btn"><span>Submit Message</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Map Area -->
+<div class="map-area">
+    <div class="container-fluid p-0">
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
+                <div class="contact_map">
+                    <div id="map">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Contact area start  -->
+<div class="contact-area padding-top-120 padding-bottom-120">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="section-title white">
+                    <h2 class="title">want to work with us ?</h2>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="contact-content">
+                    <h4 class="title">
+                        Contact us
+                    </h4>
+                    <p>@Model.BusinessProfile.Address, @Model.BusinessProfile.City, @Model.BusinessProfile.Country</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Contact area end -->

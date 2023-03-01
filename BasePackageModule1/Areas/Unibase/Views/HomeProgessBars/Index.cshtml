@@ -1,0 +1,44 @@
+﻿@model IEnumerable<BasePackageModule1.Models.HomeProgessBar>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Create New</a>
+</p>
+<table id="simpletable" class="table table-striped table-bordered nowrap" style="font-size:13px;">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TitleOne)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TitleTwo)
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TitleOne)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TitleTwo)
+                </td>
+              
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
+                    
+                    
+                </td>
+                <td><a asp-action="Delete" asp-route-id="@item.Id">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

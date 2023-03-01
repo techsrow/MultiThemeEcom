@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Order>
+@{ ViewData["Title"] = "Orders"; }
+
+
+
+
+<!--Cart Start -->
+<section class="section">
+    <div class="container">
+
+        @if (Model.Any())
+        {
+            <table class="ct-responsive-table">
+                <thead>
+                    <tr>
+                        <th>Order Id</th>
+                        <th>Product</th>
+                       
+                        <th>Qunantity</th>
+                        <th>Price</th>
+                        <th>Status</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                        @foreach (var order in Model)
+                        {
+                            foreach (var item in order.OrderProducts)
+                            {
+                    <tr class="border-bottom">
+                        <td data-title="Product Id">
+                            @order.Id
+                        </td>
+                        <td data-title="Product">
+                            <div class="cart-product-wrapper">
+                                @if (item.Product.Image != null)
+                                {
+                                    <img src="@item.Product.Image" alt="prod1">
+                                }
+                                <div class="cart-product-body">
+                                    <h6> <a asp-controller="Products" asp-action="Details" asp-route-id="@item.Product.Id">@item.Product.Name</a> </h6>
+
+                                </div>
+                            </div>
+                        </td>
+
+                        <td class="quantity" data-title="Quantity">
+                            @item.Quantity
+                        </td>
+                        
+                        <td data-title="Price">₹ @order.Amount</td>
+
+                        <td data-title="Status">@order.PaymentStatus</td>
+                        <td data-title="Date">@order.Date.ToShortDateString()</td>
+                    </tr>
+                  
+                            }
+                        }
+
+
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <h2>You haven't ordered yet, order something.</h2>
+            <a asp-action="Index" asp-controller="Home" class="btn btn-primary">Continue Shopping</a>}
+       
+
+    </div>
+</section>
+<!-- Cart End -->

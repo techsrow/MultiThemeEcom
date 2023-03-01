@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Category>
+
+
+
+            @foreach (var category in Model)
+            { 
+                <li>
+                    <div class="check-box">
+                        <span>
+                            <a asp-action="Index" asp-controller="Products" asp-rote-id="@category.Id" asp-route-category="@category.Name">
+                                <label for="clothing">@category.Name </label>
+                             </a>
+</span>
+                    </div>
+                </li>
+              }
+            
+
+
+
+
+
+
+
+
+
+
+
+
+

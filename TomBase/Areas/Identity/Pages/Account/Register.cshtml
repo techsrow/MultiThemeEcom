@@ -1,0 +1,135 @@
+﻿@page
+@using BasePackageModule2.Utility
+@model RegisterModel
+
+@{
+    ViewData["Title"] = "Register";
+
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+
+
+}
+
+<!-- Bread Crumb STRAT -->
+<div class="banner inner-banner1 ">
+    <div class="container">
+        <section class="banner-detail center-xs">
+            <h1 class="banner-title">Register</h1>
+            <div class="bread-crumb right-side float-none-xs">
+                <ul>
+                    <li><a asp-action="Index" asp-controller="Home">Home</a>/</li>
+                    <li><span>Register</span></li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</div>
+<!-- Bread Crumb END -->
+<!-- CONTAIN START -->
+<section class="checkout-section ptb-70">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="row justify-content-center">
+                    <div class="col-xl-8 col-lg-8 col-md-8 ">
+                        <div class="row">
+                            <div class="col-12 mb-20">
+                                <div class="heading-part heading-bg">
+                                    <h2 class="heading">Create your account</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <form class="main-form full" method="post">
+                            <div class="personal-details mb-30">
+                                <div class="row">
+
+                                    <div class="col-12">
+                                        <div class="input-box">
+                                            <div class="row">
+                                                <label for="f-name" class="col-lg-3 control-label">First Name</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" class="form-control" asp-for="Input.FirstName" id="f-name" required placeholder="First Name">
+                                                    <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="input-box">
+                                            <div class="row">
+                                                <label for="l-name" class="col-lg-3 control-label">Last Name</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" asp-for="Input.LastName" class="form-control" id="l-name" required placeholder="Last Name">
+                                                    <span asp-validation-for="Input.LastName" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="input-box">
+                                            <div class="row">
+                                                <label for="login-email" class="col-lg-3 control-label">Email address</label>
+                                                <div class="col-lg-9">
+                                                    <input type="email" asp-for="Input.Email" class="form-control" id="login-email" required placeholder="Email address">
+                                                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="input-box">
+                                            <div class="row">
+                                                <label for="telephone" class="col-lg-3 control-label">Phone</label>
+                                                <div class="col-lg-9">
+                                                    <input type="text" asp-for="Input.PhoneNumber" class="form-control" id="telephone" required placeholder="Telephone">
+                                                    <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="input-box">
+                                            <div class="row">
+                                                <label for="fax" class="col-lg-3 control-label">Password</label>
+                                                <div class="col-lg-9">
+                                                    <input type="password" asp-for="Input.Password" class="form-control"  required placeholder="Password">
+                                                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="input-box">
+                                            <div class="row">
+                                                <label for="fax" class="col-lg-3 control-label">Confirm Password</label>
+                                                <div class="col-lg-9">
+                                                    <input type="password" asp-for="Input.ConfirmPassword" class="form-control" id="fax" required placeholder="Confirm Password">
+                                                    <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="Submit-btn">
+                                        <div class="row">
+                                            <div class="col-6 ml-auto mr-auto">
+                                                
+                                                <button name="submit" type="submit" class="btn-color right-side">Submit</button>
+                                            </div>
+                                            <div class="col-12">
+                                                <hr>
+                                                <div class="new-account align-center mt-20"> <span>Already have an account with us</span> <a class="link" title="Register with Beaox" href="login.html">Login Here</a> </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- CONTAINER END -->

@@ -1,0 +1,898 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>aspnet-BasePackage1._0-FCA68049-41D3-4628-B6C2-636ED5BA2C27</UserSecretsId>
+    <RootNamespace>TomBase</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Areas\Admin\Data\**" />
+    <Content Remove="Areas\Admin\Data\**" />
+    <EmbeddedResource Remove="Areas\Admin\Data\**" />
+    <None Remove="Areas\Admin\Data\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="compilerconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="compilerconfig.json" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="font-awesome" Version="4.7.0" />
+    <PackageReference Include="MailKit" Version="2.7.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Facebook" Version="3.1.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="3.1.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.15" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.32" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.32">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.NETCore.Runtime" Version="1.0.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+    <PackageReference Include="Razorpay" Version="3.0.0" />
+    <PackageReference Include="Rotativa.AspNetCore" Version="1.1.1" />
+    <PackageReference Include="SendGrid" Version="9.24.3" />
+    <PackageReference Include="SharpInstaMojo" Version="1.1.0" />
+    <PackageReference Include="SharpScss" Version="2.0.0" />
+    <PackageReference Include="Stripe.net" Version="37.16.0" />
+    <PackageReference Include="X.PagedList" Version="8.0.7" />
+    <PackageReference Include="X.PagedList.Mvc.Core" Version="8.0.7" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Content Update="Areas\Admin\Views\Products\Create.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\Admin\Views\Products\Delete.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\Admin\Views\Products\Details.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\Admin\Views\Products\Edit.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\Admin\Views\Products\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\Admin\Views\Shared\_LoginPartial.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Home\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Products\Details.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Products\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Products\Show.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Shared\_ItemAreaPartial.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\Shared\_LoginPartial.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <None Include="Areas\Admin\Views\Orders\Details.cshtml" />
+    <None Include="Areas\Admin\Views\Orders\Index.cshtml" />
+    <None Include="Areas\Admin\Views\Subscribers\Create.cshtml" />
+    <None Include="Areas\Admin\Views\Subscribers\Delete.cshtml" />
+    <None Include="Areas\Admin\Views\Subscribers\Edit.cshtml" />
+    <None Include="Areas\Admin\Views\Subscribers\Index.cshtml" />
+    <None Include="Areas\Admin\Views\Users\Index.cshtml" />
+    <None Include="compilerconfig.json" />
+    <None Include="Views\Cart\Index.cshtml" />
+    <None Include="Views\Categories\Index.cshtml" />
+    <None Include="Views\Checkout\Address.cshtml" />
+    <None Include="Views\Checkout\Payment.cshtml" />
+    <None Include="Views\Checkout\PaymentFailed.cshtml" />
+    <None Include="Views\Checkout\ThankYou.cshtml" />
+    <None Include="Views\Orders\Details.cshtml" />
+    <None Include="Views\Shared\Components\Category\Index.cshtml" />
+    <None Include="wwwroot\Dashboard\js\custom\account\api-keys\api-keys.js" />
+    <None Include="wwwroot\Dashboard\js\custom\account\referrals\referral-program.js" />
+    <None Include="wwwroot\Dashboard\js\custom\account\security\license-usage.js" />
+    <None Include="wwwroot\Dashboard\js\custom\account\security\security-summary.js" />
+    <None Include="wwwroot\Dashboard\js\custom\account\settings\deactivate-account.js" />
+    <None Include="wwwroot\Dashboard\js\custom\account\settings\profile-details.js" />
+    <None Include="wwwroot\Dashboard\js\custom\account\settings\signin-methods.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\calendar\calendar.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\chat\chat.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\contacts\edit-contact.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\contacts\view-contact.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\customers\add.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\customers\list\export.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\customers\list\list.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\customers\update.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\customers\view\add-payment.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\customers\view\adjust-balance.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\customers\view\invoices.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\customers\view\payment-method.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\customers\view\payment-table.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\customers\view\statement.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\ecommerce\catalog\categories.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\ecommerce\catalog\products.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\ecommerce\catalog\save-category.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\ecommerce\catalog\save-product.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\ecommerce\customers\details\add-address.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\ecommerce\customers\details\add-auth-app.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\ecommerce\customers\details\add-one-time-password.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\ecommerce\customers\details\transaction-history.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\ecommerce\customers\details\update-address.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\ecommerce\customers\details\update-password.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\ecommerce\customers\details\update-phone.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\ecommerce\customers\details\update-profile.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\ecommerce\customers\listing\add.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\ecommerce\customers\listing\export.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\ecommerce\customers\listing\listing.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\ecommerce\reports\customer-orders\customer-orders.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\ecommerce\reports\returns\returns.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\ecommerce\reports\sales\sales.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\ecommerce\reports\shipping\shipping.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\ecommerce\reports\views\views.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\ecommerce\sales\listing.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\ecommerce\sales\save-order.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\ecommerce\settings\settings.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\file-manager\list.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\file-manager\settings.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\inbox\compose.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\inbox\listing.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\inbox\reply.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\invoices\create.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\projects\list\list.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\projects\project\project.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\projects\settings\settings.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\projects\targets\targets.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\projects\users\users.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\subscriptions\add\advanced.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\subscriptions\add\customer-select.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\subscriptions\add\products.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\subscriptions\list\export.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\subscriptions\list\list.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\support-center\tickets\create.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\user-management\permissions\add-permission.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\user-management\permissions\list.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\user-management\permissions\update-permission.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\user-management\roles\list\add.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\user-management\roles\list\update-role.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\user-management\roles\view\update-role.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\user-management\roles\view\view.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\user-management\users\list\add.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\user-management\users\list\export-users.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\user-management\users\list\table.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\user-management\users\view\add-auth-app.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\user-management\users\view\add-one-time-password.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\user-management\users\view\add-schedule.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\user-management\users\view\add-task.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\user-management\users\view\update-details.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\user-management\users\view\update-email.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\user-management\users\view\update-password.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\user-management\users\view\update-role.js" />
+    <None Include="wwwroot\Dashboard\js\custom\apps\user-management\users\view\view.js" />
+    <None Include="wwwroot\Dashboard\js\custom\authentication\password-reset\new-password.js" />
+    <None Include="wwwroot\Dashboard\js\custom\authentication\password-reset\password-reset.js" />
+    <None Include="wwwroot\Dashboard\js\custom\authentication\sign-in\general.js" />
+    <None Include="wwwroot\Dashboard\js\custom\authentication\sign-in\two-steps.js" />
+    <None Include="wwwroot\Dashboard\js\custom\authentication\sign-up\coming-soon.js" />
+    <None Include="wwwroot\Dashboard\js\custom\authentication\sign-up\free-trial.js" />
+    <None Include="wwwroot\Dashboard\js\custom\authentication\sign-up\general.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\base\forms\advanced.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\base\indicator.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\base\modal.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\base\rotate.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\base\toasts.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\charts\amcharts\charts.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\charts\amcharts\maps.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\charts\amcharts\stock-charts.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\charts\apexcharts.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\charts\chartjs.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\charts\flotcharts\axis.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\charts\flotcharts\bar.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\charts\flotcharts\basic.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\charts\flotcharts\dynamic.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\charts\flotcharts\pie.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\charts\flotcharts\stack.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\charts\flotcharts\tracking.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\charts\google-charts\column.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\charts\google-charts\line.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\charts\google-charts\pie.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\documentation.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\editors\ckeditor\balloon-block.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\editors\ckeditor\balloon.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\editors\ckeditor\classic.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\editors\ckeditor\document.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\editors\ckeditor\inline.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\editors\quill\autosave.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\editors\quill\basic.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\editors\tinymce\basic.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\editors\tinymce\hidden.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\editors\tinymce\plugins.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\forms\bootstrap-maxlength.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\forms\clipboard.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\forms\daterangepicker.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\forms\dialer.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\forms\dropzonejs.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\forms\flatpickr.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\forms\formrepeater\advanced.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\forms\formrepeater\basic.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\forms\formrepeater\nested.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\forms\formvalidation\advanced.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\forms\formvalidation\basic.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\forms\image-input.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\forms\inputmask.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\forms\multiselectsplitter.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\forms\nouislider.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\forms\password-meter.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\forms\recaptcha.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\forms\select2.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\forms\tagify.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\general\blockui.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\general\cropper.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\general\datatables\advanced.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\general\datatables\api.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\general\datatables\basic.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\general\datatables\buttons.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\general\datatables\server-side.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\general\datatables\subtable.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\general\draggable\cards.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\general\draggable\multiple-containers.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\general\draggable\restricted.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\general\draggable\swappable.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\general\drawer.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\general\fullcalendar\background-events.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\general\fullcalendar\basic.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\general\fullcalendar\drag-n-drop.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\general\fullcalendar\locales.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\general\fullcalendar\selectable-dates.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\general\fullcalendar\timezone.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\general\jkanban\basic.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\general\jkanban\color.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\general\jkanban\fixed-height.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\general\jkanban\restricted.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\general\jkanban\rich.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\general\jstree\ajax.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\general\jstree\basic.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\general\jstree\checkable.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\general\jstree\contextual.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\general\jstree\customicons.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\general\jstree\dragdrop.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\general\scroll.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\general\search\basic.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\general\search\menu.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\general\search\responsive.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\general\stepper.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\general\sweetalert.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\general\toastr.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\general\typed.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\general\vis-timeline\basic.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\general\vis-timeline\group.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\general\vis-timeline\interaction.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\general\vis-timeline\style.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\general\vis-timeline\template.js" />
+    <None Include="wwwroot\Dashboard\js\custom\documentation\search.js" />
+    <None Include="wwwroot\Dashboard\js\custom\intro.js" />
+    <None Include="wwwroot\Dashboard\js\custom\landing.js" />
+    <None Include="wwwroot\Dashboard\js\custom\layout-builder\layout-builder.js" />
+    <None Include="wwwroot\Dashboard\js\custom\pages\careers\apply.js" />
+    <None Include="wwwroot\Dashboard\js\custom\pages\general\contact.js" />
+    <None Include="wwwroot\Dashboard\js\custom\pages\pricing\general.js" />
+    <None Include="wwwroot\Dashboard\js\custom\pages\user-profile\followers.js" />
+    <None Include="wwwroot\Dashboard\js\custom\utilities\modals\bidding.js" />
+    <None Include="wwwroot\Dashboard\js\custom\utilities\modals\create-account.js" />
+    <None Include="wwwroot\Dashboard\js\custom\utilities\modals\create-api-key.js" />
+    <None Include="wwwroot\Dashboard\js\custom\utilities\modals\create-app.js" />
+    <None Include="wwwroot\Dashboard\js\custom\utilities\modals\create-campaign.js" />
+    <None Include="wwwroot\Dashboard\js\custom\utilities\modals\create-project\budget.js" />
+    <None Include="wwwroot\Dashboard\js\custom\utilities\modals\create-project\complete.js" />
+    <None Include="wwwroot\Dashboard\js\custom\utilities\modals\create-project\files.js" />
+    <None Include="wwwroot\Dashboard\js\custom\utilities\modals\create-project\main.js" />
+    <None Include="wwwroot\Dashboard\js\custom\utilities\modals\create-project\settings.js" />
+    <None Include="wwwroot\Dashboard\js\custom\utilities\modals\create-project\targets.js" />
+    <None Include="wwwroot\Dashboard\js\custom\utilities\modals\create-project\team.js" />
+    <None Include="wwwroot\Dashboard\js\custom\utilities\modals\create-project\type.js" />
+    <None Include="wwwroot\Dashboard\js\custom\utilities\modals\new-address.js" />
+    <None Include="wwwroot\Dashboard\js\custom\utilities\modals\new-card.js" />
+    <None Include="wwwroot\Dashboard\js\custom\utilities\modals\new-target.js" />
+    <None Include="wwwroot\Dashboard\js\custom\utilities\modals\offer-a-deal\complete.js" />
+    <None Include="wwwroot\Dashboard\js\custom\utilities\modals\offer-a-deal\details.js" />
+    <None Include="wwwroot\Dashboard\js\custom\utilities\modals\offer-a-deal\finance.js" />
+    <None Include="wwwroot\Dashboard\js\custom\utilities\modals\offer-a-deal\main.js" />
+    <None Include="wwwroot\Dashboard\js\custom\utilities\modals\offer-a-deal\type.js" />
+    <None Include="wwwroot\Dashboard\js\custom\utilities\modals\select-location.js" />
+    <None Include="wwwroot\Dashboard\js\custom\utilities\modals\share-earn.js" />
+    <None Include="wwwroot\Dashboard\js\custom\utilities\modals\top-up-wallet.js" />
+    <None Include="wwwroot\Dashboard\js\custom\utilities\modals\two-factor-authentication.js" />
+    <None Include="wwwroot\Dashboard\js\custom\utilities\modals\upgrade-plan.js" />
+    <None Include="wwwroot\Dashboard\js\custom\utilities\modals\users-search.js" />
+    <None Include="wwwroot\Dashboard\js\custom\utilities\search\horizontal.js" />
+    <None Include="wwwroot\Dashboard\js\custom\widgets.js" />
+    <None Include="wwwroot\Dashboard\js\scripts.bundle.js" />
+    <None Include="wwwroot\Dashboard\js\widgets.bundle.js" />
+    <None Include="wwwroot\Dashboard\media\flags\australia.svg" />
+    <None Include="wwwroot\Dashboard\media\flags\brazil.svg" />
+    <None Include="wwwroot\Dashboard\media\flags\france.svg" />
+    <None Include="wwwroot\Dashboard\media\flags\germany.svg" />
+    <None Include="wwwroot\Dashboard\media\flags\india.svg" />
+    <None Include="wwwroot\Dashboard\media\flags\japan.svg" />
+    <None Include="wwwroot\Dashboard\media\flags\spain.svg" />
+    <None Include="wwwroot\Dashboard\media\flags\sweden.svg" />
+    <None Include="wwwroot\Dashboard\media\flags\turkey.svg" />
+    <None Include="wwwroot\Dashboard\media\flags\united-kingdom.svg" />
+    <None Include="wwwroot\Dashboard\media\flags\united-states.svg" />
+    <None Include="wwwroot\Dashboard\media\icons\duotune\abstract\abs001.svg" />
+    <None Include="wwwroot\Dashboard\media\icons\duotune\arrows\arr001.svg" />
+    <None Include="wwwroot\Dashboard\media\icons\duotune\art\art001.svg" />
+    <None Include="wwwroot\Dashboard\media\icons\duotune\coding\cod001.svg" />
+    <None Include="wwwroot\Dashboard\media\icons\duotune\communication\com001.svg" />
+    <None Include="wwwroot\Dashboard\media\icons\duotune\ecommerce\ecm001.svg" />
+    <None Include="wwwroot\Dashboard\media\icons\duotune\ecommerce\ecm006.svg" />
+    <None Include="wwwroot\Dashboard\media\icons\duotune\electronics\elc001.svg" />
+    <None Include="wwwroot\Dashboard\media\icons\duotune\files\fil001.svg" />
+    <None Include="wwwroot\Dashboard\media\icons\duotune\finance\fin001.svg" />
+    <None Include="wwwroot\Dashboard\media\logos\logo-1-dark.svg" />
+    <None Include="wwwroot\Dashboard\media\logos\logo-1.svg" />
+    <None Include="wwwroot\Dashboard\media\logos\logo-2.svg" />
+    <None Include="wwwroot\Dashboard\media\logos\logo-landing-dark.svg" />
+    <None Include="wwwroot\Dashboard\media\logos\logo-landing.svg" />
+    <None Include="wwwroot\Dashboard\media\logos\mail.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\avatars\001-boy.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\avatars\004-boy-1.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\avatars\006-girl-3.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\avatars\014-girl-7.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\avatars\018-girl-9.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\avatars\020-girl-11.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\avatars\029-boy-11.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\avatars\043-boy-18.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\avatars\047-girl-25.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\avatars\blank-dark.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\avatars\blank.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\amazon-dark.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\amazon.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\angular-icon.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\aon.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\apple-black.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\aspnetzero.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\atica.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\aven.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\balloon.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\beats-electronics.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\bebo.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\behance.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\bootstrap5.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\bp-2.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\code-lab.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\disqus.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\dribbble-icon-1.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\duolingo.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\facebook-3.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\facebook-4.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\figma-1.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\fox-hub.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\fujifilm.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\github.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\google-icon.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\hp-3.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\instagram-2-1.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\invision.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\kanba.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\kickstarter.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\kpmg.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\laravel-2.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\leaf.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\linkedin-1.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\linkedin-2.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\lloyds-of-london-logo.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\nasa.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\pinterest-p.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\plurk.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\reddit.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\rgb.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\sentry-3.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\slack-icon.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\spotify.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\spring-3.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\telegram-2.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\telegram.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\tower.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\treva.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\truman.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\tvit.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\twitch.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\twitter-2.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\twitter.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\typescript-1.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\vimeo.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\vodafone.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\volicity-9.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\vue-9.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\xing-icon.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\youtube-3.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\brand-logos\youtube-play.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\card-logos\american-express-dark.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\card-logos\american-express.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\card-logos\mastercard-dark.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\card-logos\mastercard.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\card-logos\visa-dark.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\card-logos\visa.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\coins\binance.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\coins\bitcoin.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\coins\chainlink.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\coins\coin.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\coins\ethereum.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\coins\filecoin.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\files\ai-dark.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\files\ai.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\files\blank-image-dark.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\files\blank-image.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\files\css-dark.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\files\css.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\files\dark\upload.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\files\doc-dark.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\files\doc.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\files\folder-document-dark.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\files\folder-document.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\files\pdf-dark.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\files\pdf.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\files\sql-dark.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\files\sql.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\files\tif-dark.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\files\tif.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\files\upload.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\files\xml-dark.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\files\xml.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\illustrations\easy\1-dark.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\illustrations\easy\1.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\illustrations\easy\2-dark.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\illustrations\easy\2.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\illustrations\easy\4-dark.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\illustrations\easy\4.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\illustrations\easy\5.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\illustrations\easy\6.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\illustrations\landing.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\misc\infography.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\misc\octagon.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\misc\smartphone-dark.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\misc\smartphone.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\misc\video-play.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\products-categories\gaming.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\products-categories\gloves.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\products-categories\shoes.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\products-categories\t-shirt.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\products-categories\watch.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\shapes\bitcoin.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\shapes\dogecoin.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\shapes\ethereum.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\shapes\wave-bg-dark.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\social-logos\dribbble.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\social-logos\facebook.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\social-logos\github.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\social-logos\google.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\social-logos\instagram.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\social-logos\twitter.svg" />
+    <None Include="wwwroot\Dashboard\media\svg\social-logos\youtube.svg" />
+    <None Include="wwwroot\Dashboard\plugins\custom\ckeditor\ckeditor-balloon-block.bundle.js" />
+    <None Include="wwwroot\Dashboard\plugins\custom\ckeditor\ckeditor-balloon.bundle.js" />
+    <None Include="wwwroot\Dashboard\plugins\custom\ckeditor\ckeditor-classic.bundle.js" />
+    <None Include="wwwroot\Dashboard\plugins\custom\ckeditor\ckeditor-document.bundle.js" />
+    <None Include="wwwroot\Dashboard\plugins\custom\ckeditor\ckeditor-inline.bundle.js" />
+    <None Include="wwwroot\Dashboard\plugins\custom\cookiealert\cookiealert.bundle.js" />
+    <None Include="wwwroot\Dashboard\plugins\custom\cropper\cropper.bundle.js" />
+    <None Include="wwwroot\Dashboard\plugins\custom\datatables\datatables.bundle.js" />
+    <None Include="wwwroot\Dashboard\plugins\custom\draggable\draggable.bundle.js" />
+    <None Include="wwwroot\Dashboard\plugins\custom\flotcharts\flotcharts.bundle.js" />
+    <None Include="wwwroot\Dashboard\plugins\custom\formrepeater\formrepeater.bundle.js" />
+    <None Include="wwwroot\Dashboard\plugins\custom\fslightbox\fslightbox.bundle.js" />
+    <None Include="wwwroot\Dashboard\plugins\custom\fullcalendar\fullcalendar.bundle.js" />
+    <None Include="wwwroot\Dashboard\plugins\custom\jkanban\jkanban.bundle.js" />
+    <None Include="wwwroot\Dashboard\plugins\custom\jstree\40px.html.tmp" />
+    <None Include="wwwroot\Dashboard\plugins\custom\jstree\jstree.bundle.js" />
+    <None Include="wwwroot\Dashboard\plugins\custom\leaflet\leaflet.bundle.js" />
+    <None Include="wwwroot\Dashboard\plugins\custom\leaflet\leaflet.bundle.rtl.css.tmp" />
+    <None Include="wwwroot\Dashboard\plugins\custom\prismjs\prismjs.bundle.js" />
+    <None Include="wwwroot\Dashboard\plugins\custom\tinymce\tinymce.bundle.js" />
+    <None Include="wwwroot\Dashboard\plugins\custom\typedjs\typedjs.bundle.js" />
+    <None Include="wwwroot\Dashboard\plugins\custom\vis-timeline\vis-timeline.bundle.js" />
+    <None Include="wwwroot\Dashboard\plugins\custom\vis-timeline\vis-timeline.bundle.rtl.css.tmp" />
+    <None Include="wwwroot\Dashboard\plugins\global\fonts\%40fortawesome\fa-brands-400.svg" />
+    <None Include="wwwroot\Dashboard\plugins\global\fonts\%40fortawesome\fa-brands-400.woff2" />
+    <None Include="wwwroot\Dashboard\plugins\global\fonts\%40fortawesome\fa-regular-400.svg" />
+    <None Include="wwwroot\Dashboard\plugins\global\fonts\%40fortawesome\fa-regular-400.woff2" />
+    <None Include="wwwroot\Dashboard\plugins\global\fonts\%40fortawesome\fa-solid-900.svg" />
+    <None Include="wwwroot\Dashboard\plugins\global\fonts\%40fortawesome\fa-solid-900.woff2" />
+    <None Include="wwwroot\Dashboard\plugins\global\fonts\bootstrap-icons\bootstrap-icons44df.woff2" />
+    <None Include="wwwroot\Dashboard\plugins\global\fonts\fonticon\fonticonc93a.svg" />
+    <None Include="wwwroot\Dashboard\plugins\global\fonts\fonticon\fonticonc93a.woff2" />
+    <None Include="wwwroot\Dashboard\plugins\global\fonts\line-awesome\la-brands-400.svg" />
+    <None Include="wwwroot\Dashboard\plugins\global\fonts\line-awesome\la-brands-400.woff2" />
+    <None Include="wwwroot\Dashboard\plugins\global\fonts\line-awesome\la-regular-400.svg" />
+    <None Include="wwwroot\Dashboard\plugins\global\fonts\line-awesome\la-regular-400.woff2" />
+    <None Include="wwwroot\Dashboard\plugins\global\fonts\line-awesome\la-solid-900.svg" />
+    <None Include="wwwroot\Dashboard\plugins\global\fonts\line-awesome\la-solid-900.woff2" />
+    <None Include="wwwroot\Dashboard\plugins\global\plugins.bundle.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\.babelrc.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\.browserslistrc" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\.editorconfig" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\.eslintignore" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\.gitattributes" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\.github\CODEOWNERS" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\.github\CONTRIBUTING.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\.github\ISSUE_TEMPLATE\bug.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\.github\ISSUE_TEMPLATE\bug_report.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\.github\ISSUE_TEMPLATE\feature.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\.github\ISSUE_TEMPLATE\feature_request.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\.github\SUPPORT.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\.github\workflows\codeql.yml" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\.github\workflows\test.yml" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\.gitignore" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\.stylelintignore" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\.stylelintrc" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\build\babel-helpers.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\build\banner.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\build\build-plugins.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\build\change-version.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\build\generate-sri.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\build\postcss.config.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\build\rollup.config.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\build\ship.sh" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\build\svgo.yml" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\build\vnu-jar.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\build\zip-examples.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\CNAME" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\CODE_OF_CONDUCT.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\dist\css\bootstrap-grid.css.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\dist\css\bootstrap-grid.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\dist\css\bootstrap-reboot.css.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\dist\css\bootstrap-reboot.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\dist\css\bootstrap.css.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\dist\css\bootstrap.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\dist\js\bootstrap.bundle.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\dist\js\bootstrap.bundle.js.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\dist\js\bootstrap.bundle.min.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\dist\js\bootstrap.bundle.min.js.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\dist\js\bootstrap.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\dist\js\bootstrap.js.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\dist\js\bootstrap.min.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\dist\js\bootstrap.min.js.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\Gemfile" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\Gemfile.lock" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\alert.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\alert.js.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\button.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\button.js.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\carousel.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\carousel.js.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\collapse.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\collapse.js.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\dropdown.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\dropdown.js.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\index.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\index.js.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\modal.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\modal.js.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\popover.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\popover.js.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\scrollspy.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\scrollspy.js.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\tab.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\tab.js.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\toast.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\toast.js.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\tooltip.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\tooltip.js.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\util.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\dist\util.js.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\src\alert.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\src\button.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\src\carousel.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\src\collapse.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\src\dropdown.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\src\index.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\src\modal.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\src\popover.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\src\scrollspy.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\src\tab.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\src\toast.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\src\tools\sanitizer.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\src\tooltip.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\src\util.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\tests\browsers.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\tests\integration\bundle.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\tests\integration\rollup.bundle.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\tests\karma.conf.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\tests\README.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\tests\unit\alert.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\tests\unit\button.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\tests\unit\carousel.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\tests\unit\collapse.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\tests\unit\dropdown.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\tests\unit\modal.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\tests\unit\popover.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\tests\unit\scrollspy.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\tests\unit\tab.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\tests\unit\toast.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\tests\unit\tooltip.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\js\tests\unit\util.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\LICENSE" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\nuget\bootstrap.nuspec" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\nuget\bootstrap.sass.nuspec" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\nuget\MyGet.ps1" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\package.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\README.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\bootstrap-grid.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\bootstrap-reboot.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\bootstrap.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_alert.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_background-variant.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_badge.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_border-radius.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_box-shadow.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_breakpoints.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_buttons.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_caret.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_clearfix.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_deprecate.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_float.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_forms.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_gradients.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_grid-framework.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_grid.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_hover.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_image.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_list-group.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_lists.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_nav-divider.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_pagination.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_reset-text.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_resize.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_screen-reader.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_size.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_table-row.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_text-emphasis.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_text-hide.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_text-truncate.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_transition.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\mixins\_visibility.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\utilities\_align.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\utilities\_background.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\utilities\_borders.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\utilities\_clearfix.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\utilities\_display.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\utilities\_embed.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\utilities\_flex.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\utilities\_float.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\utilities\_interactions.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\utilities\_overflow.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\utilities\_position.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\utilities\_screenreaders.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\utilities\_shadows.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\utilities\_sizing.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\utilities\_spacing.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\utilities\_stretched-link.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\utilities\_text.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\utilities\_visibility.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\vendor\_rfs.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_alert.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_badge.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_breadcrumb.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_button-group.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_buttons.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_card.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_carousel.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_close.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_code.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_custom-forms.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_dropdown.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_forms.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_functions.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_grid.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_images.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_input-group.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_jumbotron.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_list-group.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_media.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_mixins.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_modal.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_nav.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_navbar.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_pagination.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_popover.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_print.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_progress.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_reboot.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_root.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_spinners.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_tables.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_toasts.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_tooltip.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_transitions.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_type.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_utilities.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\scss\_variables.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\SECURITY.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\about\brand.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\about\license.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\about\overview.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\about\team.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\about\translations.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\brand\bootstrap-outline.svg" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\brand\bootstrap-punchout.svg" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\brand\bootstrap-solid.svg" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\css\docs.min.css.map" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\img\favicons\safari-pinned-tab.svg" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\js\docs.min.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\js\src\application.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\js\src\ie-emulation-modes-warning.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\js\src\search.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\js\vendor\anchor.min.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\js\vendor\bs-custom-file-input.min.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\js\vendor\clipboard.min.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\js\vendor\jquery.slim.min.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\scss\docs.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\scss\_ads.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\scss\_algolia.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\scss\_anchor.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\scss\_brand.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\scss\_browser-bugs.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\scss\_buttons.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\scss\_callouts.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\scss\_clipboard-js.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\scss\_colors.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\scss\_component-examples.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\scss\_content.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\scss\_footer.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\scss\_masthead.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\scss\_nav.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\scss\_placeholder-img.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\scss\_sidebar.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\scss\_skippy.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\scss\_syntax.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\assets\scss\_variables.scss" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\browser-bugs.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\alerts.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\badge.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\breadcrumb.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\button-group.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\buttons.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\card.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\carousel.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\collapse.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\dropdowns.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\forms.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\input-group.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\jumbotron.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\list-group.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\media-object.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\modal.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\navbar.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\navs.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\pagination.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\popovers.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\progress.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\scrollspy.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\spinners.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\toasts.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\components\tooltips.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\content\code.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\content\figures.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\content\images.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\content\reboot.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\content\tables.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\content\typography.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\examples\.stylelintrc" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\examples\checkout\form-validation.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\examples\dashboard\dashboard.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\examples\offcanvas\offcanvas.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\extend\approach.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\extend\icons.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\getting-started\accessibility.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\getting-started\best-practices.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\getting-started\browsers-devices.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\getting-started\build-tools.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\getting-started\contents.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\getting-started\download.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\getting-started\introduction.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\getting-started\javascript.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\getting-started\theming.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\getting-started\webpack.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\layout\grid.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\layout\overview.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\layout\utilities-for-layout.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\migration.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\utilities\borders.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\utilities\clearfix.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\utilities\close-icon.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\utilities\colors.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\utilities\display.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\utilities\embed.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\utilities\flex.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\utilities\float.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\utilities\image-replacement.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\utilities\interactions.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\utilities\overflow.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\utilities\position.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\utilities\screen-readers.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\utilities\shadows.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\utilities\sizing.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\utilities\spacing.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\utilities\stretched-link.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\utilities\text.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\utilities\vertical-align.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\docs\4.5\utilities\visibility.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\sw.js" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_data\breakpoints.yml" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_data\browser-bugs.yml" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_data\browser-features.yml" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_data\colors.yml" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_data\core-team.yml" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_data\docs-versions.yml" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_data\examples.yml" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_data\grays.yml" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_data\nav.yml" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_data\theme-colors.yml" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_data\translations.yml" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_includes\callout-danger-async-methods.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_includes\callout-info-mediaqueries-breakpoints.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_includes\callout-info-prefersreducedmotion.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_includes\callout-warning-color-assistive-technologies.md" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_includes\icons\bootstrap-stack.svg" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_includes\icons\bootstrap.svg" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_includes\icons\circle-square.svg" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_includes\icons\cloud-fill.svg" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_includes\icons\code.svg" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_includes\icons\droplet-fill.svg" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_includes\icons\github.svg" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_includes\icons\menu.svg" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_includes\icons\opencollective.svg" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_includes\icons\placeholder.svg" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_includes\icons\slack.svg" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\site\_includes\icons\twitter.svg" />
+    <None Include="wwwroot\lib\bootstrap-4.5.0\_config.yml" />
+    <None Include="wwwroot\theme\fonts\fontawesome-webfont914c.svg" />
+    <None Include="wwwroot\theme\fonts\fontawesome-webfont914c.woff2" />
+    <None Include="wwwroot\theme\js\bootstrap.min.js" />
+    <None Include="wwwroot\theme\js\custom.js" />
+    <None Include="wwwroot\theme\js\fotorama.js" />
+    <None Include="wwwroot\theme\js\jquery-1.12.3.min.js" />
+    <None Include="wwwroot\theme\js\jquery-ui.min.js" />
+    <None Include="wwwroot\theme\js\jquery.downCount.js" />
+    <None Include="wwwroot\theme\js\jquery.magnific-popup.js" />
+    <None Include="wwwroot\theme\js\owl.carousel.min.js" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="wwwroot\theme\Molla\" />
+  </ItemGroup>    
+
+</Project>

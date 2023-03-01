@@ -1,0 +1,764 @@
+﻿@model TomBase.Models.ShipRocket.ShiprocketOrder
+
+@{
+    ViewData["Title"] = "ShipRocketOrder";
+}
+<script src="~/lib/jquery/jquery.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<link href="~/admin/css/shipping.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" />
+<!--<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <br />
+
+            <form asp-action="ShipRocketOrder" id="Myform" style="display:none;">
+
+                <div class=" row col-md-12">
+                    <div class=" col-md-12">
+                        <table class="table table-danger table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>sku</th>
+                                    <th>Units</th>
+                                    <th>Discount</th>
+                                    <th>Selling Price</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                    <div class=" col-md-12">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="card p-4">
+                            <div class="form-row ">
+                                <div class="form-group  col-md-2">
+                                    <label asp-for="order_id" class="control-label"></label>
+                                    <input asp-for="order_id" class="form-control" hidden />
+                                    <input asp-for="order_id" class="form-control" disabled />
+                                    <span asp-validation-for="order_id" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label asp-for="order_date" class="control-label"></label>
+                                    <input asp-for="order_date" class="form-control" type="datetime-local" hidden />
+                                    <input asp-for="order_date" class="form-control" type="datetime-local" disabled />
+                                    <span asp-validation-for="order_date" class="text-danger"></span>
+                                </div>
+
+
+                                <div class="form-group col-md-2">
+                                    <label asp-for="channel_id" class="control-label"></label>
+                                    <input asp-for="channel_id" class="form-control" />
+                                    <span asp-validation-for="channel_id" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label asp-for="comment" class="control-label"></label>
+                                    <textarea asp-for="comment" class="form-control"></textarea>
+                                    <span asp-validation-for="comment" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label asp-for="billing_customer_name" class="control-label"></label>
+                                    <input asp-for="billing_customer_name" class="form-control" />
+                                    <span asp-validation-for="billing_customer_name" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label asp-for="billing_last_name" class="control-label"></label>
+                                    <input asp-for="billing_last_name" class="form-control" />
+                                    <span asp-validation-for="billing_last_name" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label asp-for="billing_address" class="control-label"></label>
+                                    <input asp-for="billing_address" class="form-control" />
+                                    <span asp-validation-for="billing_address" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group col-md-2">
+                                    <label asp-for="billing_city" class="control-label"></label>
+                                    <input asp-for="billing_city" class="form-control" />
+                                    <span asp-validation-for="billing_city" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label asp-for="billing_pincode" class="control-label"></label>
+                                    <input asp-for="billing_pincode" class="form-control" />
+                                    <span asp-validation-for="billing_pincode" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label asp-for="billing_state" class="control-label"></label>
+                                    <input asp-for="billing_state" class="form-control" />
+                                    <span asp-validation-for="billing_state" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label asp-for="billing_country" class="control-label"></label>
+                                    <input asp-for="billing_country" class="form-control" />
+                                    <span asp-validation-for="billing_country" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label asp-for="billing_email" class="control-label"></label>
+                                    <input asp-for="billing_email" class="form-control" />
+                                    <span asp-validation-for="billing_email" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label asp-for="billing_phone" class="control-label"></label>
+                                    <input asp-for="billing_phone" class="form-control" />
+                                    <span asp-validation-for="billing_phone" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label asp-for="billing_alternate_phone" class="control-label"></label>
+                                    <input asp-for="billing_alternate_phone" class="form-control" />
+                                    <span asp-validation-for="billing_alternate_phone" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group col-md-2">
+                                    <label asp-for="shipping_customer_name" class="control-label"></label>
+                                    <input asp-for="shipping_customer_name" class="form-control" />
+                                    <span asp-validation-for="shipping_customer_name" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label asp-for="shipping_last_name" class="control-label"></label>
+                                    <input asp-for="shipping_last_name" class="form-control" />
+                                    <span asp-validation-for="shipping_last_name" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label asp-for="shipping_address" class="control-label"></label>
+                                    <input asp-for="shipping_address" class="form-control" />
+                                    <span asp-validation-for="shipping_address" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label asp-for="shipping_address_2" class="control-label"></label>
+                                    <input asp-for="shipping_address_2" class="form-control" />
+                                    <span asp-validation-for="shipping_address_2" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label asp-for="shipping_city" class="control-label"></label>
+                                    <input asp-for="shipping_city" class="form-control" />
+                                    <span asp-validation-for="shipping_city" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label asp-for="shipping_pincode" class="control-label"></label>
+                                    <input asp-for="shipping_pincode" class="form-control" />
+                                    <span asp-validation-for="shipping_pincode" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label asp-for="shipping_country" class="control-label"></label>
+                                    <input asp-for="shipping_country" class="form-control" />
+                                    <span asp-validation-for="shipping_country" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label asp-for="shipping_state" class="control-label"></label>
+                                    <input asp-for="shipping_state" class="form-control" />
+                                    <span asp-validation-for="shipping_state" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label asp-for="shipping_email" class="control-label"></label>
+                                    <input asp-for="shipping_email" class="form-control" />
+                                    <span asp-validation-for="shipping_email" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label asp-for="shipping_phone" class="control-label"></label>
+                                    <input asp-for="shipping_phone" class="form-control" />
+                                    <span asp-validation-for="shipping_phone" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label asp-for="payment_method" class="control-label"></label>-->
+@*<input asp-for="payment_method" class="form-control" />*@
+<!--<select asp-for="payment_method" class="form-control">
+                                        <option value="COD">COD</option>
+                                        <option value="OnlinePay">OnlinePay</option>
+                                    </select>
+                                    <span asp-validation-for="payment_method" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label asp-for="shipping_charges" class="control-label"></label>
+                                    <input asp-for="shipping_charges" class="form-control" />
+                                    <span asp-validation-for="shipping_charges" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label asp-for="giftwrap_charges" class="control-label"></label>
+                                    <input asp-for="giftwrap_charges" class="form-control" />
+                                    <span asp-validation-for="giftwrap_charges" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label asp-for="transaction_charges" class="control-label"></label>
+                                    <input asp-for="transaction_charges" class="form-control" />
+                                    <span asp-validation-for="transaction_charges" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label asp-for="total_discount" class="control-label"></label>
+                                    <input asp-for="total_discount" class="form-control" />
+                                    <span asp-validation-for="total_discount" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label asp-for="sub_total" class="control-label"></label>
+                                    <input asp-for="sub_total" class="form-control" />
+                                    <span asp-validation-for="sub_total" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label asp-for="length" class="control-label"></label>
+                                    <input asp-for="length" class="form-control" />
+                                    <span asp-validation-for="length" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label asp-for="breadth" class="control-label"></label>
+                                    <input asp-for="breadth" class="form-control" />
+                                    <span asp-validation-for="breadth" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label asp-for="height" class="control-label"></label>
+                                    <input asp-for="height" class="form-control" />
+                                    <span asp-validation-for="height" class="text-danger"></span>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label asp-for="weight" class="control-label"></label>
+                                    <input asp-for="weight" class="form-control" />
+                                    <span asp-validation-for="weight" class="text-danger"></span>
+                                </div>
+                                <div class="form-group form-check  col-md-2">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" asp-for="shipping_is_billing" /> @Html.DisplayNameFor(model => model.shipping_is_billing)
+                                    </label>
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <input type="submit" value="Place To Shiprocket" class="btn btn-primary" id="btnSave" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="list-group">
+                <article class="list-group-item">
+                    <header class="filter-header">
+                        <a href="#" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" class="collapsed">
+
+                            <h6 class="title"><span class="count-serial">1</span>Buyers Details  <i class="icon-control fa fa-chevron-down"></i> </h6>
+                        </a>
+                    </header>
+                    <div class="filter-content collapse active" id="collapse1" style="">
+                        <div class="form-row ">
+                            <div class="form-group col-md-2">
+                                <label class="control-label"> Buyer Name</label>
+                                <input asp-for="billing_customer_name" class="form-control" />
+                                <span asp-validation-for="billing_customer_name" class="text-danger"></span>
+                            </div>-->
+@*<div class="form-group col-md-2">
+        <label class="control-label"> Last Name</label>
+        <input asp-for="billing_last_name" class="form-control" />
+        <span asp-validation-for="billing_last_name" class="text-danger"></span>
+    </div>*@
+<!--<div class="form-group col-md-2">
+        <label  class="control-label"> Email</label>
+        <input asp-for="billing_email" class="form-control" />
+        <span asp-validation-for="billing_email" class="text-danger"></span>
+    </div>
+    <div class="form-group col-md-2">
+        <label class="control-label"> Phone</label>
+        <input asp-for="billing_phone" class="form-control" />
+        <span asp-validation-for="billing_phone" class="text-danger"></span>
+    </div>
+    <div class="form-group col-md-2">
+        <label class="control-label"> Alternet Phone</label>
+        <input asp-for="billing_alternate_phone" class="form-control" />
+        <span asp-validation-for="billing_alternate_phone" class="text-danger"></span>
+    </div>
+    <hr />
+    <div class="form-group col-md-12 border-top">
+        <label class="control-label"> Billing Address</label>
+        <textarea asp-for="billing_address" style="width:66%;"  class="form-control" ></textarea>
+        <span asp-validation-for="billing_address" class="text-danger"></span>
+    </div>
+    <br />
+
+    <div class="form-group col-md-2">
+        <label  class="control-label">City</label>
+        <input asp-for="billing_city" class="form-control" />
+        <span asp-validation-for="billing_city" class="text-danger"></span>
+    </div>
+    <div class="form-group col-md-2">
+        <label  class="control-label">Pincode</label>
+        <input asp-for="billing_pincode" class="form-control" />
+        <span asp-validation-for="billing_pincode" class="text-danger"></span>
+    </div>
+    <div class="form-group col-md-2">
+        <label  class="control-label">State</label>
+        <input asp-for="billing_state" class="form-control" />
+        <span asp-validation-for="billing_state" class="text-danger"></span>
+    </div>
+    <div class="form-group col-md-2">
+        <label class="control-label">Country</label>
+        <input asp-for="billing_country" class="form-control" />
+        <span asp-validation-for="billing_country" class="text-danger"></span>
+    </div>
+
+</div>
+</div>-->
+<!-- collapse -filter-content  .// -->
+<!--</article>
+                <article class="list-group-item">
+                    <header class="filter-header">
+                        <a href="#" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" class="collapsed">
+
+                            <h6 class="title"><span class="count-serial">2</span>Some heading  <i class="icon-control fa fa-chevron-down"></i> </h6>
+                        </a>
+                    </header>
+                    <div class="filter-content collapse" id="collapse2" style="">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt deserunt mollit anim id est laborum.
+                        </p>
+                    </div>
+                </article>
+                <article class="list-group-item">
+                    <header class="filter-header">
+                        <a href="#" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" class="collapsed">
+
+                            <h6 class="title"><span class="count-serial">3</span>Some heading  <i class="icon-control fa fa-chevron-down"></i> </h6>
+                        </a>
+                    </header>
+                    <div class="filter-content collapse" id="collapse3" style="">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt deserunt mollit anim id est laborum.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <div class="col-12"><div class="form-group col-md-2">
+    <input type="submit" value="Place To Shiprocket" class="btn btn-primary" id="btnSave" />
+</div></div>
+    </div>
+</div>-->
+<!--begin::Accordion-->
+
+<div id="kt_content_container" class="container-xxl">
+    <div class="row-cols-1">
+        <div class="card-bordered">
+            @if (ViewBag.Shiprocketerror != "")
+            {
+                <div class="alert alert-danger  alert-dismissible fade show" role="alert">
+                    <strong>@ViewBag.Shiprocketerror</strong>
+
+                </div>
+            }
+
+        <form asp-action="ShipRocketOrder" id="Myform" style="width:100%;">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="table-responsive">
+                <table class="table table-danger table-hover p-4">
+                    <thead style="padding-left:10px;">
+                        <tr>
+                            <th style="padding-left:10px;">Name</th>
+                            <th>sku</th>
+                            <th>Units</th>
+                            <th>Discount</th>
+                            <th>Selling Price</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @for (int i = 0; i < Model.order_items.Count; i++)
+                        {
+
+
+                            <tr>
+                                <td style="padding-left:10px;">@Model.order_items[i].name <input asp-for="@Model.order_items[i].name" class="form-control" hidden /></td>
+                                <td>@Model.order_items[i].sku <input asp-for="@Model.order_items[i].sku " class="form-control" hidden /></td>
+                                <td>@Model.order_items[i].units <input asp-for="@Model.order_items[i].units" class="form-control" hidden /></td>
+                                <td>@Model.order_items[i].discount <input asp-for="@Model.order_items[i].discount" class="form-control" hidden /></td>
+                                <td>@Model.order_items[i].selling_price <input asp-for="@Model.order_items[i].selling_price" class="form-control" hidden /></td>
+
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+
+                <div class="form-group  col-md-6">
+                    <label asp-for="order_id" class="control-label" hidden></label>
+                    <input asp-for="order_id" class="form-control" hidden />
+                    <input asp-for="order_id" class="form-control" disabled />
+                    <span asp-validation-for="order_id" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="accordion" id="kt_accordion_1">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="kt_accordion_1_header_1">
+                        <button class="accordion-button fs-4 fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#kt_accordion_1_body_1" aria-expanded="true" aria-controls="kt_accordion_1_body_1">
+                            Buyers Details #1
+                        </button>
+                    </h2>
+                    <div id="kt_accordion_1_body_1" class="accordion-collapse collapse show" aria-labelledby="kt_accordion_1_header_1" data-bs-parent="#kt_accordion_1">
+                        <div class="accordion-body">
+                            <div class="form-group  col-md-6">
+                                <label class="control-label" asp-for="order_id" hidden for="order_id">Order ID</label>
+                                <input class="form-control" asp-for="order_id" hidden type="text" data-val="true" data-val-required="The Order ID field is required." id="order_id" name="order_id" />
+                                <span class="text-danger field-validation-valid" asp-validation-for="order_id" data-valmsg-for="order_id" data-valmsg-replace="true"></span>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label class="control-label" hidden for="order_date" asp-for="order_date">Order Date</label>
+                                <input class="form-control" type="datetime-local" asp-for="order_date" hidden data-val="true" data-val-required="The Order Date field is required." id="order_date" name="order_date" />
+
+                                <span class="text-danger field-validation-valid" asp-validation-for="order_date" data-valmsg-for="order_date" data-valmsg-replace="true"></span>
+                            </div>
+                            @*Content Here*@
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label"> Buyer Name</label>
+                                        <input class="form-control" type="text" data-val="true" data-val-required="The Billing Customer Name  field is required." id="billing_customer_name" name="billing_customer_name" asp-for="billing_customer_name" />
+                                        <span class="text-danger field-validation-valid" asp-validation-for="billing_customer_name" data-valmsg-for="billing_customer_name" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label"> Last Name</label>
+                                        <input class="form-control" type="text" id="billing_last_name" name="billing_last_name" asp-for="billing_last_name" />
+                                        <span class="text-danger field-validation-valid" asp-validation-for="billing_last_name" data-valmsg-for="billing_last_name" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label"> Email</label>
+                                        <input asp-for="billing_email" class="form-control" type="email" data-val="true" data-val-email="Invalid Email Address" data-val-required="The Billing Email field is required." id="billing_email" name="billing_email" />
+                                        <span asp-validation-for="billing_email" class="text-danger field-validation-valid" data-valmsg-for="billing_email" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label"> Phone</label>
+                                        <input asp-for="billing_phone" class="form-control" type="text" data-val="true" data-val-required="The Billing Phone field is required." id="billing_phone" name="billing_phone" />
+                                        <span asp-validation-for="billing_phone" class="text-danger field-validation-valid" data-valmsg-for="billing_phone" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label class="control-label"> Alternet Phone</label>
+                                        <input asp-for="billing_alternate_phone" class="form-control" type="number" data-val="true" data-val-required="The Billing Alternate Phone field is required." id="billing_alternate_phone" name="billing_alternate_phone" />
+                                        <span asp-validation-for="billing_alternate_phone" class="text-danger field-validation-valid" data-valmsg-for="billing_alternate_phone" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <hr />
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="kt_accordion_1_header_2">
+                        <button class="accordion-button fs-4 fw-semibold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#kt_accordion_1_body_2" aria-expanded="false" aria-controls="kt_accordion_1_body_2">
+                            Billing Address #2
+                        </button>
+                    </h2>
+                    <div id="kt_accordion_1_body_2" class="accordion-collapse collapse" aria-labelledby="kt_accordion_1_header_2" data-bs-parent="#kt_accordion_1">
+                        <div class="accordion-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">City</label>
+                                        <input asp-for="billing_city" class="form-control" type="text" data-val="true" data-val-required="The Billing City field is required." id="billing_city" name="billing_city" />
+                                        <span asp-validation-for="billing_city" class="text-danger field-validation-valid" data-valmsg-for="billing_city" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">Pincode</label>
+                                        <input asp-for="billing_pincode" class="form-control" type="number" data-val="true" data-val-required="The Billing Pincode  field is required." id="billing_pincode" name="billing_pincode" />
+                                        <span asp-validation-for="billing_pincode" class="text-danger field-validation-valid" data-valmsg-for="billing_pincode" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">State</label>
+                                        <input asp-for="billing_state" class="form-control" type="text" data-val="true" data-val-required="The Billing State field is required." id="billing_state" name="billing_state" />
+                                        <span asp-validation-for="billing_state" class="text-danger field-validation-valid" data-valmsg-for="billing_state" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">Country</label>
+                                        <input asp-for="billing_country" class="form-control" type="text" data-val="true" data-val-required="The Billing Country field is required." id="billing_country" name="billing_country" />
+                                        <span asp-validation-for="order_id" class="text-danger field-validation-valid" data-valmsg-for="billing_country" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+
+
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="form-group col-md-12 border-top">
+                                        <label class="control-label"> Billing Address</label>
+                                        <textarea asp-for="billing_address" required class="form-control" id="billing_address" name="billing_address"></textarea>
+                                        <span asp-validation-for="billing_address" class="text-danger field-validation-valid" data-valmsg-for="billing_address" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="kt_accordion_1_header_6">
+                        <button class="accordion-button fs-4 fw-semibold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#kt_accordion_1_body_6" aria-expanded="false" aria-controls="kt_accordion_1_body_6">
+                            Shipping Details #3
+                        </button>
+                    </h2>
+                    <div id="kt_accordion_1_body_6" class="accordion-collapse collapse" aria-labelledby="kt_accordion_1_header_6" data-bs-parent="#kt_accordion_1">
+                        <div class="accordion-body">
+                            <div class="row ">
+
+                               
+
+                                    <div class="form-group col-md-3">
+                                        <label class="control-label">Customer Name</label>
+                                        <input asp-for="shipping_customer_name" class="form-control" type="text" data-val="true" data-val-required="The Shipping  Customer Name field is required." id="shipping_customer_name" name="shipping_customer_name" />
+                                        <span asp-validation-for="shipping_customer_name" class="text-danger field-validation-valid" data-valmsg-for="shipping_customer_name" data-valmsg-replace="true"></span>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label class="control-label"> Last Name</label>
+                                        <input asp-for="shipping_last_name" class="form-control" type="text" id="shipping_last_name" name="shipping_last_name" />
+                                        <span asp-validation-for="shipping_last_name" class="text-danger field-validation-valid" data-valmsg-for="shipping_last_name" data-valmsg-replace="true"></span>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label class="control-label" for="shipping_email">Shipping Email</label>
+                                        <input asp-for="shipping_email" class="form-control" type="text" data-val="true" data-val-required="The Shipping Email field is required." id="shipping_email" name="shipping_email" />
+                                        <span asp-validation-for="shipping_email" class="text-danger field-validation-valid" data-valmsg-for="shipping_email" data-valmsg-replace="true"></span>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label class="control-label" for="shipping_phone">Shipping Phone</label>
+                                        <input asp-for="shipping_phone" class="form-control" type="number" data-val="true" data-val-required="The Shipping Phone field is required." id="shipping_phone" name="shipping_phone" />
+                                        <span asp-validation-for="shipping_phone" class="text-danger field-validation-valid" data-valmsg-for="shipping_phone" data-valmsg-replace="true"></span>
+                                    </div>
+
+                              
+                                  
+
+                              
+
+
+
+
+
+                            </div>
+                            <div class="row">
+                                
+
+
+                                <div class="form-group col-md-3">
+                                    <label class="control-label">City</label>
+                                    <input asp-for="shipping_city" class="form-control" type="text" data-val="true" data-val-required="The Shipping City field is required." id="shipping_city" name="shipping_city" />
+                                    <span asp-validation-for="shipping_city" class="text-danger field-validation-valid" data-valmsg-for="shipping_city" data-valmsg-replace="true"></span>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="control-label">Pincode</label>
+
+                                    <input asp-for="shipping_pincode" class="form-control" type="number" data-val="true" data-val-required="The Shipping Pincode field is required." id="shipping_pincode" name="shipping_pincode" />
+                                    <span asp-validation-for="shipping_pincode" class="text-danger field-validation-valid" data-valmsg-for="shipping_pincode" data-valmsg-replace="true"></span>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="control-label">State</label>
+                                    <input asp-for="shipping_state" class="form-control" type="text" data-val="true" data-val-required="The Shipping State field is required." id="shipping_state" name="shipping_state" />
+                                    <span asp-validation-for="shipping_state" class="text-danger field-validation-valid" data-valmsg-for="shipping_state" data-valmsg-replace="true"></span>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="control-label" for="shipping_country">Shipping Country</label>
+                                    <input asp-for="shipping_country" class="form-control" type="text" data-val="true" data-val-required="The Shipping Country field is required." id="shipping_country" name="shipping_country" />
+                                    <span asp-validation-for="shipping_country" class="text-danger field-validation-valid" data-valmsg-for="shipping_country" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-md-12 border-top">
+                                    <label class="control-label"> Shipping Address</label>
+                                    <textarea asp-for="shipping_address" style="width:66%;" class="form-control" data-val="true" data-val-required="The Shipping Address field is required." id="shipping_address" name="shipping_address"></textarea>
+                                    <span asp-validation-for="shipping_address" class="text-danger field-validation-valid" data-valmsg-for="shipping_address" data-valmsg-replace="true"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="kt_accordion_1_header_3">
+                        <button class="accordion-button fs-4 fw-semibold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#kt_accordion_1_body_3" aria-expanded="false" aria-controls="kt_accordion_1_body_3">
+                            Payments #3
+                        </button>
+                    </h2>
+                    <div id="kt_accordion_1_body_3" class="accordion-collapse collapse" aria-labelledby="kt_accordion_1_header_3" data-bs-parent="#kt_accordion_1">
+                        <div class="accordion-body">
+                            <div class="row ">
+                                <div class="form-group col-md-3">
+                                    <label class="control-label" for="pickup_location">Pickup Location</label>
+                                    <Input asp-for="pickup_location" id="pickup_location" name="pickup_location" class="form-control" >
+                                    <span asp-validation-for="pickup_location" class="text-danger"></span>
+
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="control-label" for="channel_id">Channel ID </label>
+                                    <input class="form-control" asp-for="channel_id"  type="number" data-val="true" data-val-required="The Channel ID  field is required." id="channel_id" name="channel_id" />
+                                    <span asp-validation-for="channel_id" class="text-danger field-validation-valid" data-valmsg-for="channel_id" data-valmsg-replace="true"></span>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="control-label" for="payment_method">Payment Method</label>
+                                    <select class="form-control" asp-for="payment_method" data-val="true" data-val-required="The Payment Method field is required." id="payment_method" name="payment_method">
+                                        <option value="COD">COD</option>
+                                        <option value="OnlinePay">OnlinePay</option>
+                                    </select>
+                                    <span asp-validation-for="payment_method" class="text-danger field-validation-valid" data-valmsg-for="payment_method" data-valmsg-replace="true"></span>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label class="control-label" for="sub_total">Sub Total</label>
+                                    <input asp-for="sub_total" class="form-control" type="number" data-val="true" data-val-required="The Sub Total field is required." id="sub_total" name="sub_total" value="@Model.sub_total" />
+                                    <span asp-validation-for="sub_total" class="text-danger field-validation-valid" data-valmsg-for="sub_total" data-valmsg-replace="true"></span>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="kt_accordion_1_header_4">
+                        <button class="accordion-button fs-4 fw-semibold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#kt_accordion_1_body_4" aria-expanded="false" aria-controls="kt_accordion_1_body_4">
+                            Package Weight #4
+                        </button>
+                    </h2>
+                    <div id="kt_accordion_1_body_4" class="accordion-collapse collapse" aria-labelledby="kt_accordion_1_header_4" data-bs-parent="#kt_accordion_1">
+                        <div class="accordion-body">
+                            <div class="row ">
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">length</label>
+                                        <input asp-for="length" class="form-control" type="number" data-val="true" data-val-range="Please enter a value bigger than 1" data-val-range-max="2147483647" data-val-range-min="1" data-val-required="The Length field is required." id="length" name="length" />
+
+                                        <span asp-validation-for="length" class="text-danger field-validation-valid" data-valmsg-for="length" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">breadth</label>
+                                        s<input asp-for="breadth" class="form-control" type="number" data-val="true" data-val-range="Please enter a value bigger than 1" data-val-range-max="2147483647" data-val-range-min="1" data-val-required="The Breadth field is required." id="breadth" name="breadth" />
+
+                                        <span asp-validation-for="breadth" class="text-danger field-validation-valid" data-valmsg-for="breadth" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label" for="height">Height</label>
+                                        <input asp-for="height" class="form-control" type="number" data-val="true" data-val-range="Please enter a value bigger than 1" data-val-range-max="2147483647" data-val-range-min="1" data-val-required="The Height field is required." id="height" name="height" />
+                                        <span asp-validation-for="height" class="text-danger field-validation-valid" data-valmsg-for="height" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label" for="weight">Weight</label>
+                                        <input asp-for="weight" class="form-control" type="text" data-val="true" data-val-number="The field Weight must be a number." data-val-range="Please enter a value bigger than 1" data-val-range-max="2147483647" data-val-range-min="1" data-val-required="The Weight field is required." id="weight" name="weight" />
+                                        <span asp-validation-for="weight" class="text-danger field-validation-valid" data-valmsg-for="weight" data-valmsg-replace="true"></span>
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="kt_accordion_1_header_5">
+                        <button class="accordion-button fs-4 fw-semibold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#kt_accordion_1_body_5" aria-expanded="false" aria-controls="kt_accordion_1_body_5">
+                            Pricing #5
+                        </button>
+                    </h2>
+                    <div id="kt_accordion_1_body_5" class="accordion-collapse collapse" aria-labelledby="kt_accordion_1_header_5" data-bs-parent="#kt_accordion_1">
+                        <div class="accordion-body">
+                            <div class="row ">
+
+                                <div class="form-group col-md-6">
+                                    <label class="control-label" for="shipping_charges">Shipping Charges</label>
+                                    <input asp-for="shipping_charges" class="form-control" required type="text" pattern="[0-9]+" data-val="true" id="shipping_charges" name="shipping_charges" />
+                                    <span asp-validation-for="shipping_charges" class="text-danger field-validation-valid" data-valmsg-for="shipping_charges" data-valmsg-replace="true"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="control-label" for="giftwrap_charges">Gift wrap Charges</label>
+                                    <input asp-for="giftwrap_charges" class="form-control" type="text" pattern="[0-9]+" data-val="true" id="giftwrap_charges" name="giftwrap_charges" />
+                                    <span asp-validation-for="giftwrap_charges" class="text-danger field-validation-valid" data-valmsg-for="giftwrap_charges" data-valmsg-replace="true"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="control-label" for="transaction_charges">Transaction Charges</label>
+                                    <input asp-for="transaction_charges" class="form-control" type="text" pattern="[0-9]+" data-val="true" id="transaction_charges" name="transaction_charges" />
+                                    <span asp-validation-for="transaction_charges" class="text-danger field-validation-valid" data-valmsg-for="transaction_charges" data-valmsg-replace="true"></span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label class="control-label" for="total_discount">Total Discount</label>
+                                    <input asp-for="total_discount" class="form-control" type="text" pattern="[0-9]+" data-val="true" id="total_discount" name="total_discount" />
+                                    <span asp-validation-for="total_discount" class="text-danger field-validation-valid" data-valmsg-for="total_discount" data-valmsg-replace="true"></span>
+                                </div>
+
+
+
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-12" style="margin-top:30px;">
+                <div class="form-group">
+                    <input type="submit" value="Place To Shiprocket" class="btn btn-primary" id="btnSave" />
+                </div>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+        
+
+        @section Scripts{
+            @{
+                <partial name="_ValidationScriptsPartial" />
+            }
+        }
+
+
+
+
+

@@ -1,0 +1,59 @@
+﻿@model BasePackageModule1.Models.CustomCss
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>CustomCss</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="MainColorOne" class="control-label"></label>
+                <input asp-for="MainColorOne" class="form-control" />
+                <span asp-validation-for="MainColorOne" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SecondaryColor" class="control-label"></label>
+                <input asp-for="SecondaryColor" class="form-control" />
+                <span asp-validation-for="SecondaryColor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HeadingColor" class="control-label"></label>
+                <input asp-for="HeadingColor" class="form-control" />
+                <span asp-validation-for="HeadingColor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ParagraphColor" class="control-label"></label>
+                <input asp-for="ParagraphColor" class="form-control" />
+                <span asp-validation-for="ParagraphColor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HeadingFont" class="control-label"></label>
+                <input asp-for="HeadingFont" class="form-control" />
+                <span asp-validation-for="HeadingFont" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BodyFont" class="control-label"></label>
+                <input asp-for="BodyFont" class="form-control" />
+                <span asp-validation-for="BodyFont" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

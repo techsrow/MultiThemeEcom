@@ -1,0 +1,63 @@
+﻿@model BasePackageModule1.Models.CounterSection
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>CounterSection</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Heading" class="control-label"></label>
+                <input asp-for="Heading" class="form-control" />
+                <span asp-validation-for="Heading" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Subheading" class="control-label"></label>
+                <input asp-for="Subheading" class="form-control" />
+                <span asp-validation-for="Subheading" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BtnText" class="control-label"></label>
+                <input asp-for="BtnText" class="form-control" />
+                <span asp-validation-for="BtnText" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BtnLink" class="control-label"></label>
+                <input asp-for="BtnLink" class="form-control" />
+                <span asp-validation-for="BtnLink" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ShortDescription" class="control-label"></label>
+                <input asp-for="ShortDescription" class="form-control" />
+                <span asp-validation-for="ShortDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContTitle" class="control-label"></label>
+                <input asp-for="ContTitle" class="form-control" />
+                <span asp-validation-for="ContTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CountDescription" class="control-label"></label>
+                <input asp-for="CountDescription" class="form-control" />
+                <span asp-validation-for="CountDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

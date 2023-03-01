@@ -1,0 +1,178 @@
+﻿
+@model BasePackageModule1.Controllers.CheckoutController.APaymentOptions
+    <!-- Bread Crumb STRAT -->
+    <div class="banner inner-banner1 ">
+        <div class="container">
+            <section class="banner-detail center-xs">
+                <h1 class="banner-title">Checkout</h1>
+                <div class="bread-crumb right-side float-none-xs">
+                    <ul>
+                        <li><a asp-action="Index" asp-controller="Home">Home</a>/</li>
+                        <li><a asp-action="Index" asp-controller="Cart">Cart</a>/</li>
+                        <li><span>Checkout</span></li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </div>
+    <!-- Bread Crumb END -->
+    <div class="container">
+        <div class="row mt-4 mb-4">
+            <div class="col-md-6">
+                <h4>Payment Option</h4>
+                <form class="form" asp-action="PaymentOptions" method="post">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+
+                    <input type="hidden" asp-for="AddressId" />
+                    <div class="form-check mt-2 mb-2">
+                        <label class="form-check-label">
+                            <input type="radio" value="payOnline" asp-for="PaymentOption" class="form-check-input" checked> Pay Online
+                        </label>
+                    </div>
+
+                    <div class="form-check mt-2 mb-2">
+                            <label class="form-check-label">
+                                <input type="radio" value="cashOnDelivery" asp-for="PaymentOption" class="form-check-input"> Cash On Delivery
+                            </label>
+                        </div>
+
+                    <div class="form-group form-check mt-2 mb-2">
+                        <div class="input-group mb-3">
+                            <input id="CouponsCode" class="form-control  " name="CouponsCode" placeholder="Coupon code">
+                            <span class="input-group-append bg-white border-left-0">
+                                <span class="input-group-text bg-transparent" id="Correct" style="display : none ; color:green">
+                                    <i class="fa fa-check"></i>
+
+                                </span>
+                                <span class="input-group-text bg-transparent " id="Wrong" style="display : none ; color:red">
+                                    <i class="fa fa-times "></i>
+                                </span>
+
+
+                            </span>
+
+                            <button class="btn btn-outline-success" type="button" id="BtnIsvalid" onclick="Isvalid()">Check is valid</button>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-color btn-block">Confirm Order</button>
+                </form>
+            </div>
+            <div class="col-md-4">
+                <div class="card" >
+                    <div class="card-body">
+                        <h5 class="card-title text-center text-danger">Order Summary</h5>
+                        <hr />
+                        <input type="hidden" value="@ViewBag.Items" id="AllTotalvalue" />
+                        <ul class="order-summary">
+                            <li>Items:	  <span class="float-right">₹ @ViewBag.Items</span></li>
+                          
+                            <li>Total:	   <span class="float-right">₹ @ViewBag.Items</span></li>
+                            <li>Promotion Applied:	-  <span class="float-right" id="Promotion">₹ 00</span></li>
+                            <li>
+                                Shipping Charges:	-
+                                @if (@ViewBag.Items < 500)
+                                {
+                                    <span class="float-right" id="ShippingCharges">₹ 50 </span>
+                                }
+                                else
+                                {
+                                    <span class="float-right" id="ShippingCharges">₹ 00 </span>
+                                }
+
+                            </li>
+                            <hr />
+                            <li>
+                                <h5 class="text-danger border-top">
+                                    Order Total:    <span class="float-right">
+                                        ₹
+                                        @if (ViewBag.Items < 500)
+                                        {
+                                            var result = ViewBag.Items + 50;
+                                            @result ;
+                                        }
+                                        else
+                                        {
+                                            @ViewBag.Items
+                                        }
+                                    </span>
+
+
+                                </h5>
+                            </li>
+
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function Isvalid() {
+            debugger;
+            var AllTotalvalue = $('#AllTotalvalue').val();
+            var btn = $('#BtnIsvalid');
+            var Correct = $('#Correct');
+            var Wrong = $('#Wrong');
+            btn.prop('disabled', true);
+            let CouponsCode = $("#CouponsCode").val()
+
+            $.ajax({
+                type: "POST",
+                url: "/Checkout/Couponcode",
+                data: { CouponsCode: CouponsCode, Total: AllTotalvalue },
+                success: function (response) {
+                    var a = response;
+                    btn.prop('disabled', false);
+                    debugger;
+                    if (a != null && a[0] == "True") {
+
+                        Correct.css('display', 'block');
+                        Wrong.css('display', 'none');
+                        $("#CouponsCode").css('border-color', 'limegreen')
+
+                        document.getElementById("Promotion").innerHTML = '₹ ' + (AllTotalvalue - a[1]);
+                        var ShippingCharges = 0;
+                        if (AllTotalvalue < 500) {
+                            ShippingCharges = 50;
+                        } else {
+                            ShippingCharges = 0;
+                        }
+                        document.getElementById("ShippingCharges").innerHTML = '₹ ' + (ShippingCharges);
+                        document.getElementById("OrderTotalvalue").innerHTML = '₹ ' + a[1] + ShippingCharges;
+                    }
+                    else {
+                        Correct.css('display', 'none');
+                        Wrong.css('display', 'block');
+                        $("#CouponsCode").css('border-color', 'red')
+                        document.getElementById("Promotion").innerHTML = '₹ 00';
+                        var ShippingCharges = 0;
+                        if (AllTotalvalue < 500) {
+                            ShippingCharges = 50;
+                        } else {
+                            ShippingCharges = 00;
+                        }
+                        document.getElementById("ShippingCharges").innerHTML = '₹ ' + (ShippingCharges);
+                        debugger;
+                        AllTotalvalue = parseInt(AllTotalvalue)
+
+                        document.getElementById("OrderTotalvalue").innerHTML = '₹ ' + (AllTotalvalue + ShippingCharges);
+
+                    }
+
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                    btn.prop('disabled', false);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                    btn.prop('disabled', false);
+                }
+            });
+        }
+
+    </script>

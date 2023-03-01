@@ -1,0 +1,89 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    @await Component.InvokeAsync("Seo")
+    @await RenderSectionAsync("MetaTags", required: false)
+    <meta name="robots" content="index,follow" />
+    @await Component.InvokeAsync("Favicon")
+    <!-- animate -->
+    <link rel="stylesheet" href="~/theme/assets/css/animate.css">
+    <link href="~/theme/~/theme/assets/css/animate.css" rel="stylesheet" />
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="~/theme/assets/css/bootstrap.min.css">
+    <!-- magnific popup -->
+    <link rel="stylesheet" href="~/theme/assets/css/magnific-popup.css">
+    <!-- owl carousel -->
+    <link rel="stylesheet" href="~/theme/assets/css/owl.carousel.min.css">
+    <!-- fontawesome -->
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css" integrity="sha512-c93ifPoTvMdEJH/rKIcBx//AL1znq9+4/RmMGafI/vnTFe/dKwnn1uoeszE2zJBQTS1Ck5CqSBE+34ng2PthJg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- flaticon -->
+    <link rel="stylesheet" href="~/theme/assets/css/flaticon.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="~/theme/assets/css/style.css">
+    <!-- responsive Stylesheet -->
+    <link rel="stylesheet" href="~/theme/assets/css/responsive.css">
+    @await RenderSectionAsync("Styles", required: false)
+
+    @await Component.InvokeAsync("WebsiteSetting")
+    @*<style>
+            :root {
+                --main-color-one: #fc0841;
+                --secondary-color: #fc0841;
+                --heading-color: #161619;
+                --paragraph-color: #828282;
+                --heading-font: 'Montserrat', sans-serif;
+                --body-font: 'Open Sans', sans-serif;
+            }
+        </style>*@
+
+</head>
+
+<body>
+    @await Component.InvokeAsync("Navigation")
+    @RenderBody()
+    @await Component.InvokeAsync("Footer")
+
+    <!-- jquery -->
+    <script src="~/theme/assets/js/jquery-2.2.4.min.js"></script>
+    <!-- popper -->
+    <script src="~/theme/assets/js/popper.min.js"></script>
+    <!-- bootstrap -->
+    <script src="~/theme/assets/js/bootstrap.min.js"></script>
+    <!-- magnific popup -->
+    <script src="~/theme/assets/js/jquery.magnific-popup.js"></script>
+    <!-- wow -->
+    <script src="~/theme/assets/js/wow.min.js"></script>
+    <!-- owl carousel -->
+    <script src="~/theme/assets/js/owl.carousel.min.js"></script>
+    <!-- waypoint -->
+    <script src="~/theme/assets/js/waypoints.min.js"></script>
+    <!-- counterup -->
+    <script src="~/theme/assets/js/jquery.counterup.min.js"></script>
+    <!-- imageloaded -->
+    <script src="~/theme/assets/js/imagesloaded.pkgd.min.js"></script>
+    <!-- isotope -->
+    <script src="~/theme/assets/js/isotope.pkgd.min.js"></script>
+    <!-- Progress-Bar -->
+    <script src="~/theme/assets/js/jQuery.rProgressbar.min.js"></script>
+    <!-- Progress-Bar Active js -->
+    <script src="~/theme/assets/js/active.rProgressbar.js"></script>
+    <!-- main js -->
+    <script src="~/theme/assets/js/main.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>
+
+
+
+

@@ -1,0 +1,44 @@
+﻿@model IEnumerable<BasePackageModule2.Models.Image>
+
+
+<section class="work-inner our-work section-margin p-relative zoom-gallery">
+    <div class="container">
+
+
+
+
+        <div class="projects-list w-100">
+
+            @foreach (var item in Model)
+            {
+        <div class="work-item p-relative over-hidden brand">
+            <div class="img-next-box p-relative w-100 h-100 image-bg">
+                <img class="cover-bg-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                     data-dsn-src="@item.Img"
+                     data-dsn-srcset="@item.Img 1800w, @item.Img 768w"
+                     alt="">
+            </div>
+
+            <div class="item-info p-relative w-100 h-100 d-flex align-items-end">
+                <a asp-action="Index" asp-controller="Products" class="effect-ajax" data-dsn-ajax="work">
+
+                   
+                    <div class="metas mt-15">
+                        <span>Product</span>
+                    </div>
+                </a>
+            </div>
+        </div>            }
+
+
+
+            
+        </div>
+    </div>
+</section>
+
+
+
+
+
+

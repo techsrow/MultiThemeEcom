@@ -1,0 +1,618 @@
+@media only screen and (min-width:1601px) and (max-width: 1850px) {}
+
+@media only screen and (min-width: 1400px) and (max-width: 1600px) {}
+
+@media only screen and (min-width: 1367px) and (max-width: 1399px) {}
+
+@media only screen and (min-width: 1201px) and (max-width: 1366px) {}
+
+
+/* Medium Layout: 1200px. */
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+    .navbar-area .nav-container .navbar-collapse .navbar-nav li+li {
+        margin-left: 20px;
+    }
+    .header-area .title {
+        font-size: 50px;
+        line-height: 60px;
+    }
+    .single-what-we-provide-item .content-wrapper .content {
+        padding: 30px 30px 35px 30px;
+    }
+    .single-testimonial-item .content .icon {
+        font-size: 120px;
+        top: 75px;
+    }
+    .single-testimonial-item .author-img {
+        padding-left: 40px;
+    }
+    .single-testimonial-item .content .description {
+        max-width: 380px;
+    }
+    .blog-grid-carousel .owl-nav div.owl-next {
+        right: 0;
+    }
+    .blog-grid-carousel .owl-nav div {
+        left: 0px;
+    }
+}
+
+
+/* Tablet Layout: 768px. */
+
+@media only screen and (max-width: 991px) {
+    .section-title .title {
+        font-size: 55px;
+        line-height: 65px;
+    }
+    .counter-content {
+        padding-top: 60px;
+    }
+    .our-advertising-area.bg-image::before {
+        width: 100%;
+    }
+    .our-advertising-area.bg-image::after {
+        display: none;
+    }
+    .our-advertising-area .section-title {
+        text-align: left;
+        margin-bottom: 50px;
+        padding-right: 0;
+    }
+    .our-milestone {
+        padding-left: 0;
+    }
+    .our-advertising-area .line-b:before {
+        display: none;
+    }
+    .who-we-are-item {
+        margin-right: 15px;
+    }
+    .who-we-are-wrapper.bg-image::after {
+        display: none;
+    }
+    .who-we-are-wrapper.bg-image.padding-bottom-90.padding-top-80 {
+        padding-top: 0;
+        padding-bottom: 60px;
+    }
+    .counterup-area.padding-bottom-110.padding-top-110 {
+        padding-top: 0;
+    }
+    .inner-section-area .section-p {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .service-wrapper.bg-image.margin-top-100.padding-bottom-90 {
+        margin-top: 0px;
+        padding-bottom: 40px;
+        margin-bottom: 0;
+    }
+    .service-wrapper.bg-image::after {
+        display: none;
+    }
+    .widget-area {
+        margin-top: 50px;
+    }
+}
+
+
+/* Tablet Layout wide: 768px. */
+
+@media only screen and (max-width: 767px) {
+    /* have to start responsive from here */
+    .header-area .title {
+        font-size: 50px;
+        line-height: 60px;
+    }
+    .section-title .title {
+        font-size: 42px;
+        line-height: 52px;
+    }
+    .contact-content {
+        padding-left: 50px;
+    }
+    .team-section:hover .content {
+        padding: 30px;
+    }
+    .team-section .content .social-link {
+        padding-bottom: 10px;
+    }
+    .counter-area {
+        border-bottom: 1px solid #e8e8e8;
+        padding: 73px 50px 88px;
+    }
+    .testimonial-top .section-title .icon {
+        font-size: 120px;
+        line-height: 110px;
+        padding-left: 20px;
+        margin-right: 20px;
+    }
+    .single-testimonial-item .icon {
+        margin-right: 50px;
+    }
+    .bottom-content-area.padding-top-120 {
+        padding-top: 40px;
+    }
+    .contact-page-form-wrap {
+        margin-top: 60px;
+    }
+    .single-counterup-01 .content .count-wrap {
+        font-size: 40px;
+        line-height: 50px;
+    }
+    .section-title-inner .subtitle {
+        padding-left: 0px;
+    }
+    .single-what-img img {
+        width: 100%;
+    }
+    .single-testimonial-item {
+        display: block;
+    }
+    .single-testimonial-item .content .description {
+        max-width: inherit;
+        font-size: 18px;
+        line-height: 28px;
+    }
+    .single-testimonial-item .author-img {
+        padding-left: 0;
+        padding-right: 70px;
+    }
+    .topbar-inner div .boxed-btn {
+        padding: 15px 15px;
+        font-size: 14px;
+    }
+    .header-style-04.has-top-bar .navbar-area {
+        top: 105px;
+    }
+    .header-style-04.has-top-bar .header-area {
+        padding-bottom: 270px;
+    }
+    .inner-contact-section.m-bottom.padding-top-120 {
+        padding-top: 0;
+    }
+    .testimonial-carousel .owl-nav {
+        display: none;
+    }
+    .contact-page-form .btn-wrapper .boxed-btn {
+        width: 100%;
+    }
+    .breadcrumb-area .page-title {
+        font-size: 32px;
+        line-height: 42px;
+    }
+    .case-studies-menu li span {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .blog-details-item .blog-author-item {
+        border: none;
+    }
+    .blog-details-item .post-time,
+    .blog-details-item .author-mate,
+    .social-link.style-01 ul li {
+        display: inline-block;
+    }
+    .blog-details-item .blog-author-item .author-mate {
+        margin-bottom: 10px;
+        margin-left: 20px;
+    }
+}
+
+
+/* medium tablet layout 599px */
+
+@media only screen and (max-width: 599px) {
+    .topbar-area.style-03 .topbar-inner div:first-child {
+        display: block;
+        width: 100%;
+    }
+    .topbar-area.style-03 .topbar-inner div:last-child {
+        float: none;
+        display: block;
+        width: 100%;
+        margin-top: 10px;
+    }
+    .topbar-inner {
+        display: block;
+        text-align: center;
+    }
+    .topbar-area.style-04 {
+        display: none;
+    }
+    .header-style-04.has-top-bar .navbar-area {
+        top: 0;
+    }
+    .header-style-01 .topbar-area .topbar-inner div:last-child {
+        display: none;
+    }
+    .header-style-01 .topbar-area .topbar-inner div:first-child {
+        padding-bottom: 15px;
+    }
+    .our-milestone .title {
+        font-size: 28px;
+        line-height: 38px;
+    }
+    .blog-classic-item-01 .content .title {
+        font-size: 28px;
+        line-height: 40px;
+    }
+    .breadcrumb-area .page-list li {
+        font-size: 16px;
+    }
+    .testimonial-top .section-title .icon {
+        display: none;
+    }
+    .testimonial-top .section-title {
+        text-align: center;
+    }
+    .testimonial-top::after {
+        width: 100%;
+    }
+    .call-to-action-inner .icon {
+        font-size: 90px;
+    }
+    .call-to-action-inner .subtitle {
+        font-size: 38px;
+        line-height: 48px;
+    }
+    .single-counterup-01 .content .count-wrap {
+        font-size: 38px;
+        line-height: 48px;
+    }
+    .comments-area .comment-list .has-children {
+        padding-left: 20px;
+    }
+    .contact-area::after {
+        display: none;
+    }
+    .contact-area .section-title .title {
+        max-width: inherit;
+    }
+    .contact-content {
+        padding-left: 0;
+    }
+    .contact-area::before {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .navbar-area.nav-style-02.has-topbar {
+        top: 70px;
+    }
+    .section-title .title {
+        font-size: 36px;
+        line-height: 46px;
+    }
+    .section-title-inner .title {
+        font-size: 32px;
+        line-height: 42px;
+    }
+    .header-area .title {
+        font-size: 42px;
+        line-height: 52px;
+    }
+    .header-style-04.has-top-bar .header-area {
+        padding-top: 270px;
+    }
+    .request-area .left-content-area {
+        padding: 120px 30px 120px 30px;
+    }
+    .request-page-form-wrap {
+        padding: 112px 30px 104px;
+    }
+    .request-page-form-wrap.style-01 {
+        padding: 47px 30px 44px;
+    }
+    .request-page-form-wrap .section-title .title {
+        font-size: 28px;
+        line-height: 38px;
+    }
+    .single-testimonial-item .icon {
+        font-size: 55px;
+        line-height: 65px;
+        margin-right: 40px;
+    }
+    .breadcrumb-area .page-title {
+        font-size: 26px;
+        line-height: 36px;
+    }
+    .inner-section-area .inner-section-title .title {
+        font-size: 26px;
+        line-height: 36px;
+    }
+    .contact-content {
+        padding-top: 20px;
+    }
+}
+
+
+/* mobile tablet layout 414px */
+
+@media only screen and (max-width: 414px) {
+    .btn-wrapper .boxed-btn {
+        padding: 16px 25px;
+    }
+    .header-area .title {
+        font-size: 40px;
+        line-height: 50px;
+    }
+    .counter-area {
+        padding: 73px 30px 88px;
+    }
+    .we-offer-content-wrapper {
+        padding: 70px 30px;
+    }
+    .info-items li+li {
+        padding-left: 0;
+    }
+    .single-counterup-02 .count-wrap {
+        font-size: 42px;
+        line-height: 50px;
+    }
+    .single-counterup-02 .title {
+        font-size: 20px;
+        line-height: 30px;
+    }
+    .single-counterup-block-with-img .thumb .hover .count-num {
+        font-size: 100px;
+        line-height: 100px;
+    }
+    .single-counterup-01 .content .count-wrap {
+        font-size: 36px;
+        line-height: 46px;
+    }
+    .copyright-area-inner {
+        font-size: 14px;
+    }
+    .page-content.our-attoryney {
+        padding-bottom: 60px;
+    }
+    .header-area.style-02 {
+        padding-top: 220px;
+    }
+    .call-to-action-inner {
+        padding: 20px 0;
+    }
+    .call-to-action-inner .title {
+        margin-bottom: 0;
+        font-size: 14px;
+    }
+    .call-to-action-inner .icon {
+        font-size: 60px;
+    }
+    .call-to-action-inner .subtitle {
+        font-size: 28px;
+        line-height: 38px;
+    }
+}
+
+
+/* mobile tablet layout 375px */
+
+@media only screen and (max-width: 384px) {
+    .blog-pagination ul li a,
+    .blog-pagination ul li span {
+        padding: 3px 15px;
+    }
+    .header-area .title {
+        font-size: 28px;
+        line-height: 38px;
+    }
+    .section-title-inner .title {
+        font-size: 28px;
+        line-height: 38px;
+    }
+    .btn-wrapper .boxed-btn {
+        padding: 16px 20px;
+        min-width: auto;
+    }
+    .our-milestone .title {
+        font-size: 20px;
+        line-height: 30px;
+    }
+    .business-growth.bg-image::after,
+    .business-growth-top .section-title .title::before {
+        display: none;
+    }
+    .business-growth-top .section-title p,
+    .business-growth-top .section-title .vdo-btn {
+        padding-left: 0;
+    }
+    .hightly-skilled-area .left-content-area .title {
+        font-size: 30px;
+        line-height: 40px;
+    }
+    .header-area .subtitle {
+        font-weight: 600;
+    }
+    .quote-with-image-02 .img-wrapper .hover .quote-block-with-sign {
+        padding: 50px 40px 60px 40px;
+    }
+    .quote-block-with-sign p {
+        font-size: 24px;
+        line-height: 40px;
+    }
+    .case-category-list .single-case-item {
+        padding: 60px 0 60px 0;
+    }
+    .case-category-list .single-case-item .content .title {
+        font-size: 24px;
+        line-height: 34px;
+    }
+    .case-category-list .single-case-item .icon {
+        font-size: 55px;
+        line-height: 65px;
+    }
+    .single-header-bottom-item-02 .icon {
+        font-size: 50px;
+        line-height: 100px;
+        width: 100px;
+        height: 100px;
+    }
+    .single-header-bottom-item-02 .icon:after {
+        width: 120px;
+        height: 120px;
+    }
+    .single-header-bottom-item-02 .content .title {
+        font-size: 24px;
+    }
+    .top-lawyer-02 .left-content-area .img-wrapper {
+        margin-top: 90px;
+    }
+    .single-counterup-block-with-img .thumb .hover .count-num {
+        font-size: 80px;
+        line-height: 80px;
+    }
+    .inner-section-area .inner-section-title .title {
+        font-size: 22px;
+        line-height: 32px;
+    }
+}
+
+
+/* mobile tablet layout 360px */
+
+@media only screen and (max-width: 360px) {
+    .section-title .title {
+        font-size: 30px;
+        line-height: 40px;
+    }
+    .section-title-inner .title {
+        font-size: 26px;
+        line-height: 36px;
+    }
+    .header-area .btn-wrapper .boxed-btn+.boxed-btn {
+        margin-left: 10px;
+    }
+    .header-area .btn-wrapper .boxed-btn {
+        margin-top: 20px;
+        font-size: 14px;
+    }
+    .single-recent-case-study-01 .img-wrapper .hover .title {
+        font-size: 22px;
+        line-height: 34px;
+    }
+    .single-testimonial-item {
+        display: block;
+        position: relative;
+        z-index: 0;
+    }
+    .single-testimonial-item .icon {
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: .4;
+        z-index: -1;
+    }
+    .single-blog-grid-01 .content .title {
+        font-size: 16px;
+        line-height: 26px;
+    }
+    .request-page-form-wrap .title {
+        font-size: 26px;
+        line-height: 36px;
+    }
+    .blog-classic-item-01 .content .title {
+        font-size: 26px;
+        line-height: 40px;
+    }
+    .blog-classic-item-01 .content .post-meta li {
+        font-size: 14px;
+    }
+    .blog-classic-item-01 .content .post-meta li+li {
+        margin-left: 10px;
+    }
+    .call-to-action-inner .icon {
+        font-size: 40px;
+    }
+    .call-to-action-inner .subtitle {
+        font-size: 24px;
+        line-height: 34px;
+    }
+}
+
+
+/* mobile tablet layout 320px */
+
+@media only screen and (max-width: 330px) {
+    .navbar-area.nav-style-02.has-topbar {
+        top: 80px;
+    }
+    .header-area .title {
+        font-size: 38px;
+        line-height: 52px;
+    }
+    .top-lawyer-area .left-content .content {
+        padding: 70px 30px 60px 30px;
+    }
+    .single-counterup-01 .content .count-wrap {
+        font-size: 34px;
+        line-height: 46px;
+    }
+    .single-counterup-01 .icon,
+    .single-what-we-cover-item .icon,
+    .single-icon-box-01 .icon {
+        font-size: 50px;
+        line-height: 60px;
+    }
+    .single-counterup-01 .content .title {
+        font-size: 16px;
+    }
+    .single-why-us-box .content .title,
+    .single-what-we-cover-item .content .title {
+        font-size: 22px;
+    }
+    .hightly-skilled-area .left-content-area {
+        padding: 55px 30px 60px;
+    }
+    .single-header-bottom-item-02 .icon {
+        font-size: 50px;
+        line-height: 80px;
+        width: 80px;
+        height: 80px;
+    }
+    .single-header-bottom-item-02 .icon:after {
+        width: 100px;
+        height: 100px;
+    }
+    .single-testimonial-item-02 .quote-details p {
+        font-size: 22px;
+        line-height: 35px;
+    }
+    .top-laywer-area-02 .left-content-area {
+        padding-right: 0px;
+    }
+    .quote-with-image-02 .img-wrapper .hover .quote-block-with-sign {
+        padding: 50px 30px 60px 30px;
+    }
+    .single-icon-box-02 .content .title {
+        font-size: 22px;
+        line-height: 30px;
+    }
+    .navbar-area .nav-container .responsive-mobile-menu .logo-wrapper {
+        max-width: 180px;
+    }
+    .breadcrumb-area .page-list li {
+        font-size: 14px;
+    }
+    .accordion-wrapper .card .card-header a {
+        padding-right: 15px;
+    }
+    .widget .widget-title {
+        font-size: 22px;
+    }
+    .attorney-contact-form-wrap {
+        padding: 60px 30px 45px 30px;
+    }
+    .call-to-action-inner .title {
+        font-size: 12px;
+        line-height: 16px;
+    }
+    .call-to-action-inner .subtitle {
+        font-size: 24px;
+        line-height: 34px;
+    }
+}

@@ -1,0 +1,57 @@
+﻿
+<!doctype html>
+<html class="no-js" lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>@ViewData["Title"] </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Place favicon.ico in the root directory -->
+    @await Component.InvokeAsync("Favicon")
+    @await Component.InvokeAsync("Seo")
+    @await RenderSectionAsync("MetaTags", required: false)
+    <meta name="robots" content="index,follow" />
+    
+
+    <link href="~/lib/bootstrap-4.5.0/dist/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body style="background:black;">
+
+
+
+
+
+
+    @RenderBody()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="~/theme/assets/js/vendor/jquery-3.3.1.min.js"></script>
+    <script src="~/theme/assets/js/plugins/plugins.js"></script>
+
+    <script src="~/theme/assets/js/vendor/bootstrap.min.js"></script>
+    <script src="~/theme/assets/js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="~/theme/assets/js/main.js"></script>
+
+
+    @RenderSection("Scripts", required: false)
+
+
+</body>
+
+</html>

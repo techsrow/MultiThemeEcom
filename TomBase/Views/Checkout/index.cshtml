@@ -1,0 +1,121 @@
+﻿
+@model Address
+
+@{
+    ViewData["Title"] = "Checkout";
+}
+
+
+<div class="banner inner-banner1 ">
+    <div class="container">
+        <section class="banner-detail center-xs">
+            <h1 class="banner-title">
+                Delivery Address
+            </h1>
+            <div class="bread-crumb right-side float-none-xs">
+                <ul>
+                    <li><a asp-action="Index">Home</a>/</li>
+                    <li>
+                        <span>
+                            Delivery Address
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</div>
+<!-- Bread Crumb END -->
+
+<div class="container my-5">
+    <div class="row">
+
+        @foreach (var item in ViewBag.Addresses)
+        {
+            <div class="col-md-6">
+                <div style="border: solid 1px gray; padding: 20px">
+                    <h3>@item.Name @item.MobileNumber</h3>
+                    <p>@item.MainAddress @item.City @item.State - @item.PinCode</p>
+
+                    <a class="btn btn-color" asp-controller="Checkout" asp-action="PaymentOptions" asp-route-addressId="@item.Id">Deliver to this Address</a>
+
+                    <br />
+                    <a href="/Identity/Account/Manage/EditAddress/@item.Id" class="btn text-success btn-outline-info mt-3 mb-3">Edit</a>
+
+                </div>
+            </div>
+        }
+
+    </div>
+    <div class="row mt-4 mb-4">
+        <div class="col-md-6" style="margin-bottom:6rem;">
+            <h2 class="text-center main-title text-dark">Add a new address</h2>
+            <form asp-action="Address">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="MobileNumber" class="control-label"></label>
+                    <input asp-for="MobileNumber" class="form-control" />
+                    <span asp-validation-for="MobileNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PinCode" class="control-label"></label>
+                    <input asp-for="PinCode" class="form-control" />
+                    <span asp-validation-for="PinCode" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Locality" class="control-label"></label>
+                    <input asp-for="Locality" class="form-control" />
+                    <span asp-validation-for="Locality" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="MainAddress" class="control-label"></label>
+                    <input asp-for="MainAddress" class="form-control" />
+                    <span asp-validation-for="MainAddress" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="City" class="control-label"></label>
+                    <input asp-for="City" class="form-control" />
+                    <span asp-validation-for="City" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="State" class="control-label"></label>
+                    <input asp-for="State" class="form-control" />
+                    <span asp-validation-for="State" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Landmark" class="control-label"></label>
+                    <input asp-for="Landmark" class="form-control" />
+                    <span asp-validation-for="Landmark" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AlternatePhone" class="control-label"></label>
+                    <input asp-for="AlternatePhone" class="form-control" />
+                    <span asp-validation-for="AlternatePhone" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Deliver to this Address" class="btn btn-color" />
+                </div>
+            </form>
+        </div>
+        @*<div class="col-md-6">
+                <h2 class="text-center main-title text-dark">Pick Up From Store</h2>
+                <div style="border: solid 1px gray; padding: 20px">
+                    <p>
+
+                    </p>
+
+
+                    <a class="btn btn-success " asp-action="CheckOutOptions" asp-controller="CheckOut"> <span><i class="fas fa-store mr-2"></i></span>Pick up From Store</a>
+                    <br />
+
+                </div>
+            </div>*@
+    </div>
+</div>
+

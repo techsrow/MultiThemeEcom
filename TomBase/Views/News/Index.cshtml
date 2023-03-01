@@ -1,0 +1,48 @@
+﻿@model IEnumerable<TomBase.Models.News>
+
+
+    <section class="header" style="background: #3A0100;">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12" style="margin-top:49px;">
+                    <h2 class="text-center text-white" style="margin-bottom:44px;">News</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+<div class="section section-padding  posts">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12">
+
+                <div class="row">
+
+                    @foreach (var news in Model)
+                    {
+                        <!-- Post Start -->
+                        <div class="col-lg-4 col-md-4">
+                            <article class="post">
+                                <div class="post-thumbnail">
+                                    <a href="@news.Slug">
+                                        <img src="@news.Image" class="img-fluid" alt="@news.Slug">
+                                        <h6 class="text-center mt-3"> @news.Date</h6>
+                                    </a>
+
+                                </div>
+
+
+                            </article>
+                        </div>
+                        <!-- Post End -->
+                    }
+
+
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,101 @@
+﻿@model BasePackageModule2.Models.Page
+
+@{
+    ViewData["Title"] = "Details";
+}
+<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+
+    <!--begin::Post-->
+    <div class="post d-flex flex-column-fluid" id="kt_post">
+        <!--begin::Container-->
+        <div id="kt_content_container" class="container-xxl">
+            <!--begin::Post card-->
+            <div class="card">
+
+                <!--begin::Body-->
+                <div class="card-body p-lg-20 pb-lg-0">
+                    <!--begin::Layout-->
+                    <div class="d-flex flex-column flex-xl-row">
+                        <!--begin::Content-->
+                        <div class="flex-lg-row-fluid me-xl-15">
+                            <!--begin::Post content-->
+                            <div class="mb-17">
+                                <!--begin::Wrapper-->
+                                <div class="mb-8">
+                                    <!--begin::Info-->
+                                    <div class="d-flex flex-wrap mb-6">
+                                        <!--begin::Item-->
+                                        <!--end::Item-->
+                                        <!--begin::Item-->
+                                        <div class="me-9 my-1">
+                                            <!--begin::Icon-->
+                                            <!--SVG file not found: icons/duotune/finance/fin006.svgFolder.svg-->
+                                            <!--end::Icon-->
+                                            <!--begin::Label-->
+                                            <!--begin::Label-->
+                                        </div>
+                                        <!--end::Item-->
+                                        <!--begin::Item-->
+                                        <!--end::Item-->
+                                    </div>
+                                    <!--end::Info-->
+                                    <!--begin::Title-->
+                                    <a href="#" class="text-dark text-hover-primary fs-2 fw-bolder">
+                                        Product Name : @Model.Name
+
+                                    </a>
+                                    <!--end::Title-->
+                                    <!--begin::Container-->
+                                    <div class="overlay mt-8">
+                                        <!--begin::Image-->
+                                        <!--end::Image-->
+                                        <!--begin::Links-->
+                                        <div class="overlay-layer card-rounded bg-dark bg-opacity-25">
+                                            <a asp-action="Edit" asp-route-Id="@Model.Id" class="btn btn-primary">Edit</a>
+                                            <a asp-action="Delete" asp-route-Id="@Model.Id" class="btn btn-danger ms-3">Delete</a>
+                                        </div>
+                                        <!--end::Links-->
+                                    </div>
+                                    <!--end::Container-->
+                                </div>
+                                <!--end::Wrapper-->
+                                <!--begin::Description-->
+                                <div class="fs-5 fw-bold text-gray-600">
+                                    <!--begin::Text-->
+                                    <p class="mb-8">
+                                        @Html.Raw(@Model.Content)
+
+                                    </p>
+
+                                </div>
+                                <!--end::Description-->
+                                <!--begin::Block-->
+                                <!--end::Block-->
+
+                            </div>
+                            <!--end::Post content-->
+                        </div>
+                        <!--end::Content-->
+
+                    </div>
+                    <!--end::Layout-->
+                    <div class="pb-4">
+                        <a asp-action="Edit" asp-route-Id="@Model.Id" class="btn btn-primary">Edit</a>
+                        <a asp-action="Delete" asp-route-Id="@Model.Id" class="btn btn-danger ms-3">Delete</a>
+                    </div>
+                </div>
+                <!--end::Body-->
+            </div>
+            <!--end::Post card-->
+
+            
+
+        </div>
+        <!--end::Container-->
+    </div>
+    <!--end::Post-->
+
+
+</div>
+
+

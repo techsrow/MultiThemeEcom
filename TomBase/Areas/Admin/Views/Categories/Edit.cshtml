@@ -1,0 +1,207 @@
+﻿@model BasePackageModule2.Models.Category
+
+@{ ViewData["Title"] = "Edit"; }
+
+
+
+<div id="kt_content_container" class="container-xxl" data-select2-id="select2-data-kt_content_container">
+    <!--begin::Form-->
+    <form asp-action="Edit" enctype="multipart/form-data" id="kt_ecommerce_add_product_form" class="form d-flex flex-column flex-lg-row fv-plugins-bootstrap5 fv-plugins-framework" data-kt-redirect="products.html" data-select2-id="select2-data-kt_ecommerce_add_product_form">
+        <!--begin::Aside column-->
+        <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10">
+            <!--begin::Thumbnail settings-->
+            <div class="card card-flush py-4">
+                <!--begin::Card header-->
+                <div class="card-header">
+                    <!--begin::Card title-->
+                    <div class="card-title">
+                        <h2>Thumbnail</h2>
+                    </div>
+                    <!--end::Card title-->
+                </div>
+                <!--end::Card header-->
+                <!--begin::Card body-->
+                <div class="card-body text-center pt-0">
+                    <!--begin::Image input-->
+                    <div class="image-input image-input-outline mb-3 image-input-empty" data-kt-image-input="true" style="background-image: url(../../../assets/media/svg/files/blank-image.svg)">
+                        <!--begin::Preview existing avatar-->
+                        <div class="image-input-wrapper w-150px h-150px" style="background-image:url('@Model.Image')"></div>
+                        <!--end::Preview existing avatar-->
+                        <!--begin::Label-->
+                        <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="" data-bs-original-title="Change avatar">
+                            <i class="bi bi-pencil-fill fs-7"></i>
+                            <!--begin::Inputs-->
+                            <input accept="image/*" name="image" type="file" >
+                            <input type="hidden" name="mainImage" value="0">
+                            <!--end::Inputs-->
+                        </label>
+                        <!--end::Label-->
+                        <!--begin::Cancel-->
+                        <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="" data-bs-original-title="Cancel avatar">
+                            <i class="bi bi-x fs-2"></i>
+                        </span>
+                        <!--end::Cancel-->
+                        <!--begin::Remove-->
+                        <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="" data-bs-original-title="Remove avatar">
+                            <i class="bi bi-x fs-2"></i>
+                        </span>
+                        <!--end::Remove-->
+                    </div>
+                    <!--end::Image input-->
+                    <!--begin::Description-->
+                    <div class="text-muted fs-7">Set the product thumbnail image. Only *.png, *.jpg and *.jpeg image files are accepted</div>
+                    <!--end::Description-->
+                </div>
+                <!--end::Card body-->
+            </div>
+            <!--end::Thumbnail settings-->
+
+
+
+
+
+        </div>
+        <!--end::Aside column-->
+
+        <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10" data-select2-id="select2-data-155-8mz4">
+            <!--begin:::Tabs-->
+            <ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x border-0 fs-4 fw-bold mb-n2">
+                <!--begin:::Tab item-->
+                <li class="nav-item">
+                    <a class="nav-link text-active-primary pb-4 active" data-bs-toggle="tab" href="#kt_ecommerce_add_product_general">General</a>
+                </li>
+                <!--end:::Tab item-->
+
+            </ul>
+            <!--end:::Tabs-->
+            <!--begin::Tab content-->
+            <div class="tab-content">
+                <!--begin::Tab pane-->
+                <div class="tab-pane fade active show" id="kt_ecommerce_add_product_general" role="tab-panel">
+                    <div class="d-flex flex-column gap-7 gap-lg-10">
+                        <!--begin::General options-->
+                        <div class="card card-flush py-4">
+                            <!--begin::Card header-->
+                            <div class="card-header">
+                                <div class="card-title">
+                                    <h2>General</h2>
+                                </div>
+                            </div>
+                            <!--end::Card header-->
+                            <!--begin::Card body-->
+                            <div class="card-body pt-0">
+                                <!--begin::Input group-->
+                                <div class="mb-10 fv-row fv-plugins-icon-container">
+                                    <!--begin::Label-->
+                                    <label class="required form-label">Category Name</label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <input type="text" asp-for="Name" class="form-control mb-2" placeholder="Category name">
+                                    <!--end::Input-->
+                                    <!--begin::Description-->
+                                    <div class="text-muted fs-7">A category name is required and recommended to be unique.</div>
+                                    <!--end::Description-->
+                                    <div class="fv-plugins-message-container invalid-feedback"></div>
+                                </div>
+                                <!--end::Input group-->
+                                <!--begin::Input group-->
+                                <!--end::Input group-->
+                            </div>
+                            <!--end::Card header-->
+                        </div>
+                        <!--end::General options-->
+
+                    </div>
+                </div>
+                <!--end::Tab pane-->
+                <!--begin::Tab pane-->
+                <!--end::Tab pane-->
+            </div>
+            <!--end::Tab content-->
+            <div class="d-flex justify-content-end">
+                <!--begin::Button-->
+                <a asp-controller="Categories" asp-action="Index" id="kt_ecommerce_add_product_cancel" class="btn btn-light me-5">Back To List</a>
+                <!--end::Button-->
+                <!--begin::Button-->
+                <button type="submit" id="kt_ecommerce_add_product_submit" class="btn btn-primary">
+                    <span class="indicator-label">Save Changes</span>
+                    <span class="indicator-progress">
+                        Please wait...
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </button>
+                <!--end::Button-->
+            </div>
+        </div>
+
+    </form>
+    <!--end::Form-->
+</div>
+
+<!--<div class="col-sm-12">-->
+    <!-- Basic Form Inputs card start -->
+    <!--<div class="card">
+        <div class="card-header">
+
+            <h1>Edit</h1>
+            <h4>Category</h4>
+            <hr />
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+        </div>
+        <div class="card-block">
+            <form asp-action="Edit" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Image" class="control-label"></label>
+                    <input accept="image/*" name="image" type="file" class="form-control" />
+                    <span asp-validation-for="Image" class="text-danger"></span>
+                </div>
+               
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+
+</div>-->
+
+@section styles
+{
+    <link href="~/lib/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet" />
+}
+
+@section Scripts {
+    <script src="~/lib/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script type="text/javascript" src="/lib/tinymce/tinymce.min.js"></script>
+    <script type="text/javascript">
+        tinymce.init({
+            selector: '#Description, #ShortDescription',
+            plugins: [
+                'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
+                'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+                'table emoticons template paste help'
+            ],
+            toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify |' +
+                'fontselect fontsizeselect | forecolor backcolor' +
+                ' bullist numlist outdent indent | link image | print preview media fullpage | ' +
+                'forecolor backcolor emoticons | help',
+            menu: {
+                favs: { title: 'My Favorites', items: 'code visualaid | searchreplace | spellchecker | emoticons' }
+            },
+            menubar: 'favs file edit view insert format tools table help',
+        });</script>
+}

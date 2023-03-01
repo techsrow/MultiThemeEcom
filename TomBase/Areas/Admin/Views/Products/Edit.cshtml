@@ -1,0 +1,692 @@
+﻿@model BasePackageModule2.Models.Product
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+
+<div id="kt_content_container" class="container-xxl" data-select2-id="select2-data-kt_content_container">
+    <!--begin::Form-->
+    <form asp-action="Edit" enctype="multipart/form-data" id="kt_ecommerce_add_product_form" class="form d-flex flex-column flex-lg-row fv-plugins-bootstrap5 fv-plugins-framework" data-kt-redirect="products.html" data-select2-id="select2-data-kt_ecommerce_add_product_form">
+        <!--begin::Aside column-->
+        <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10">
+            <!--begin::Thumbnail settings-->
+            <div class="card card-flush py-4">
+                <!--begin::Card header-->
+                <div class="card-header">
+                    <!--begin::Card title-->
+                    <div class="card-title">
+                        <h2>Thumbnail</h2>
+                    </div>
+                    <!--end::Card title-->
+                </div>
+                <!--end::Card header-->
+                <!--begin::Card body-->
+                <div class="card-body text-center pt-0">
+                    <!--begin::Image input-->
+                    <div class="image-input image-input-outline mb-3 image-input-empty" data-kt-image-input="true" style="background-image: url(../../../assets/media/svg/files/blank-image.svg)">
+                        <!--begin::Preview existing avatar-->
+                        <div class="image-input-wrapper w-150px h-150px" style="background-image: url('@Model.Image')"></div>
+                       
+                        <!--end::Preview existing avatar-->
+                        <!--begin::Label-->
+                        <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="" data-bs-original-title="Change avatar">
+                            <i class="bi bi-pencil-fill fs-7"></i>
+                            <!--begin::Inputs-->
+                            <input type="file" accept="image/*" name="mainImage">
+                            <input type="hidden" name="mainImage" value="0">
+                            <!--end::Inputs-->
+                        </label>
+                        <!--end::Label-->
+                        <!--begin::Cancel-->
+                        <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="" data-bs-original-title="Cancel avatar">
+                            <i class="bi bi-x fs-2"></i>
+                        </span>
+                        <!--end::Cancel-->
+                        <!--begin::Remove-->
+                        <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="" data-bs-original-title="Remove avatar">
+                            <i class="bi bi-x fs-2"></i>
+                        </span>
+                        <!--end::Remove-->
+                    </div>
+                    <!--end::Image input-->
+                    <!--begin::Description-->
+                    <div class="text-muted fs-7">Set the product thumbnail image. Only *.png, *.jpg and *.jpeg image files are accepted</div>
+                    <!--end::Description-->
+                </div>
+                <!--end::Card body-->
+            </div>
+            <!--end::Thumbnail settings-->
+            <!--begin::Category & tags-->
+            <div class="card card-flush py-4">
+                <!--begin::Card header-->
+                <div class="card-header">
+                    <!--begin::Card title-->
+                    <div class="card-title">
+                        <h2>Product Details</h2>
+                    </div>
+                    <!--end::Card title-->
+                </div>
+                <!--end::Card header-->
+                <!--begin::Card body-->
+                <div class="card-body pt-0">
+                    <!--begin::Input group-->
+                    <!--begin::Label-->
+                    <label class="form-label">Categories</label>
+                    <!--end::Label-->
+                    <!--begin::Select2-->
+                    <select asp-for="CategoryId" asp-items="ViewBag.CategoryId" class="form-control">
+                        <option value="">---None---</option>
+
+                    </select>
+
+                    <!--end::Select2-->
+                    <!--begin::Description-->
+                    <div class="text-muted fs-7 mb-7">Add product to a category.</div>
+                    <!--end::Description-->
+                    <!--end::Input group-->
+                    <!--begin::Button-->
+                    <a asp-area="Admin" asp-controller="Categories" asp-action="Create" class="btn btn-light-primary btn-sm mb-10">
+                        <!--begin::Svg Icon | path: icons/duotune/arrows/arr087.svg-->
+                        <span class="svg-icon svg-icon-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <rect opacity="0.5" x="11" y="18" width="12" height="2" rx="1" transform="rotate(-90 11 18)" fill="currentColor"></rect>
+                                <rect x="6" y="11" width="12" height="2" rx="1" fill="currentColor"></rect>
+                            </svg>
+                        </span>
+                        <!--end::Svg Icon-->Create new category
+                    </a>
+
+
+
+
+
+
+                </div>
+                <!--end::Card body-->
+
+
+            </div>
+            <!--end::Category & tags-->
+
+            <div class="card card-flush py-4">
+                <div class="card-header">
+                    <div class="card-title">
+
+                    </div>
+                    <div class="card-body pt-0">
+                        <!--begin::Input group-->
+                        <!--begin::Label-->
+                        <label asp-for="SubCategoryId" class="control-label"></label>
+                        <select asp-for="SubCategoryId" class="form-control" asp-items="ViewBag.SubCategoryId">
+                            <option value="">---None---</option>
+                        </select>
+                        <!--begin::Description-->
+                        <div class="text-muted fs-7 mb-7">Add product to a category.</div>
+                        <!--end::Description-->
+                        <!--end::Input group-->
+                        <!--begin::Button-->
+                        <a asp-area="Admin" asp-controller="SubCategories" asp-action="Create" class="btn btn-light-primary btn-sm mb-10">
+                            <!--begin::Svg Icon | path: icons/duotune/arrows/arr087.svg-->
+                            <span class="svg-icon svg-icon-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <rect opacity="0.5" x="11" y="18" width="12" height="2" rx="1" transform="rotate(-90 11 18)" fill="currentColor"></rect>
+                                    <rect x="6" y="11" width="12" height="2" rx="1" fill="currentColor"></rect>
+                                </svg>
+                            </span>
+                            <!--end::Svg Icon-->Create new category
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <!--end::Aside column-->
+        <!--begin::Main column-->
+        <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10" data-select2-id="select2-data-155-8mz4">
+            <!--begin:::Tabs-->
+            <ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x border-0 fs-4 fw-bold mb-n2">
+                <!--begin:::Tab item-->
+                <li class="nav-item">
+                    <a class="nav-link text-active-primary pb-4 active" data-bs-toggle="tab" href="#kt_ecommerce_add_product_general">General</a>
+                </li>
+                <!--end:::Tab item-->
+                <!--begin:::Tab item-->
+                <li class="nav-item">
+                    <a class="nav-link text-active-primary pb-4" data-bs-toggle="tab" href="#kt_ecommerce_add_product_advanced">Advanced</a>
+                </li>
+                <!--end:::Tab item-->
+            </ul>
+            <!--end:::Tabs-->
+            <!--begin::Tab content-->
+            <div class="tab-content">
+                <!--begin::Tab pane-->
+                <div class="tab-pane fade active show" id="kt_ecommerce_add_product_general" role="tab-panel">
+                    <div class="d-flex flex-column gap-7 gap-lg-10">
+                        <!--begin::General options-->
+                        <div class="card card-flush py-4">
+                            <!--begin::Card header-->
+                            <div class="card-header">
+                                <div class="card-title">
+                                    <h2>General</h2>
+                                </div>
+                            </div>
+                            <!--end::Card header-->
+                            <!--begin::Card body-->
+                            <div class="card-body pt-0">
+                                <!--begin::Input group-->
+                                <div class="mb-10 fv-row fv-plugins-icon-container">
+                                    <!--begin::Label-->
+                                    <label class="required form-label">Product Name</label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <input type="text" asp-for="Name" class="form-control mb-2" placeholder="Product name" >
+                                    <!--end::Input-->
+                                    <!--begin::Description-->
+                                    <div class="text-muted fs-7">A product name is required and recommended to be unique.</div>
+                                    <!--end::Description-->
+                                    <div class="fv-plugins-message-container invalid-feedback"></div>
+                                </div>
+                                <!--end::Input group-->
+                                <!--begin::Input group-->
+                                <div>
+                                    <!--begin::Label-->
+                                    <label class="form-label">Description</label>
+                                    <!--end::Label-->
+                                    <!--begin::Editor-->
+                                    <textarea id="Description" asp-for="Description" class="form-control"></textarea>
+                                    <!--end::Editor-->
+                                    <!--begin::Description-->
+                                    <div class="text-muted fs-7">Set a description to the product for better visibility.</div>
+                                    <!--end::Description-->
+                                </div>
+                                <!--end::Input group-->
+                            </div>
+                            <!--end::Card header-->
+                        </div>
+                        <!--end::General options-->
+                        <!--begin::Media-->
+                        <div class="card card-flush py-4">
+                            <!--begin::Card header-->
+                            <div class="card-header">
+                                <div class="card-title">
+                                    <h2>Media</h2>
+                                </div>
+                            </div>
+                            <!--end::Card header-->
+                            <!--begin::Card body-->
+                            <div class="card-body pt-0">
+                                <!--begin::Input group-->
+                                <div class="fv-row mb-2">
+                                    <!--begin::Dropzone-->
+                                    <div class="dropzone dz-clickable" id="kt_ecommerce_add_product_media">
+                                        <!--begin::Message-->
+                                        <div class="dz-message needsclick">
+                                            <!--begin::Icon-->
+                                            <i class="bi bi-file-earmark-arrow-up text-primary fs-3x"></i>
+                                            <!--end::Icon-->
+                                            <!--begin::Info-->
+                                            <div class="ms-4">
+                                                <h3 class="fs-5 fw-bolder text-gray-900 mb-1">Drop files here or click to upload.</h3>
+                                                <span class="fs-7 fw-bold text-gray-400">Upload up to 10 files</span>
+                                                <input type="file" name="images" multiple accept="image/*" class="form-control">
+                                                @if (Model.Images.Any())
+                                                {
+                                                    <div class="row">
+                                                        @foreach (var image in Model.Images)
+                                                        {
+                                                            <div class="col-lg-3 col-md-4 col-xs-6 thumb" style="margin-top:20px;">
+                                                                <div class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
+                                                                     data-image="@image.Img"
+                                                                     data-target="#image-gallery">
+                                                                    <img class="img-thumbnail"
+                                                                         src="@image.Img"
+                                                                         alt="Another alt text">
+                                                                    <a asp-action="DeleteProductImage" asp-route-imageId="@image.Id" style=" margin-top: 10px; margin-left: 1rem;" asp-route-productId="@Model.Id" class="text-danger"><i class="fa fa-trash"></i></a>
+                                                                </div>
+                                                               
+                                                                   
+                                                               
+                                                            </div>
+                                                        }
+                                                    </div>
+                                                }
+                                            </div>
+                                            <!--end::Info-->
+                                        </div>
+                                    </div>
+                                    <!--end::Dropzone-->
+                                </div>
+                                <!--end::Input group-->
+                                <!--begin::Description-->
+                                <div class="text-muted fs-7">Set the product media gallery.</div>
+                                <!--end::Description-->
+                            </div>
+                            <!--end::Card header-->
+                        </div>
+                        <!--end::Media-->
+                        <!--begin::Pricing-->
+                        <div class="card card-flush py-4">
+                            <!--begin::Card header-->
+                            <div class="card-header">
+                                <div class="card-title">
+                                    <h2>Pricing</h2>
+                                </div>
+                            </div>
+                            <!--end::Card header-->
+                            <!--begin::Card body-->
+                            <div class="card-body pt-0">
+                                <!--begin::Input group-->
+                                <div class="mb-10 fv-row fv-plugins-icon-container">
+                                    <!--begin::Label-->
+                                    <label class="required form-label">Base Price</label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <input type="text" asp-for="BasePrice" class="form-control mb-2" placeholder="Product price">
+                                    <!--end::Input-->
+                                    <!--begin::Description-->
+                                    <div class="text-muted fs-7">Set the product price.</div>
+                                    <!--end::Description-->
+                                    <div class="fv-plugins-message-container invalid-feedback"></div>
+                                </div>
+                                <!--end::Input group-->
+                                <!--begin::Input group-->
+
+
+                                <div class="mb-10 fv-row" id="kt_ecommerce_add_product_discount_fixed">
+                                    <!--begin::Label-->
+                                    <label class="form-label">Fixed Discounted Price</label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <input type="text" asp-for="DiscountAmount" class="form-control mb-2" placeholder="Discounted price">
+                                    <!--end::Input-->
+                                    <!--begin::Description-->
+                                    <div class="text-muted fs-7">Set the discounted product price. The product will be reduced at the determined fixed price</div>
+                                    <!--end::Description-->
+                                </div>
+
+
+                                <div class="mb-10 fv-row" id="kt_ecommerce_add_product_discount_fixed">
+                                    <!--begin::Label-->
+                                    <label class="form-label">Final Price</label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <input id="FinalPrice" value="@Model.FinalPrice"  class="form-control" disabled="disabled" />
+                                    <!--end::Input-->
+                                    <!--begin::Description-->
+                                    <!--end::Description-->
+                                </div>
+                                <!--end::Input group-->
+
+                            </div>
+                            <!--end::Card header-->
+                        </div>
+                        <!--end::Pricing-->
+                    </div>
+                </div>
+                <!--end::Tab pane-->
+                <!--begin::Tab pane-->
+                <div class="tab-pane fade" id="kt_ecommerce_add_product_advanced" role="tab-panel">
+                    <div class="d-flex flex-column gap-7 gap-lg-10">
+                        <div class="card card-flush py-4">
+                            <!--begin::Card header-->
+                            <div class="card-header">
+                                <div class="card-title">
+                                    <h2>Inventory</h2>
+                                </div>
+                            </div>
+                            <!--end::Card header-->
+                            <!--begin::Card body-->
+                            <div class="card-body pt-0">
+                                <!--begin::Input group-->
+                                <div class="mb-10 fv-row fv-plugins-icon-container">
+                                    <!--begin::Label-->
+                                    <label class="required form-label">SKU</label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <input type="text" asp-for="sku" class="form-control mb-2" placeholder="SKU Number">
+                                    <!--end::Input-->
+                                    <!--begin::Description-->
+                                    <div class="text-muted fs-7">Enter the product SKU.</div>
+                                    <!--end::Description-->
+                                    <div class="fv-plugins-message-container invalid-feedback"></div>
+                                </div>
+                                <!--end::Input group-->
+
+                            </div>
+                            <!--end::Card header-->
+                        </div>
+                        <!--begin::Meta options-->
+                        <div class="card card-flush py-4">
+                            <!--begin::Card header-->
+                            <div class="card-header">
+                                <div class="card-title">
+                                    <h2>Meta Options</h2>
+                                </div>
+                            </div>
+                            <!--end::Card header-->
+                            <!--begin::Card body-->
+                            <div class="card-body pt-0">
+                                <!--begin::Input group-->
+                                <div class="mb-10">
+                                    <!--begin::Label-->
+                                    <label class="form-label">Slug</label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <input type="text" class="form-control mb-2" asp-for="Slug" placeholder="Meta tag name">
+                                    <!--end::Input-->
+                                    <!--begin::Description-->
+                                    <div class="text-muted fs-7">Set a meta tag title. Recommended to be simple and precise keywords.</div>
+                                    <!--end::Description-->
+                                </div>
+                                <!--end::Input group-->
+
+                            </div>
+                            <!--end::Card header-->
+                            <!--begin::Card body-->
+                            <div class="card-body pt-0">
+                                <!--begin::Input group-->
+                                <div class="mb-10">
+                                    <!--begin::Label-->
+                                    <label class="form-label">Shipping</label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <div class="form-group form-check">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" asp-for="FreeShipping" /> @Html.DisplayNameFor(model => model.FreeShipping)
+                                        </label>
+                                    </div>
+                                    <!--end::Description-->
+                                </div>
+                                <!--end::Input group-->
+
+                            </div>
+                            <!--end::Card header-->
+                            <div class="card-body pt-0">
+                                <!--begin::Input group-->
+                                <div class="mb-10">
+                                    <!--begin::Label-->
+                                    <label class="form-label">Status</label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <div class="form-group form-check">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" asp-for="Status" /> @Html.DisplayNameFor(model => model.Status)
+                                        </label>
+                                    </div>
+                                    <!--end::Description-->
+                                </div>
+                                <!--end::Input group-->
+
+                            </div>
+
+                           
+                        </div>
+                        <!--end::Meta options-->
+                    </div>
+                </div>
+                <!--end::Tab pane-->
+            </div>
+            <!--end::Tab content-->
+            <div class="d-flex justify-content-end">
+                <!--begin::Button-->
+                <a asp-action="Index" id="kt_ecommerce_add_product_cancel" class="btn btn-light me-5">Cancel</a>
+                <!--end::Button-->
+                <!--begin::Button-->
+                <button type="submit" id="kt_ecommerce_add_product_submit" class="btn btn-primary">
+                    <span class="indicator-label">Save Changes</span>
+                    <span class="indicator-progress">
+                        Please wait...
+                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    </span>
+                </button>
+                <!--end::Button-->
+            </div>
+        </div>
+        <!--end::Main column-->
+        <div></div>
+    </form>
+    <!--end::Form-->
+</div>
+
+@*<div class="col-sm-12">
+    <div class="card">
+        <div class="card-header">
+
+
+            <h4>Update Product</h4>
+            <hr />
+            <div asp-validation-summary="All" class="text-danger"></div>
+            
+
+        </div>
+        <div class="card-block">
+            <form asp-action="Edit" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="CategoryId" class="control-label"></label>
+                    <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId">
+                        <option value="">---None---</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="SubCategoryId" class="control-label"></label>
+                    <select asp-for="SubCategoryId" class="form-control" asp-items="ViewBag.SubCategoryId">
+                        <option value="">---None---</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="row">
+                    <div class="col-md-12"><h3 class="control-label text-center">Main Image</h3></div>
+                    <div class="form-group col-md-6">
+                        <input type="file" accept="image/*" name="mainImage" class="form-control" />
+                        <span asp-validation-for="Image" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <img width="200" src="@Model.Image" alt="@Model.Name" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12"><h3 class="control-label text-center">Product Images</h3></div>
+                    <div class="col-md-6 form-group">
+                        <input type="file" name="images" multiple accept="image/*" class="form-control">
+                        <span asp-validation-for="Images" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6">
+                        @if (Model.Images.Any())
+                        {
+                            <div class="row">
+                                @foreach (var image in Model.Images)
+                                {
+                                    <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                                        <div class="thumbnail" href="#" data-image-id="" data-toggle="modal" data-title=""
+                                             data-image="@image.Img"
+                                             data-target="#image-gallery">
+                                            <img class="img-thumbnail"
+                                                 src="@image.Img"
+                                                 alt="Another alt text">
+                                        </div>
+                                        <div>
+                                            <a asp-action="DeleteProductImage" asp-route-imageId="@image.Id" asp-route-productId="@Model.Id" style="position: absolute; top: 0; right: 20px;" class="text-danger"><i class="fa fa-trash"></i></a>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ShortDescription" class="control-label"></label>
+                    <textarea asp-for="ShortDescription" class="form-control"></textarea>
+                    <span asp-validation-for="ShortDescription" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label"></label>
+                    <textarea id="Description" asp-for="Description" class="form-control"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+
+                <div class="form-group">
+                    <label asp-for="BasePrice" class="control-label"></label>
+                    <input asp-for="BasePrice" class="form-control" />
+                    <span asp-validation-for="BasePrice" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DiscountAmount" class="control-label"></label>
+                    <input asp-for="DiscountAmount" class="form-control" />
+                    <span asp-validation-for="DiscountAmount" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FinalPrice" class="control-label"></label>
+                    <input id="FinalPrice" value="@Model.FinalPrice" class="form-control" disabled="disabled" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ProductTags" class="control-label"></label>
+                    <input asp-for="ProductTags" data-role="tagsinput" class="form-control" />
+                    <span asp-validation-for="ProductTags" class="text-danger"></span>
+                </div>
+                <div class="form-group required">
+                    <label asp-for="sku" class="control-label"></label>
+                    <input asp-for="sku" class="form-control" />
+                    <span asp-validation-for="sku" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Slug" class="control-label"></label>
+                    <input asp-for="Slug" class="form-control" />
+                    <span asp-validation-for="Slug" class="text-danger"></span>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="FreeShipping" /> @Html.DisplayNameFor(model => model.FreeShipping)
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Status" /> @Html.DisplayNameFor(model => model.Status)
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Essential" /> @Html.DisplayNameFor(model => model.Essential)
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Featured" /> @Html.DisplayNameFor(model => model.Featured)
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input"  asp-for="hotselling" /> @Html.DisplayNameFor(model => model.hotselling)
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input"  asp-for="premium" /> @Html.DisplayNameFor(model => model.premium)
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input"  asp-for="traditional" /> @Html.DisplayNameFor(model => model.traditional)
+                    </label>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Update Product" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+</div>*@
+
+
+
+@section styles
+{
+    <link href="~/lib/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet" />
+}
+
+@section Scripts {
+    <script src="~/lib/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
+
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script type="text/javascript" src="/lib/tinymce/tinymce.min.js"></script>
+    <script type="text/javascript">
+        tinymce.init({
+            selector: '#Description',
+            height: 400,
+            plugins: [
+                'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
+                'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+                'table emoticons template paste help'
+            ],
+            toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify |' +
+                'fontselect fontsizeselect | forecolor backcolor' +
+                ' bullist numlist outdent indent | link image | print preview media fullpage | ' +
+                'forecolor backcolor emoticons | help',
+            menu: {
+                favs: { title: 'My Favorites', items: 'code visualaid | searchreplace | spellchecker | emoticons' }
+            },
+            menubar: 'favs file edit view insert format tools table help',
+        });</script>
+
+
+    <script type="text/javascript">
+
+    $(document).ready(function () {
+        var BasePrice = $("#BasePrice");
+        var DiscountedPrice = $("#DiscountAmount");
+            
+        var FinalPrice = $("#FinalPrice");
+
+        console.log(BasePrice, DiscountedPrice, FinalPrice)
+
+        BasePrice.on('change', function () {
+            console.log(DiscountedPrice.val())
+            FinalPrice.val(this.value - DiscountedPrice.val());
+        });
+
+        DiscountedPrice.on('change', function() {
+            FinalPrice.val(BasePrice.val() - this.value);
+        });
+
+
+        getSubCategory();
+        $('#CategoryId').change(function () {
+            getSubCategory();
+        });
+    });
+
+    function getSubCategory() {
+        var url = '@Url.Content("~/")' + "Admin/SubCategories/GetSubCategory";
+        var ddlsource = '#CategoryId';
+        $.getJSON(url, { id: $(ddlsource).val() }, function (data) {
+
+            var items = '';
+            $('#SubCategoryId').empty();
+            $.each(data, function (i, subcategory) {
+
+                items += "<option value='" + subcategory.value +"'>" + subcategory.text + "</option>";
+
+            });
+            $('#SubCategoryId').html(items);
+
+        })
+    }
+
+    </script>
+}

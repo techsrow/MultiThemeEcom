@@ -1,0 +1,75 @@
+﻿@model BasePackageModule2.ViewModels.ContactViewModel
+
+    <style>
+        .map-responsive {
+            overflow: hidden;
+            padding-bottom: 56.25%;
+            position: relative;
+            height: 0;
+        }
+
+            .map-responsive iframe {
+                left: 0;
+                top: 0;
+                height: 100%;
+                width: 100%;
+                position: absolute;
+            }
+    </style>
+
+    <!-- Bread Crumb STRAT -->
+    <div class="banner inner-banner1 ">
+        <div class="container">
+            <section class="banner-detail center-xs">
+                <h1 class="banner-title">Contact</h1>
+                <div class="bread-crumb right-side float-none-xs">
+                    <ul>
+                        <li><a asp-action="Index" asp-controller="Home">Home</a>/</li>
+                        <li><span>Contact</span></li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </div>
+    <!-- Bread Crumb END -->
+    <section class="pt-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="map-responsive">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d120687.52788382239!2d72.77037495526918!3d19.042391271608505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7cf09ecd8878b%3A0xfb6b76c774356064!2sSPINNERS%20cycles%26%20fitness!5e0!3m2!1sen!2sin!4v1633503723259!5m2!1sen!2sin" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pt-70 client-main align-center">
+        <div class="container">
+            <div class="contact-info">
+                <div class="row m-0">
+                    <div class="col-md-4 p-0">
+                        <div class="contact-box">
+                            <div class="contact-icon contact-phone-icon"></div>
+                            <span><b>Tel</b></span>
+                            <p>@Model.BusinessProfile.RegisteredContactNumber / @Model.BusinessProfile.DisplayContact1 / @Model.BusinessProfile.DisplayContact2 </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 p-0">
+                        <div class="contact-box">
+                            <div class="contact-icon contact-mail-icon"></div>
+                            <span><b>Mail</b></span>
+                            <p>@Model.BusinessProfile.EmailAddress </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 p-0">
+                        <div class="contact-box">
+                            <div class="contact-icon contact-open-icon"></div>
+                            <span><b>Open</b></span>
+                            <p>Mon – Sat: 9:00 AM – 8:PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

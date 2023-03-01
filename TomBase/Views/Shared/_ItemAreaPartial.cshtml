@@ -1,0 +1,169 @@
+﻿@model IEnumerable<BasePackageModule2.Models.Product>
+
+
+
+
+@if (Model.Any())
+{
+
+   
+        <!-- Product Area Start -->
+        <div class="product-wrapper section-space--ptb_120">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="shop-toolbar__items shop-toolbar__item--left">
+                            
+
+                            <div class="shop-toolbar__item shop-short-by">
+                                <ul>
+                                    <li>
+                                        <a href="#">Sort by <i class="fa fa-angle-down angle-down"></i></a>
+                                        <ul>
+                                            <li class="active"><a href="#">Default sorting</a></li>
+                                          
+                                        </ul>
+                                    </li>
+
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="shop-toolbar__items shop-toolbar__item--right">
+                            <div class="shop-toolbar__items-wrapper">
+                                <div class="shop-toolbar__item">
+                                    <ul class="nav toolber-tab-menu justify-content-start" role="tablist">
+                                        <li class="tab__item nav-item active">
+                                            <a class="nav-link" data-toggle="tab" href="#tab_columns_01" role="tab">
+                                                <img src="~/theme/assets/images/svg/column-03.svg" class="img-fluid" alt="Columns 03">
+                                            </a>
+                                        </li>
+                                        <li class="tab__item nav-item">
+                                            <a class="nav-link active" data-toggle="tab" href="#tab_columns_02" role="tab"><img src="~/theme/assets/images/svg/column-04.svg" class="img-fluid" alt="Columns 03"> </a>
+                                        </li>
+                                        <li class="tab__item nav-item">
+                                            <a class="nav-link" data-toggle="tab" href="#tab_columns_03" role="tab"><img src="~/theme/assets/images/svg/column-05.svg" class="img-fluid" alt="Columns 03"> </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <div class="tab-content">
+                    <div class="tab-pane fade" id="tab_columns_01">
+                        <div class="row">
+                            @foreach (var item in Model)
+                            {
+                            <div class="col-lg-4 col-md-4 col-sm-6">
+                                <!-- Single Product Item Start -->
+                                <div class="single-product-item text-center">
+                                    <div class="products-images">
+                                        <a asp-action="Details" asp-controller="Products" asp-route-id="@item.Id" class="product-thumbnail">
+                                            <img src="@item.Image" class="img-fluid" alt="Product Images">
+
+                                           
+                                        </a>
+                                        <div class="product-actions">
+                                            <a asp-action="Details" asp-controller="Products" asp-route-id="@item.Id" ><i class="p-icon icon-plus"></i><span class="tool-tip">Quick View</span></a>
+                                           
+                                        </div>
+                                    </div>
+                                    <div class="product-content">
+                                        <h6 class="prodect-title"><a asp-action="Details" asp-controller="Products" asp-route-id="@item.Id">@item.Name</a></h6>
+                                        @*<div class="prodect-price">
+                                            <span class="new-price">£40.00</span> - <span class="old-price"> £635.00</span>
+                                        </div>*@
+                                    </div>
+                                </div><!-- Single Product Item End -->
+                            </div>
+
+                          
+                            }
+                        </div>
+                    </div>
+                    <div class="tab-pane fade show active" id="tab_columns_02">
+                        <div class="row">
+                            @foreach(var item in Model)
+                            {
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                                <!-- Single Product Item Start -->
+                                <div class="single-product-item text-center">
+                                    <div class="products-images">
+                                        <a asp-action="Details" asp-controller="Products" asp-route-id="@item.Id"  class="product-thumbnail">
+                                            <img src="@item.Image" class="img-fluid" alt="Product Images">
+
+                                        </a>
+                                        <div class="product-actions">
+                                            <a asp-action="Details" asp-controller="Products" asp-route-id="@item.Id" ><i class="p-icon icon-plus"></i><span class="tool-tip">Quick View</span></a>
+                                           
+                                        </div>
+                                    </div>
+                                    <div class="product-content">
+                                        <h6 class="prodect-title"><a asp-action="Details" asp-controller="Products" asp-route-id="@item.Id" >@item.Name</a></h6>
+                                        @*<div class="prodect-price">
+                                            <span class="new-price">£46.00</span>
+                                        </div>*@
+                                    </div>
+                                </div><!-- Single Product Item End -->
+                            </div>
+                            }
+                            
+
+                          
+
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="tab_columns_03">
+                        <div class="row">
+                            @foreach (var item in Model)
+                            {
+                                <div class="col__20">
+                                    <!-- Single Product Item Start -->
+                                    <div class="single-product-item text-center">
+                                        <div class="products-images">
+                                            <a href="product-details.html" class="product-thumbnail">
+                                                <img src="@item.Image" class="img-fluid" alt="Product Images">
+
+                                            </a>
+                                            <div class="product-actions">
+                                                <a asp-action="Details" asp-controller="Products" asp-route-id="@item.Id"><i class="p-icon icon-plus"></i><span class="tool-tip">Quick View</span></a>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h6 class="prodect-title"><a asp-action="Details" asp-controller="Products" asp-route-id="@item.Id">@item.Name</a></h6>
+                                            @*<div class="prodect-price">
+                                                <span class="new-price">£60.00</span> - <span class="old-price"> £69.00</span>
+                                            </div>*@
+                                        </div>
+                                    </div><!-- Single Product Item End -->
+                                </div>
+                            }
+
+
+
+                            0
+
+                          
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Product Area End -->
+    
+
+
+
+
+
+}
+

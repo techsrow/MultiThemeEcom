@@ -1,0 +1,58 @@
+﻿@model BasePackageModule2.ViewModels.NavViewModel
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@inject IHttpContextAccessor HttpContextAccessor
+@using Microsoft.AspNetCore.Http
+@using Microsoft.EntityFrameworkCore
+
+@{ var user = await UserManager.Users.Include(a => a.Cart).FirstOrDefaultAsync(a => a.Id == UserManager.GetUserId(User));
+}
+
+@if (Model.ThemeSetting != null)
+{
+    @foreach (var theme in Model.ThemeSetting)
+    {
+        @if (theme.ThemeName == "Furniture1" && theme.ThemeCategory == "Furniture1" && theme.IsActive == true && theme.SkinType == "Furniture1")
+        {
+            <!-- Main CSS File -->
+            <link rel="stylesheet" href="~/theme/Molla/assets/css/style.css">
+            <link rel="stylesheet" href="~/theme/Molla/assets/css/skins/skin-demo-2.css">
+            <link rel="stylesheet" href="~/theme/Molla/assets/css/demos/demo-2.css">
+        }
+
+        @if (theme.ThemeName == "Electonic1" && theme.ThemeCategory == "Electonic1" && theme.IsActive == true && theme.SkinType == "Electonic1")
+        {
+            <!-- Main CSS File -->
+            <link rel="stylesheet" href="~/theme/Molla/assets/css/style.css">
+            <link rel="stylesheet" href="~/theme/Molla/assets/css/skins/skin-demo-3.css">
+            <link rel="stylesheet" href="~/theme/Molla/assets/css/demos/demo-3.css">
+        }
+        @if (theme.ThemeName == "Cosmetics" && theme.ThemeCategory == "Cosmetics" && theme.IsActive == true && theme.SkinType == "Cosmetics")
+        {
+            <link rel="stylesheet" href="~/theme/Molla/assets/css/style.css">
+            <link rel="stylesheet" href="~/theme/Molla/assets/css/skins/skin-demo-25.css">
+            <link rel="stylesheet" href="~/theme/Molla/assets/css/demos/demo-25.css">
+
+        }
+        @if (theme.ThemeName == "Fashion1" && theme.ThemeCategory == "Fashion1" && theme.IsActive == true && theme.SkinType == "Fashion1")
+        {
+            <link rel="stylesheet" href="~/theme/Molla/assets/css/style.css">
+            <link rel="stylesheet" href="~/theme/Molla/assets/css/skins/skin-demo-5.css">
+            <link rel="stylesheet" href="~/theme/Molla/assets/css/demos/demo-5.css">
+        }
+        @if (theme.ThemeName == "Fashion" && theme.ThemeCategory == "Cosmetics" && theme.IsActive == true && theme.SkinType == "Cosmetics")
+        {
+            <p>no</p>
+        }
+    }
+
+
+}
+
+
+
+else
+{
+    <p>No Header</p>
+}

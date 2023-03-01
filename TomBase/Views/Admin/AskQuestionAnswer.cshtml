@@ -1,0 +1,118 @@
+﻿@model IEnumerable<TomBase.Models.ProductAskQuestion>
+
+@{
+    ViewData["Title"] = "AskQuestionAnswer";
+}
+
+<br />
+<br />
+<br />
+<br />
+<h1>AskQuestionAnswer</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Product)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User.FirstName)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Question)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.QuestionPostedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Answer)
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        @foreach (var item in Model)
+        {
+           
+        <tr id="@item.Id">
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.Name)
+            </td>
+            <td>
+
+                @Html.DisplayFor(modelItem => item.User.FirstName)  @Html.DisplayFor(modelItem => item.User.LastName)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Question)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.QuestionPostedDate)
+            </td>
+            <td>
+                @Html.TextAreaFor(modelItem => item.Answer, new { @class = "form-control"  ,@style = "height:100px"})
+            </td>
+            <td>
+
+                <a onclick="AskQuestionAnswer( @item.Id  )" class="btn btn-block btn-outline-dark">Submit</a>
+
+            </td>
+
+        </tr>
+
+        }
+
+    </tbody>
+</table>
+
+
+
+<script type="text/javascript">
+
+
+    function AskQuestionAnswer(Id  ) {
+        debugger;
+        var Table = document.getElementById(Id);
+   
+        let Answer = Table.getElementsByTagName("td")[4].children[0].value;
+        
+        if (Answer != undefined && Answer != "") {
+            //var btn = Table.getElementsByTagName("td")[5].getElementsByTagName("a");
+            //btn.prop('disabled', true);
+            $.ajax({
+                type: "POST",
+                url: "/Admin/AskQuestionAnswer",
+                data: { Id: Id, Answer: Answer },
+                success: function (response) {
+                    var a = response;
+                    if (a == 1) {
+                        alert("Sucessful");
+                        Table.style.display = "none";
+                    }
+                    else {
+                        alert("Failed");
+                    }
+                    //btn.prop('disabled', false);
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                    //btn.prop('disabled', false);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                    //btn.prop('disabled', false);
+                }
+            });
+        }
+       
+    }
+
+</script>

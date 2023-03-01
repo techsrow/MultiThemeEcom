@@ -1,0 +1,25 @@
+﻿@model TomBase.Models.Subscriber
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div id="kt_content_container" class="container-xxl">
+    <div class="col-xl-10 ml-auto mr-auto ml-xl-auto mr-xl-auto center">
+        <div class="card shadow-sm center">
+
+            <div class="card-body">
+                <h4 class="text-center">Are You Sure to Delete this Item? </h4>
+            </div>
+            <div class="card-footer text-center">
+
+                <form asp-action="Delete">
+                    <input type="hidden" asp-for="Id" />
+                    <input type="submit" value="Delete" class="btn btn-danger" /> |
+                    <a asp-action="Index">Back to List</a>
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
+

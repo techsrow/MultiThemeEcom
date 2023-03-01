@@ -1,0 +1,109 @@
+﻿@model BasePackageModule2.Areas.Admin.ViewModels.UpdateUser
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<div id="kt_content_container" class="container-xxl">
+    <!-- Zero config.table start -->
+    <div class="card mb-5 mb-xl-8">
+        <!--begin::Header-->
+        <div class="card-header border-0 pt-5">
+            <h3 class="card-title align-items-start flex-column">
+                <span class="card-label fw-bolder fs-3 mb-1">Edit User</span>
+
+            </h3>
+            <div class="card-toolbar">
+                <a asp-action="Create" class="btn btn-sm btn-light-primary">
+                    <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
+                    <span class="svg-icon svg-icon-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <rect opacity="0.5" x="11.364" y="20.364" width="16" height="2" rx="1" transform="rotate(-90 11.364 20.364)" fill="currentColor"></rect>
+                            <rect x="4.36396" y="11.364" width="16" height="2" rx="1" fill="currentColor"></rect>
+                        </svg>
+                    </span>
+                    <!--end::Svg Icon-->Add User
+                </a>
+            </div>
+        </div>
+        <!--end::Header-->
+        <!--begin::Body-->
+        <div class="card-body py-3">
+            <form asp-action="Edit">
+                <input asp-for="Id" type="hidden" />
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="FirstName" class="control-label"></label>
+                    <input asp-for="FirstName" class="form-control" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LastName"></label>
+                    <input asp-for="LastName" class="form-control" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="MobileNumber"></label>
+                    <input asp-for="MobileNumber" class="form-control" />
+                    <span asp-validation-for="MobileNumber" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Roles"></label>
+                    <select multiple="multiple" data-style="btn-info" asp-for="Roles" class="form-control form-select" asp-items="ViewBag.Roles"></select>
+                    <span asp-validation-for="Roles" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password"></label>
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ConfirmPassword"></label>
+                    <input asp-for="ConfirmPassword" class="form-control" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mt-5 mb-5">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </form>
+
+         
+                <a asp-action="Index">Back to List</a>
+            
+        </div>
+       
+    </div>
+    <!-- Basic Form Inputs card end -->
+
+</div>
+
+
+
+
+@section styles
+{
+    <link href="~/lib/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+}
+
+@section Scripts {
+    @{
+
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script src="~/lib/bootstrap-select/js/bootstrap-select.min.js"></script>
+
+
+    <script>
+        $(document).ready(function() {
+
+            $("#Roles").selectpicker();
+        });
+    </script>
+}

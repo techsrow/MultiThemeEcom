@@ -1,0 +1,130 @@
+[
+  {
+    "tracking_data": {
+      "track_status": 1,
+      "shipment_status": 7,
+      "shipment_track": [
+        {
+          "id": 123,
+          "awb_code": "13194181abcs",
+          "courier_company_id": 33,
+          "shipment_id": null,
+          "order_id": 2344,
+          "pickup_date": "2019-01-07 17:55:00",
+          "delivered_date": "2019-04-09 17:41:30",
+          "weight": "0.50",
+          "packages": 1,
+          "current_status": "Delivered",
+          "delivered_to": "Delhi",
+          "destination": "Delhi",
+          "consignee_name": "Reema",
+          "origin": "Meerut",
+          "courier_agent_details": null
+        }
+      ],
+      "shipment_track_activities": [
+        {
+          "date": "2019-01-13 17:07:00",
+          "activity": "Pickup Not Done",
+          "location": "Meerut, Meerut, UTTAR PRADESH"
+        },
+        {
+          "date": "2019-01-13 16:58:00",
+          "activity": "Out For Pickup",
+          "location": "Meerut, Meerut, UTTAR PRADESH"
+        },
+        {
+          "date": "2019-01-12 16:40:00",
+          "activity": "Pickup Not Done",
+          "location": "Meerut, Meerut, UTTAR PRADESH"
+        },
+        {
+          "date": "2019-01-12 14:39:00",
+          "activity": "Out For Pickup",
+          "location": "Meerut, Meerut, UTTAR PRADESH"
+        },
+        {
+          "date": "2019-01-12 13:24:00",
+          "activity": "Pickup Not Done",
+          "location": "Meerut, Meerut, UTTAR PRADESH"
+        },
+        {
+          "date": "2019-01-11 14:36:00",
+          "activity": "Out For Pickup",
+          "location": "Meerut, Meerut, UTTAR PRADESH"
+        },
+        {
+          "date": "2019-01-10 14:53:00",
+          "activity": "Pickup Not Done",
+          "location": "Meerut, Meerut, UTTAR PRADESH"
+        },
+        {
+          "date": "2019-01-10 14:45:00",
+          "activity": "Out For Pickup",
+          "location": "Meerut, Meerut, UTTAR PRADESH"
+        },
+        {
+          "date": "2019-01-10 13:00:00",
+          "activity": "Pickup Not Done",
+          "location": "Meerut, Meerut, UTTAR PRADESH"
+        },
+        {
+          "date": "2019-01-10 12:06:00",
+          "activity": "Out For Pickup",
+          "location": "Meerut, Meerut, UTTAR PRADESH"
+        },
+        {
+          "date": "2019-01-09 15:29:00",
+          "activity": "Pickup Not Done",
+          "location": "Meerut, Meerut, UTTAR PRADESH"
+        },
+        {
+          "date": "2019-01-09 15:14:00",
+          "activity": "Out For Pickup",
+          "location": "Meerut, Meerut, UTTAR PRADESH"
+        },
+        {
+          "date": "2019-01-09 15:13:00",
+          "activity": "Pickup Not Done",
+          "location": "Meerut, Meerut, UTTAR PRADESH"
+        },
+        {
+          "date": "2019-01-09 15:09:00",
+          "activity": "Out For Pickup",
+          "location": "Meerut, Meerut, UTTAR PRADESH"
+        },
+        {
+          "date": "2019-01-09 13:37:00",
+          "activity": "Pickup Not Done",
+          "location": "Meerut, Meerut, UTTAR PRADESH"
+        },
+        {
+          "date": "2019-01-09 12:14:00",
+          "activity": "Out For Pickup",
+          "location": "Meerut, Meerut, UTTAR PRADESH"
+        },
+        {
+          "date": "2019-01-08 14:43:00",
+          "activity": "Out For Pickup",
+          "location": "Meerut, Meerut, UTTAR PRADESH"
+        },
+        {
+          "date": "2019-01-08 13:18:00",
+          "activity": "Pickup Not Done",
+          "location": "Meerut, Meerut, UTTAR PRADESH"
+        },
+        {
+          "date": "2019-01-08 12:08:00",
+          "activity": "Out For Pickup",
+          "location": "Meerut, Meerut, UTTAR PRADESH"
+        },
+        {
+          "date": "2019-01-07 17:55:00",
+          "activity": "Data Received",
+          "location": "Meerut, Meerut, UTTAR PRADESH"
+        }
+      ],
+      "track_url": "https://app.shiprocket.in/tracking/awb/13194181abcs"
+    }
+  }
+]

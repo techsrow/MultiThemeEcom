@@ -1,0 +1,42 @@
+﻿[
+  {
+    "outputFile": "wwwroot/css/app.css",
+    "inputFile": "wwwroot/css/app.scss"
+  },
+  {
+    "outputFile": "wwwroot/admin/css/app.css",
+    "inputFile": "wwwroot/admin/css/app.scss"
+  },
+  {
+    "outputFile": "wwwroot/admin/css/admin.css",
+    "inputFile": "wwwroot/admin/css/admin.scss"
+  },
+  {
+    "outputFile": "wwwroot/theme/cutomcss/footer.css",
+    "inputFile": "wwwroot/theme/cutomcss/footer.scss"
+  },
+  {
+    "outputFile": "wwwroot/theme/landing/scss/home.css",
+    "inputFile": "wwwroot/theme/landing/scss/home.scss"
+  },
+  {
+    "outputFile": "wwwroot/theme/landing/scss/productlist.css",
+    "inputFile": "wwwroot/theme/landing/scss/productlist.scss"
+  },
+  {
+    "outputFile": "wwwroot/theme/landing/css/productlist.css",
+    "inputFile": "wwwroot/theme/landing/css/productlist.scss"
+  },
+  {
+    "outputFile": "wwwroot/theme/landing/scss/blog.css",
+    "inputFile": "wwwroot/theme/landing/scss/blog.scss"
+  },
+  {
+    "outputFile": "wwwroot/admin/css/shipping.css",
+    "inputFile": "wwwroot/admin/css/shipping.scss"
+  },
+  {
+    "outputFile": "wwwroot/khamkar/mobilecart.css",
+    "inputFile": "wwwroot/khamkar/mobilecart.scss"
+  }
+]

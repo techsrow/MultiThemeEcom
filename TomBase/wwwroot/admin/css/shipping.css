@@ -1,0 +1,21 @@
+﻿.container .list-group .list-group-item .filter-header .title {
+  font-size: 15px;
+  color: #666666; }
+  .container .list-group .list-group-item .filter-header .title .count-serial {
+    border: 1px solid;
+    border-radius: 133px;
+    padding-left: 10px;
+    padding-right: 8px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    margin-right: 11px; }
+
+.container .list-group .list-group-item .filter-content .form-row {
+  margin-left: 31px; }
+  .container .list-group .list-group-item .filter-content .form-row .form-group .control-label {
+    font-size: 13px;
+    font-weight: 400;
+    font-family: inherit; }
+  .container .list-group .list-group-item .filter-content .form-row .form-group .form-control {
+    font-size: 15px;
+    font-family: monospace; }

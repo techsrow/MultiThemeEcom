@@ -1,0 +1,49 @@
+﻿@using BasePackageModule1.Extensions
+@model BasePackageModule1.Models.Product
+
+<!-- Breadcrumb Area -->
+<div class="breadcrumb-area  margin-bottom-120" style="background-image:url(/theme/assets/img/breadcrumb/01.jpg);">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="breadcrumb-inner">
+                    <span>What we provide for you</span>
+                    <h2 class="page-title">@Model.Name.</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section class="service-title-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="service-area">
+                    <img src="@Model.Image" class="img-fluid" />
+                </div>
+            </div>
+            
+        </div>
+        <div class="service-wrapper margin-top-100 margin-bottom-120 padding-bottom-90">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="service-inner-item">
+                        <h3 class="title-md-line">
+                           @Model.Name
+
+                        </h3>
+                       
+                        
+                    </div>
+                </div>
+
+                 <div class="col-12">
+                     @Html.Raw(Model.Description)
+                 </div>
+            </div>
+        </div>
+    </div>
+</section>
+

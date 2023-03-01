@@ -1,0 +1,40 @@
+﻿@model BasePackageModule1.ViewModels.NavViewModel
+
+<style>
+
+   /* :root {
+        --main-color-one: #fc0841;
+        --secondary-color: #fc0841;
+        --heading-color: #161619;
+        --paragraph-color: #828282;
+        --heading-font: 'Montserrat', sans-serif;
+        --body-font: 'Open Sans', sans-serif;
+    }*/
+
+
+    :root {
+        --main-color-one: @Model.CustomCss.MainColorOne;
+        --secondary-color: @Model.CustomCss.SecondaryColor;
+        --heading-color: #161619;
+        --paragraph-color: #828282;
+        --heading-font: 'Montserrat', sans-serif;
+        --body-font: 'Open Sans', sans-serif;
+    }
+
+
+    .progress-item .single-progressbar .progressbar .proggress {
+        background-color: @Model.CustomCss.MainColorOne!important;
+    }
+
+    .btn-wrapper .boxed-btn::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 0;
+        height: 100%;
+        background-color: @Model.CustomCss.MainColorOne!important;
+        transition: all .3s ease-in;
+        z-index: -1;
+    }
+</style>

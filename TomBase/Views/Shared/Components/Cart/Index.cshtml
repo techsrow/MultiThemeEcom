@@ -1,0 +1,125 @@
+﻿@model BasePackageModule2.ViewModels.NavViewModel
+
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@using Microsoft.AspNetCore.Http
+@using BasePackageModule2.Utility
+@using Microsoft.EntityFrameworkCore
+@inject IHttpContextAccessor HttpContextAccessor
+
+@{ var user = await UserManager.Users.Include(a => a.Cart).FirstOrDefaultAsync(a => a.Id == UserManager.GetUserId(User)); }
+@{
+    double subTotal = 0;
+}
+
+
+
+@if (user.Cart != null)
+{
+
+
+    @if (SignInManager.IsSignedIn(User))
+    {
+
+
+
+
+        <div class="dropdown cart-dropdown">
+            <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+                <div class="icon">
+                    <i class="icon-shopping-cart"></i>
+                    <span class="cart-count">
+                        @if (user.Cart != null)
+                        {@user.Cart.Count();
+                    }
+                    else
+                    { <span>0</span>}
+                    </span>
+                </div>
+                <p>Cart</p>
+            </a>
+
+            <div class="dropdown-menu dropdown-menu-right">
+                <div class="dropdown-cart-products">
+                    @foreach (var item in user.Cart)
+                    {
+                        <div class="product">
+                            <div class="product-cart-details">
+                                <h4 class="product-title">
+                                    <a asp-area="" asp-controller="Products" asp-action="Details" asp-route-id="@item.ProductId">@item.Product.Name</a>
+                                </h4>
+
+                                <span class="cart-product-info">
+                                    <span class="cart-product-qty">@item.Qty</span>
+                                    x @item.Product.FinalPrice*@item.Qty
+                                </span>
+                            </div><!-- End .product-cart-details -->
+
+                            <figure class="product-image-container">
+                                <a asp-area="" asp-controller="Products" asp-action="Details" asp-route-id="@item.ProductId" class="product-image">
+                                    <img src="@item.Product.Image" alt="product">
+                                </a>
+                            </figure>
+                            <a asp-controller="Cart" asp-action="Remove" asp-route-id="@item.Id" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
+                        </div>
+                        if (item.Product.FinalPrice != null)
+                        {
+                            subTotal += (double)item.Product.FinalPrice * item.Qty;
+                        }
+                    }
+                    <!-- End .product -->
+                    <!-- End .product -->
+                </div><!-- End .cart-product -->
+
+                <div class="dropdown-cart-total">
+                    <span>Total</span>
+
+                    <span class="cart-total-price">Rs. @subTotal</span>
+                </div><!-- End .dropdown-cart-total -->
+
+                <div class="dropdown-cart-action">
+                    <a asp-area="" asp-controller="Cart" asp-action="Index" class="btn btn-primary">View Cart</a>
+                    <a asp-area="" asp-controller="Checkout" asp-action="Index" class="btn btn-outline-primary-2"><span>Checkout</span><i class="icon-long-arrow-right"></i></a>
+                </div><!-- End .dropdown-cart-total -->
+            </div><!-- End .dropdown-menu -->
+        </div>
+
+
+        <section id="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12">
+                        <h1 class="text-center text-white text-uppercase">Shopping Cart</h1>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+    }
+
+
+    else
+    {
+        <div class="dropdown cart-dropdown">
+            <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+                <div class="icon">
+                    <i class="icon-shopping-cart"></i>
+                    <span class="cart-count">
+                      
+                    
+                   
+                    </span>
+                </div>
+                <p>Cart</p>
+            </a>
+
+            
+        </div>
+    }
+
+
+}
+

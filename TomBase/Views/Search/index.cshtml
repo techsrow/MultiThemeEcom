@@ -1,0 +1,315 @@
+﻿@model X.PagedList.IPagedList<BasePackageModule2.Models.Product>
+@using X.PagedList.Mvc.Core
+
+
+
+
+<style>
+
+    .pagination-box .pagination-container .pagination .page-item {
+        margin-right: 5px;
+    }
+
+        .pagination-box .pagination-container .pagination .page-item .page-link {
+            background: black !important;
+            border: none !important;
+            border-radius: 21px;
+            color: white;
+        }
+</style>
+<section class="header border-bottom d-none d-lg-block">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-6 ml-auto">
+                <div class="section-content">
+                    <h4>Are you looking for a new TV?</h4>
+                    <p>We've got all the Answere to your Question in  our  TV buying guid.</p>
+                    <a class="btn btn-dark text-white" style="        background-color: black;
+        border-radius: 26px;
+">learn More</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<section class="header-mobile border-bottom d-sm-block d-lg-none">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-6 ml-auto">
+                <div class="section-content">
+                    <h4>Are you looking for a new TV?</h4>
+                    <p>We've got all the Answere to your Question in  our  TV buying guid.</p>
+                    <a class="btn btn-dark text-white" style="background-color:black;">learn More</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="product-section mt-4 mb-4">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="container demo d-lg-none d-sm-block">
+                <div class="text-left mb-2">
+                    <span data-toggle="modal" data-target="#exampleModal" class="mr-auto"> <i class="fa fa-filter mr-2"></i>Filter</span>
+                </div>
+                <hr />
+                <div class="modal left fade" id="exampleModal" tabindex="" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <div class="card mb-3 border-0 ">
+                                    <div class="card-body  border-bottom">
+                                        <h5 class="card-title">Type</h5>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="myfilter_radio" checked="" class="custom-control-input">
+                                            <div class="custom-control-label">All listing </div>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="myfilter_radio" class="custom-control-input">
+                                            <div class="custom-control-label">Auctions </div>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="myfilter_radio" class="custom-control-input">
+                                            <div class="custom-control-label">Buy now</div>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="myfilter_radio" class="custom-control-input">
+                                            <div class="custom-control-label">Best offer </div>
+                                        </label>
+
+                                    </div>
+                                </div>
+                                <div class="card mb-3 border-0 ">
+                                    <div class="card-body  border-bottom">
+                                        <h5 class="card-title">Screen Size</h5>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="myfilter_radio" checked="" class="custom-control-input">
+                                            <div class="custom-control-label">All listing </div>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="myfilter_radio" class="custom-control-input">
+                                            <div class="custom-control-label">Auctions </div>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="myfilter_radio" class="custom-control-input">
+                                            <div class="custom-control-label">Buy now</div>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="myfilter_radio" class="custom-control-input">
+                                            <div class="custom-control-label">Best offer </div>
+                                        </label>
+
+                                    </div>
+                                </div>
+                                <div class="card mb-3 border-0 ">
+                                    <div class="card-body  border-bottom">
+                                        <h5 class="card-title">Smart</h5>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="myfilter_radio" checked="" class="custom-control-input">
+                                            <div class="custom-control-label">All listing </div>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="myfilter_radio" class="custom-control-input">
+                                            <div class="custom-control-label">Auctions </div>
+                                        </label>
+
+
+
+                                    </div>
+                                </div>
+                                <div class="card mb-3 border-0 ">
+                                    <div class="card-body  border-bottom">
+                                        <h5 class="card-title">Resolution</h5>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="myfilter_radio" checked="" class="custom-control-input">
+                                            <div class="custom-control-label">All listing </div>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="myfilter_radio" class="custom-control-input">
+                                            <div class="custom-control-label">Auctions </div>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="myfilter_radio" class="custom-control-input">
+                                            <div class="custom-control-label">Buy now</div>
+                                        </label>
+
+                                        <label class="custom-control custom-radio">
+                                            <input type="radio" name="myfilter_radio" class="custom-control-input">
+                                            <div class="custom-control-label">Best offer </div>
+                                        </label>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-dark">Apply</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-3 col-lg-3 desktop-grid-one d-none d-lg-block">
+                <div class="card mb-3 border-0 ">
+                    <div class="card-body  border-bottom">
+                        <h5 class="card-title">Type</h5>
+
+                        <label class="custom-control custom-radio">
+                            <input type="radio" name="myfilter_radio" checked="" class="custom-control-input">
+                            <div class="custom-control-label">All listing </div>
+                        </label>
+
+                        <label class="custom-control custom-radio">
+                            <input type="radio" name="myfilter_radio" class="custom-control-input">
+                            <div class="custom-control-label">Auctions </div>
+                        </label>
+
+                        <label class="custom-control custom-radio">
+                            <input type="radio" name="myfilter_radio" class="custom-control-input">
+                            <div class="custom-control-label">Buy now</div>
+                        </label>
+
+                        <label class="custom-control custom-radio">
+                            <input type="radio" name="myfilter_radio" class="custom-control-input">
+                            <div class="custom-control-label">Best offer </div>
+                        </label>
+
+                    </div>
+                </div>
+                <div class="card mb-3 border-0 ">
+                    <div class="card-body  border-bottom">
+                        <h5 class="card-title">Screen Size</h5>
+
+                        <label class="custom-control custom-radio">
+                            <input type="radio" name="myfilter_radio" checked="" class="custom-control-input">
+                            <div class="custom-control-label">All listing </div>
+                        </label>
+
+                        <label class="custom-control custom-radio">
+                            <input type="radio" name="myfilter_radio" class="custom-control-input">
+                            <div class="custom-control-label">Auctions </div>
+                        </label>
+
+                        <label class="custom-control custom-radio">
+                            <input type="radio" name="myfilter_radio" class="custom-control-input">
+                            <div class="custom-control-label">Buy now</div>
+                        </label>
+
+                        <label class="custom-control custom-radio">
+                            <input type="radio" name="myfilter_radio" class="custom-control-input">
+                            <div class="custom-control-label">Best offer </div>
+                        </label>
+
+                    </div>
+                </div>
+                <div class="card mb-3 border-0 ">
+                    <div class="card-body  border-bottom">
+                        <h5 class="card-title">Smart</h5>
+
+                        <label class="custom-control custom-radio">
+                            <input type="radio" name="myfilter_radio" checked="" class="custom-control-input">
+                            <div class="custom-control-label">All listing </div>
+                        </label>
+
+                        <label class="custom-control custom-radio">
+                            <input type="radio" name="myfilter_radio" class="custom-control-input">
+                            <div class="custom-control-label">Auctions </div>
+                        </label>
+
+
+
+                    </div>
+                </div>
+                <div class="card mb-3 border-0 ">
+                    <div class="card-body  border-bottom">
+                        <h5 class="card-title">Resolution</h5>
+
+                        <label class="custom-control custom-radio">
+                            <input type="radio" name="myfilter_radio" checked="" class="custom-control-input">
+                            <div class="custom-control-label">All listing </div>
+                        </label>
+
+                        <label class="custom-control custom-radio">
+                            <input type="radio" name="myfilter_radio" class="custom-control-input">
+                            <div class="custom-control-label">Auctions </div>
+                        </label>
+
+                        <label class="custom-control custom-radio">
+                            <input type="radio" name="myfilter_radio" class="custom-control-input">
+                            <div class="custom-control-label">Buy now</div>
+                        </label>
+
+                        <label class="custom-control custom-radio">
+                            <input type="radio" name="myfilter_radio" class="custom-control-input">
+                            <div class="custom-control-label">Best offer </div>
+                        </label>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-sm-12 col-lg-9 col-md-9 desk-grid-two ">
+                <div class="row">
+
+                    @foreach (var product in Model)
+                    {
+        <div class="col-sm-12 col-lg-3 col-md-3">
+            <div class="card border-0">
+                <a asp-controller="Products" asp-action="Details" asp-route-id="@product.Id"> <img src="@product.Image" class="img-fluid" alt="..."></a>
+                <div class="card-body">
+                    <a asp-controller="Products" asp-action="Details" asp-route-id="@product.Id"> <h5 class="card-title">@product.Name</h5></a>
+                    <p class="price">Rs.@product.FinalPrice <sapn>@product.DiscountPercentage</sapn></p>
+                    <p class="card-text">@product.ShortDescription</p>
+                    <a asp-controller="Cart" asp-action="AddToCart" asp-route-productId="@product.Id" class="btn btn-primary">Buy Now</a>
+                    <a asp-controller="Products" asp-action="Details" asp-route-id="@product.Id" class="btn btn-primary">Details</a>
+                </div>
+            </div>
+        </div>}
+
+
+                </div>
+
+                <div class="row">
+                    <div class="col-10 mt-3 mb-3 ml-auto">
+                        <ul class="pagination-box">
+                            @Html.PagedListPager(Model, pageindex => Url.Action("Index", new { pageindex, pageSize = ViewBag.PerPageItems, orderby = ViewBag.orderby }), new X.PagedList.Mvc.Core.Common.PagedListRenderOptions { LiElementClasses = new string[] { "page-item" }, PageClasses = new string[] { "page-link" } })
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
