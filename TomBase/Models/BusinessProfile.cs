@@ -15,6 +15,12 @@ namespace BasePackageModule2.Models
         [DisplayName("Business Name")]
         [Required]
         public string BusinessName{ get; set; }
+
+
+        [DisplayName("Bussiness Description")]
+        [MaxLength(200)]
+        public string BussinessDescription { get; set; }
+             
         public string Title { get; set; }
 
         [DisplayName("Email Address")]

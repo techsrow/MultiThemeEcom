@@ -4,14 +4,16 @@ using BasePackageModule2.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace TomBase.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230302111209_add-bussiness-story-in-bussines-profile-class")]
+    partial class addbussinessstoryinbussinesprofileclass
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1077,27 +1079,6 @@ namespace TomBase.Migrations
                     b.ToTable("ContactUs");
                 });
 
-            modelBuilder.Entity("TomBase.Models.InformationPage", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("HeadingName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PageName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PageUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("id");
-
-                    b.ToTable("InformationPages");
-                });
-
             modelBuilder.Entity("TomBase.Models.Media", b =>
                 {
                     b.Property<int>("Id")
@@ -1121,33 +1102,6 @@ namespace TomBase.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Medias");
-                });
-
-            modelBuilder.Entity("TomBase.Models.MyAccountPage", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("HeadingName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PageName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PageUrl")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("MyAccountPages");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("MyAccountPage");
                 });
 
             modelBuilder.Entity("TomBase.Models.News", b =>
@@ -1325,13 +1279,6 @@ namespace TomBase.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("WomenImpowerments");
-                });
-
-            modelBuilder.Entity("TomBase.Models.CustomerServicePage", b =>
-                {
-                    b.HasBaseType("TomBase.Models.MyAccountPage");
-
-                    b.HasDiscriminator().HasValue("CustomerServicePage");
                 });
 
             modelBuilder.Entity("BasePackageModule1.Models.Menu.MenuCategory", b =>

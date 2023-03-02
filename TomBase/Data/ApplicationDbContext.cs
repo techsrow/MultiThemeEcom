@@ -73,7 +73,13 @@ namespace BasePackageModule2.Data
         public DbSet<Subscriber> Subscribers { get; set; }
 
         public DbSet<ThemeSetting> ThemeSettings { get; set; }
-            
+
+        public DbSet<CustomerServicePage> CustomerServicePages { get; set; }
+
+        public DbSet<MyAccountPage> MyAccountPages { get; set; }
+
+        public DbSet<InformationPage> InformationPages { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

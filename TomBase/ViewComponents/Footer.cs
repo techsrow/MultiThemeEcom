@@ -26,7 +26,7 @@ namespace BasePackageModule2.ViewComponents
                  ? await _context.Logos.FirstOrDefaultAsync()
                  : new Logo();
 
-
+            var themesetting = await _context.ThemeSettings.ToListAsync();
             var businessProfile = await _context.BusinessProfile.AnyAsync()
                 ? await _context.BusinessProfile.FirstOrDefaultAsync()
                 : new BusinessProfile();
@@ -47,7 +47,8 @@ namespace BasePackageModule2.ViewComponents
                 Categories = categories,
                 BusinessProfile = businessProfile,
                 Products = products,
-                SliderImages = images
+                SliderImages = images,
+                ThemeSetting = themesetting
             };
 
             return View("Index", model);

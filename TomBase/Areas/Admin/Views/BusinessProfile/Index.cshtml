@@ -13,6 +13,12 @@
                 <input asp-for="BusinessName" class="form-control" />
                 <span asp-validation-for="BusinessName" class="text-danger"></span>
             </div>
+
+            <div class="form-group required">
+                <label asp-for="BussinessDescription" class="control-label"></label>
+                <textarea asp-for="BussinessDescription" class="form-control" rows="5"></textarea>
+                <span asp-validation-for="BusinessName" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="Title" class="control-label"></label>
                 <input asp-for="Title" class="form-control" />
