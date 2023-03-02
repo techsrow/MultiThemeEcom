@@ -8,18 +8,15 @@ using BasePackageModule2.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace BasePackageModule2.ViewComponents
+namespace TomBase.ViewComponents
 {
-    [ViewComponent(Name = "Footer")]
-    public class Footer : ViewComponent
+    public class MobileMenu : ViewComponent
     {
         private readonly ApplicationDbContext _context;
-
-        public Footer(ApplicationDbContext context)
+        public MobileMenu( ApplicationDbContext context)
         {
             _context = context;
         }
-
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var logo = await _context.Logos.AnyAsync()
@@ -55,8 +52,8 @@ namespace BasePackageModule2.ViewComponents
                 Products = products,
                 SliderImages = images,
                 ThemeSetting = themesetting,
-                InformationPages= infopages,
-                CustomerServicePages= customerService,
+                InformationPages = infopages,
+                CustomerServicePages = customerService,
                 MyAccountPages = myAccount
 
             };

@@ -9,6 +9,10 @@ namespace BasePackageModule2.ViewModels
     {
         public List<SliderImage> SliderImages { get; set; }
         public List<Page> More { get; set; }
+
+        public List<InformationPage> InformationPages { get; set; }
+        public List<CustomerServicePage> CustomerServicePages { get; set; }
+        public List<MyAccountPage> MyAccountPages { get; set; }
         public Logo Logo { get; set; }
         public Coupon Coupon { get; set; }
 
