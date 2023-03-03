@@ -69,16 +69,13 @@ namespace BasePackageModule2.Controllers
             var youmayLike = await _context.Products.Where(e=>e.Essential==true).OrderBy(o => o.Id).ToListAsync();
             var newArrival = await _context.Products.OrderBy(o => o.Id).ToListAsync();
             var dealofDay = await _context.Products.OrderBy(d => d.Id).Take(1).ToListAsync();
+            var topratedProduct = await _context.Products.Where(t => t.premium == true).ToListAsync();
+
+            var featureProduct = await _context.Products.Where(h=>h.Featured==true).OrderBy(d => d.Id).ToListAsync();
             
-          // var featureProduct = await _context.Products.Where(h=>h.Featured==true).OrderBy(d => d.Id).ToListAsync();
-            var featureProduct = await _context.Products.OrderBy(d => d.Id).ToListAsync();
             var feedback = await _context.Testimonails.ToListAsync();
             var hotselling = await _context.Products.Where(h => h.hotselling == true).OrderBy(d => d.Id).Take(20).ToListAsync();
-            var essential = await _context.Products.Where(h => h.Essential == true).OrderBy(d => d.Id).Take(20).ToListAsync();
-            var premium = await _context.Products.Where(h => h.premium == true).OrderBy(d => d.Id).Take(20).ToListAsync();
-            var traditional = await _context.Products.Where(h => h.traditional == true).OrderBy(d => d.Id).Take(20).ToListAsync();
-            var chutney = await _context.Products.Where(c => c.Category.Name == "Chutney").OrderBy(d => d.Id).Take(12).ToListAsync();
-            var flour = await _context.Products.Where(c => c.Category.Name == "Flour").OrderBy(d => d.Id).Take(12).ToListAsync();
+          
 
             var Themesetting  = await _context.ThemeSettings.ToListAsync();
 
@@ -108,12 +105,9 @@ namespace BasePackageModule2.Controllers
                 _sitem = sitem,
                 _feedback = feedback,
                 _hotselling = hotselling,
-                _essential = essential,
-                _premium = premium,
-                _traditional = traditional,
-                _chutney = chutney,
-                _flours = flour,
-                _themeSettings = Themesetting
+              
+                _themeSettings = Themesetting,
+                _featureproducts = featureProduct
 
 
 

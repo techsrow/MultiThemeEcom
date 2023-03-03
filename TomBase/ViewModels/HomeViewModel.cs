@@ -41,7 +41,7 @@ namespace BasePackageModule2.ViewModels
         public List<List<Product>> _ChunkBest { get; set; }
 
         public List<Product> _hotselling { get; set; }
-        public List<Product> _essential { get; set; }
+        public List<Product> _featureproducts { get; set; }
         public List<Product> _premium { get; set; }
         public List<Product> _traditional { get; set; }
         public List<Product> _flours { get; set; }
