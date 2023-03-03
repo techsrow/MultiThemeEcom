@@ -66,6 +66,7 @@ namespace BasePackageModule2.Models
         public bool hotselling { get; set; }
         public bool  premium { get; set; }
         public bool traditional { get; set; }
+        public bool DealOfTheDay { get; set; }
 
 
         public string Slug  { get; set; }

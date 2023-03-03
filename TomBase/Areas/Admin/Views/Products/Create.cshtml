@@ -336,9 +336,52 @@
                                     <div class="fv-plugins-message-container invalid-feedback"></div>
                                 </div>
                                 <!--end::Input group-->
-                               
+                                <!--begin::Input group-->
+                                <div class="mb-10 fv-row fv-plugins-icon-container">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" asp-for="Featured" />
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Is Featured Product?
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="mb-10 fv-row fv-plugins-icon-container">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" asp-for="premium" />
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Is Top Rated Product?
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="mb-10 fv-row fv-plugins-icon-container">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" asp-for="DealOfTheDay" />
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Add To Deal Of The Day
+                                        </label>
+                                    </div>
+                                    
+                                </div>
+                                <!--end::Input group-->
+                                <!--begin::Input group-->
+                                <div class="mb-10 fv-row fv-plugins-icon-container">
+                                    <!--begin::Label-->
+                                    <label class="required form-label">SKU</label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <input type="text" asp-for="sku" class="form-control mb-2" placeholder="SKU Number" value="">
+                                    <!--end::Input-->
+                                    <!--begin::Description-->
+                                    <div class="text-muted fs-7">Enter the product SKU.</div>
+                                    <!--end::Description-->
+                                    <div class="fv-plugins-message-container invalid-feedback"></div>
+                                </div>
+                                <!--end::Input group-->
+
                             </div>
                             <!--end::Card header-->
+
                         </div>
                         <!--begin::Meta options-->
                         <div class="card card-flush py-4">

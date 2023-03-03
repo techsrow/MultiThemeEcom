@@ -237,6 +237,7 @@ namespace BasePackageModule2.Areas.TomBase.Controllers
                     thisProduct.hotselling = product.hotselling;
                     thisProduct.premium = product.premium;
                     thisProduct.traditional = product.traditional;
+                    thisProduct.DealOfTheDay = product.DealOfTheDay;
 
 
 

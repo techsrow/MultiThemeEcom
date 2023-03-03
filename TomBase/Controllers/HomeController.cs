@@ -68,13 +68,14 @@ namespace BasePackageModule2.Controllers
             var bestSellar = await _context.Products.OrderBy(o => o.Id).ToListAsync();
             var youmayLike = await _context.Products.Where(e=>e.Essential==true).OrderBy(o => o.Id).ToListAsync();
             var newArrival = await _context.Products.OrderBy(o => o.Id).ToListAsync();
-            var dealofDay = await _context.Products.OrderBy(d => d.Id).Take(1).ToListAsync();
+            var dealofDay = await _context.Products.Where(t=>t.DealOfTheDay==true).Take(1).ToListAsync();
             var topratedProduct = await _context.Products.Where(t => t.premium == true).ToListAsync();
 
             var featureProduct = await _context.Products.Where(h=>h.Featured==true).OrderBy(d => d.Id).ToListAsync();
             
             var feedback = await _context.Testimonails.ToListAsync();
             var hotselling = await _context.Products.Where(h => h.hotselling == true).OrderBy(d => d.Id).Take(20).ToListAsync();
+            
           
 
             var Themesetting  = await _context.ThemeSettings.ToListAsync();
@@ -98,14 +99,14 @@ namespace BasePackageModule2.Controllers
                 _dealofDay = dealofDay,
                 _newArrival = newArrival,
                 
-                _topSalling = featureProduct,
+                _topratedProduct = topratedProduct,
                 _youmayLike = youmayLike,
                 _bestSaller = bestSellar,
                 _banner = banner,
                 _sitem = sitem,
                 _feedback = feedback,
                 _hotselling = hotselling,
-              
+               
                 _themeSettings = Themesetting,
                 _featureproducts = featureProduct
 

@@ -42,7 +42,7 @@ namespace BasePackageModule2.ViewModels
 
         public List<Product> _hotselling { get; set; }
         public List<Product> _featureproducts { get; set; }
-        public List<Product> _premium { get; set; }
+        public List<Product> _topratedProduct { get; set; }
         public List<Product> _traditional { get; set; }
         public List<Product> _flours { get; set; }
         public List<Product> _chutney { get; set; }
