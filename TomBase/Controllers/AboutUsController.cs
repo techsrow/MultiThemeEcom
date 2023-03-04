@@ -22,15 +22,7 @@ namespace BasePackageModule2.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            var about = new Models.AboutUs();
-
-
-            if (_context.AboutUs.Any())
-            {
-                about = await _context.AboutUs
-                                .FirstOrDefaultAsync();
-            }
-            return View(about);
+            return View(await _context.AboutUs.FirstOrDefaultAsync());
         }
         public async Task<IActionResult> Details(int? id)
         {

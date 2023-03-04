@@ -32,12 +32,13 @@ namespace BasePackageModule2.Controllers
             //_context.RemoveRange(address);
             //_context.RemoveRange(orders);
             //await _context.SaveChangesAsync();
+            //return View(orders);
 
             return View(await _context.Orders
                 .Include(p => p.OrderProducts)
                 .ThenInclude(p => p.Product)
                 .ThenInclude(i => i.Images)
-                .Where(p => p.PaymentStatus == "Credit")
+                //.Where(p => p.PaymentStatus == "Credit")
                 .Where(o => o.UserId == user.Id)
                 .OrderByDescending(a => a.Id).ToListAsync());
         }

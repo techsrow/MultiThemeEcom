@@ -5,28 +5,34 @@
 @{
     ViewData["Title"] = "Register";
 
-    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+    Layout = "~/Views/Shared/_MasterThemeLayout.cshtml";
+
+
+
+
 
 
 }
 
-<!-- Bread Crumb STRAT -->
-<div class="banner inner-banner1 ">
+<div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
     <div class="container">
-        <section class="banner-detail center-xs">
-            <h1 class="banner-title">Register</h1>
-            <div class="bread-crumb right-side float-none-xs">
-                <ul>
-                    <li><a asp-action="Index" asp-controller="Home">Home</a>/</li>
-                    <li><span>Register</span></li>
-                </ul>
-            </div>
-        </section>
-    </div>
-</div>
+        <h1 class="page-title"><span>Shop</span></h1>
+    </div><!-- End .container -->
+</div><!-- End .page-header -->
+<nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
+
+            <li class="breadcrumb-item active" aria-current="page">Register</li>
+        </ol>
+    </div><!-- End .container -->
+</nav><!-- End .breadcrumb-nav -->
+<!-- Bread Crumb STRAT -->
+
 <!-- Bread Crumb END -->
 <!-- CONTAIN START -->
-<section class="checkout-section ptb-70">
+<div class="login-page bg-image pt-8 pb-8 pt-md-12 pb-md-12 pt-lg-17 pb-lg-17" style="background-image: url('assets/images/backgrounds/login-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -35,101 +41,102 @@
                         <div class="row">
                             <div class="col-12 mb-20">
                                 <div class="heading-part heading-bg">
-                                    <h2 class="heading">Create your account</h2>
+                                    <h3 class="heading text-center">Create your account</h3>
                                 </div>
                             </div>
                         </div>
-                        <form class="main-form full" method="post">
-                            <div class="personal-details mb-30">
-                                <div class="row">
+                        <div class="form-box">
+                            <form class="main-form full" method="post">
+                                <div class="personal-details mb-30">
+                                    <div class="row">
 
-                                    <div class="col-12">
-                                        <div class="input-box">
-                                            <div class="row">
-                                                <label for="f-name" class="col-lg-3 control-label">First Name</label>
-                                                <div class="col-lg-9">
-                                                    <input type="text" class="form-control" asp-for="Input.FirstName" id="f-name" required placeholder="First Name">
-                                                    <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+                                        <div class="col-12">
+                                            <div class="input-box">
+                                                <div class="row">
+                                                    <label for="f-name" class="col-lg-3 control-label">First Name</label>
+                                                    <div class="col-lg-9">
+                                                        <input type="text" class="form-control" asp-for="Input.FirstName" id="f-name" required placeholder="First Name">
+                                                        <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="input-box">
-                                            <div class="row">
-                                                <label for="l-name" class="col-lg-3 control-label">Last Name</label>
-                                                <div class="col-lg-9">
-                                                    <input type="text" asp-for="Input.LastName" class="form-control" id="l-name" required placeholder="Last Name">
-                                                    <span asp-validation-for="Input.LastName" class="text-danger"></span>
+                                        <div class="col-12">
+                                            <div class="input-box">
+                                                <div class="row">
+                                                    <label for="l-name" class="col-lg-3 control-label">Last Name</label>
+                                                    <div class="col-lg-9">
+                                                        <input type="text" asp-for="Input.LastName" class="form-control" id="l-name" required placeholder="Last Name">
+                                                        <span asp-validation-for="Input.LastName" class="text-danger"></span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="input-box">
-                                            <div class="row">
-                                                <label for="login-email" class="col-lg-3 control-label">Email address</label>
-                                                <div class="col-lg-9">
-                                                    <input type="email" asp-for="Input.Email" class="form-control" id="login-email" required placeholder="Email address">
-                                                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                                        <div class="col-12">
+                                            <div class="input-box">
+                                                <div class="row">
+                                                    <label for="login-email" class="col-lg-3 control-label">Email address</label>
+                                                    <div class="col-lg-9">
+                                                        <input type="email" asp-for="Input.Email" class="form-control" id="login-email" required placeholder="Email address">
+                                                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="input-box">
-                                            <div class="row">
-                                                <label for="telephone" class="col-lg-3 control-label">Phone</label>
-                                                <div class="col-lg-9">
-                                                    <input type="text" asp-for="Input.PhoneNumber" class="form-control" id="telephone" required placeholder="Telephone">
-                                                    <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+                                        <div class="col-12">
+                                            <div class="input-box">
+                                                <div class="row">
+                                                    <label for="telephone" class="col-lg-3 control-label">Phone</label>
+                                                    <div class="col-lg-9">
+                                                        <input type="text" asp-for="Input.PhoneNumber" class="form-control" id="telephone" required placeholder="Telephone">
+                                                        <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="input-box">
-                                            <div class="row">
-                                                <label for="fax" class="col-lg-3 control-label">Password</label>
-                                                <div class="col-lg-9">
-                                                    <input type="password" asp-for="Input.Password" class="form-control"  required placeholder="Password">
-                                                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                                        <div class="col-12">
+                                            <div class="input-box">
+                                                <div class="row">
+                                                    <label for="fax" class="col-lg-3 control-label">Password</label>
+                                                    <div class="col-lg-9">
+                                                        <input type="password" asp-for="Input.Password" class="form-control" required placeholder="Password">
+                                                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="input-box">
-                                            <div class="row">
-                                                <label for="fax" class="col-lg-3 control-label">Confirm Password</label>
-                                                <div class="col-lg-9">
-                                                    <input type="password" asp-for="Input.ConfirmPassword" class="form-control" id="fax" required placeholder="Confirm Password">
-                                                    <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                                        <div class="col-12">
+                                            <div class="input-box">
+                                                <div class="row">
+                                                    <label for="fax" class="col-lg-3 control-label">Confirm Password</label>
+                                                    <div class="col-lg-9">
+                                                        <input type="password" asp-for="Input.ConfirmPassword" class="form-control" id="fax" required placeholder="Confirm Password">
+                                                        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="Submit-btn">
-                                        <div class="row">
-                                            <div class="col-6 ml-auto mr-auto">
-                                                
-                                                <button name="submit" type="submit" class="btn-color right-side">Submit</button>
-                                            </div>
-                                            <div class="col-12">
-                                                <hr>
-                                                <div class="new-account align-center mt-20"> <span>Already have an account with us</span> <a class="link" title="Register with Beaox" href="login.html">Login Here</a> </div>
+                                        <div class="Submit-btn" style="margin-left:15px;">
+                                            <div class="row">
+                                                <div class="col-6 ml-auto mr-auto">
+
+                                                    <button name="submit" type="submit" class="btn btn-outline-primary-2">Submit</button>
+                                                </div>
+                                                <div class="col-12">
+                                                    <hr>
+                                                    <div class="new-account align-center mt-20"> <span>Already have an account with us</span> <a class="link" title="Register with Beaox" href="login.html">Login Here</a> </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            
 
-                        </form>
+
+                            </form>
+                        </div>
                     </div>
-                </div>
             </div>
         </div>
     </div>
-</section>
-<!-- CONTAINER END -->
+</div>
+    <!-- CONTAINER END -->

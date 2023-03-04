@@ -385,12 +385,13 @@ namespace BasePackageModule1.Controllers
             }
             else if (PaymentOption == PaymentOptionsType.cashOnDelivery.ToString())
             {
+                var transactionId = Guid.NewGuid().ToString();
                 var order = new BasePackageModule2.Models.Order
                 {
                     UserId = user.Id,
                     AddressId = add.Id,
                     PaymentStatus = "Cash on Delivery",
-                    //TransactionId = transactionId,
+                    TransactionId = transactionId,
                     Amount = subtotal,
                 };
                 _context.Add(order);

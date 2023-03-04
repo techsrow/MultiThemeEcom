@@ -30,22 +30,22 @@ namespace BasePackageModule2.Areas.Admin.Controllers
         }
 
         // GET: Admin/AboutUs/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
+        //public async Task<IActionResult> Details(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            var aboutUs = await _context.AboutUs
-                .FirstOrDefaultAsync(m => m.AboutUsId == id);
-            if (aboutUs == null)
-            {
-                return NotFound();
-            }
+        //    var aboutUs = await _context.AboutUs
+        //        .FirstOrDefaultAsync(m => m.AboutUsId == id);
+        //    if (aboutUs == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            return View(aboutUs);
-        }
+        //    return View(aboutUs);
+        //}
 
         // GET: Admin/AboutUs/Create
         public IActionResult Create()
@@ -115,7 +115,7 @@ namespace BasePackageModule2.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            var thisPost = await _context.AboutUs.FirstAsync(p => p.AboutUsId == post.AboutUsId);
+            var thisPost = await _context.AboutUs.FirstOrDefaultAsync(p => p.AboutUsId == post.AboutUsId);
 
             if (thisPost == null)
             {
@@ -147,14 +147,13 @@ namespace BasePackageModule2.Areas.Admin.Controllers
             }
             try
             {
-               
+
                 thisPost.Description = post.Description;
                 thisPost.Title = post.Title;
                 thisPost.Keywords = post.Keywords;
                 thisPost.Slug = post.Slug;
                 thisPost.Video = post.Video;
                 thisPost.ShortDescription = post.ShortDescription;
-
                 _context.Update(thisPost);
                 await _context.SaveChangesAsync();
             }
@@ -173,7 +172,7 @@ namespace BasePackageModule2.Areas.Admin.Controllers
         // POST: Admin/AboutUs/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        
+
 
         // GET: Admin/AboutUs/Delete/5
         public async Task<IActionResult> Delete(int? id)

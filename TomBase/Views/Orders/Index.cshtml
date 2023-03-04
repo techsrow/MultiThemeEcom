@@ -1,73 +1,68 @@
 ﻿@model IEnumerable<Order>
 @{ ViewData["Title"] = "Orders"; }
 
-
-
-
-<!--Cart Start -->
-<section class="section">
+<div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
     <div class="container">
+        <h1 class="page-title">History<span>Orders</span></h1>
+    </div><!-- End .container -->
+</div>
+<nav aria-label="breadcrumb" class="breadcrumb-nav">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
+            <li class="breadcrumb-item"><a asp-controller="Checkout" asp-action="Index">Order History</a></li>
+            
+        </ol>
+    </div><!-- End .container -->
+</nav>
 
-        @if (Model.Any())
-        {
-            <table class="ct-responsive-table">
-                <thead>
-                    <tr>
-                        <th>Order Id</th>
-                        <th>Product</th>
-                       
-                        <th>Qunantity</th>
-                        <th>Price</th>
-                        <th>Status</th>
-                        <th>Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    
-                        @foreach (var order in Model)
-                        {
-                            foreach (var item in order.OrderProducts)
-                            {
-                    <tr class="border-bottom">
-                        <td data-title="Product Id">
-                            @order.Id
-                        </td>
-                        <td data-title="Product">
-                            <div class="cart-product-wrapper">
-                                @if (item.Product.Image != null)
+<div class="page-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="table-responsive p-3">
+                    @if (Model.Any())
+                    {
+
+                        <table class="table table-striped gy-7 gs-7">
+                            <thead>
+                                <tr class="fw-semibold fs-6 text-gray-800 border-bottom-2 border-gray-200">
+                                    <th class="min-w-200px">Order Id</th>
+                                    <th class="min-w-400px">Product Image</th>
+                                    <th class="min-w-100px">Product Name</th>
+                                    <th class="min-w-200px">Qunantity</th>
+                                    <th class="min-w-200px">Price</th>
+                                    <th class="min-w-200px">Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var order in Model)
                                 {
-                                    <img src="@item.Product.Image" alt="prod1">
+                                    foreach (var item in order.OrderProducts)
+                                    {
+                                        @if (item != null)
+                                        {
+                                            <tr>
+
+                                                <td>@order.Id</td>
+                                                <td><a asp-controller="Products" asp-action="Details" asp-route-id="@item.Product.Id"><img src="@item.Product.Image" height="80" width="80" alt="prod1" /></a></td>
+                                                <td>@item.Product.Name</td>
+                                                <td> @item.Quantity</td>
+                                                <td>@order.Amount</td>
+                                                <td>@order.Date.ToShortDateString()</td>
+                                            </tr>
+                                        }
+                                    }
                                 }
-                                <div class="cart-product-body">
-                                    <h6> <a asp-controller="Products" asp-action="Details" asp-route-id="@item.Product.Id">@item.Product.Name</a> </h6>
-
-                                </div>
-                            </div>
-                        </td>
-
-                        <td class="quantity" data-title="Quantity">
-                            @item.Quantity
-                        </td>
-                        
-                        <td data-title="Price">₹ @order.Amount</td>
-
-                        <td data-title="Status">@order.PaymentStatus</td>
-                        <td data-title="Date">@order.Date.ToShortDateString()</td>
-                    </tr>
-                  
-                            }
-                        }
-
-
-                </tbody>
-            </table>
-        }
-        else
-        {
-            <h2>You haven't ordered yet, order something.</h2>
-            <a asp-action="Index" asp-controller="Home" class="btn btn-primary">Continue Shopping</a>}
-       
-
+                              
+                            </tbody>
+                        </table>
+                    }
+                    </div>
+            </div>
+        </div>
     </div>
-</section>
+</div>
+<!--Cart Start -->
+
 <!-- Cart End -->

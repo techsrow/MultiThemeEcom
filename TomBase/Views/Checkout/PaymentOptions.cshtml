@@ -1,114 +1,134 @@
 ﻿
 @model BasePackageModule1.Controllers.CheckoutController.APaymentOptions
-    <!-- Bread Crumb STRAT -->
-    <div class="banner inner-banner1 ">
-        <div class="container">
-            <section class="banner-detail center-xs">
-                <h1 class="banner-title">Checkout</h1>
-                <div class="bread-crumb right-side float-none-xs">
-                    <ul>
-                        <li><a asp-action="Index" asp-controller="Home">Home</a>/</li>
-                        <li><a asp-action="Index" asp-controller="Cart">Cart</a>/</li>
-                        <li><span>Checkout</span></li>
-                    </ul>
-                </div>
-            </section>
-        </div>
-    </div>
-    <!-- Bread Crumb END -->
+<div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
     <div class="container">
-        <div class="row mt-4 mb-4">
-            <div class="col-md-6">
-                <h4>Payment Option</h4>
-                <form class="form" asp-action="PaymentOptions" method="post">
-                    <div asp-validation-summary="All" class="text-danger"></div>
+        <h1 class="page-title">Checkout<span>Payment Options</span></h1>
+    </div><!-- End .container -->
+</div>
+<nav aria-label="breadcrumb" class="breadcrumb-nav">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
+            <li class="breadcrumb-item"><a asp-controller="Checkout" asp-action="Index">Checkout</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Payment Options</li>
+        </ol>
+    </div><!-- End .container -->
+</nav>
+<!-- Bread Crumb END -->
+<form class="form" asp-action="PaymentOptions" method="post">
+    <div class="page-content">
+        <div class="checkout">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7">
+                        <h4>Payment Option</h4>
 
-                    <input type="hidden" asp-for="AddressId" />
-                    <div class="form-check mt-2 mb-2">
-                        <label class="form-check-label">
-                            <input type="radio" value="payOnline" asp-for="PaymentOption" class="form-check-input" checked> Pay Online
-                        </label>
-                    </div>
+                        <div asp-validation-summary="All" class="text-danger"></div>
 
-                    <div class="form-check mt-2 mb-2">
-                            <label class="form-check-label">
-                                <input type="radio" value="cashOnDelivery" asp-for="PaymentOption" class="form-check-input"> Cash On Delivery
+                        <input type="hidden" asp-for="AddressId" />
+                        <div class="form-check ">
+                            <input type="radio" value="payOnline" asp-for="PaymentOption" class="form-check-input" checked> 
+                            <label class="form-check-label" style="margin-left:10px;">
+                                Pay Online
                             </label>
                         </div>
 
-                    <div class="form-group form-check mt-2 mb-2">
-                        <div class="input-group mb-3">
-                            <input id="CouponsCode" class="form-control  " name="CouponsCode" placeholder="Coupon code">
-                            <span class="input-group-append bg-white border-left-0">
-                                <span class="input-group-text bg-transparent" id="Correct" style="display : none ; color:green">
-                                    <i class="fa fa-check"></i>
-
-                                </span>
-                                <span class="input-group-text bg-transparent " id="Wrong" style="display : none ; color:red">
-                                    <i class="fa fa-times "></i>
-                                </span>
-
-
-                            </span>
-
-                            <button class="btn btn-outline-success" type="button" id="BtnIsvalid" onclick="Isvalid()">Check is valid</button>
+                        <div class="form-check ">
+                            <input type="radio" value="cashOnDelivery" asp-for="PaymentOption" class="form-check-input">
+                            <label class="form-check-label" style="margin-left:10px;">
+                                Cash On Delivery
+                            </label>
                         </div>
-                    </div>
 
-                    <button type="submit" class="btn btn-color btn-block">Confirm Order</button>
-                </form>
-            </div>
-            <div class="col-md-4">
-                <div class="card" >
-                    <div class="card-body">
-                        <h5 class="card-title text-center text-danger">Order Summary</h5>
-                        <hr />
-                        <input type="hidden" value="@ViewBag.Items" id="AllTotalvalue" />
-                        <ul class="order-summary">
-                            <li>Items:	  <span class="float-right">₹ @ViewBag.Items</span></li>
-                          
-                            <li>Total:	   <span class="float-right">₹ @ViewBag.Items</span></li>
-                            <li>Promotion Applied:	-  <span class="float-right" id="Promotion">₹ 00</span></li>
-                            <li>
-                                Shipping Charges:	-
-                                @if (@ViewBag.Items < 500)
-                                {
-                                    <span class="float-right" id="ShippingCharges">₹ 50 </span>
-                                }
-                                else
-                                {
-                                    <span class="float-right" id="ShippingCharges">₹ 00 </span>
-                                }
+                        <div class="form-group form-check mt-2 mb-2">
+                            <div class="input-group mb-3">
+                                <input id="CouponsCode" class="form-control" style="margin-bottom:0rem !important;" name="CouponsCode" placeholder="Coupon code">
+                                <span class="input-group-append bg-white border-left-0">
+                                    <span class="input-group-text bg-transparent" id="Correct" style="display : none ; color:green">
+                                        <i class="fa fa-check"></i>
 
-                            </li>
-                            <hr />
-                            <li>
-                                <h5 class="text-danger border-top">
-                                    Order Total:    <span class="float-right">
-                                        ₹
-                                        @if (ViewBag.Items < 500)
-                                        {
-                                            var result = ViewBag.Items + 50;
-                                            @result ;
-                                        }
-                                        else
-                                        {
-                                            @ViewBag.Items
-                                        }
+                                    </span>
+                                    <span class="input-group-text bg-transparent " id="Wrong" style="display : none ; color:red">
+                                        <i class="fa fa-times "></i>
                                     </span>
 
 
-                                </h5>
-                            </li>
+                                </span>
 
-                        </ul>
+                                <button class="btn btn-outline btn-outline-solid btn-outline-secondary" type="button" id="BtnIsvalid" onclick="Isvalid()">Check is valid</button>
+                            </div>
+                        </div>
+
+                      
 
                     </div>
-                </div>
+                    <aside class="col-md-5">
+                        <div class="summary">
+                            <div class="card-body">
+                                <h3 class="summary-title">Order Summary</h3>
+                                <table class="table table-summary">
+                                    <thead>
+                                        <tr>
+                                            <th>Product</th>
+                                            <th>Total</th>
+                                        </tr>
+                                    </thead>
 
+                                    <tbody>
+                                        
+                                        
+                                        <tr class="summary-subtotal">
+                                            <td>Subtotal:</td>
+                                            <td>Rs. @ViewBag.Items</td>
+                                        </tr><!-- End .summary-subtotal -->
+                                        <tr>
+                                            <td>Shipping:</td>
+                                            <td>
+                                                @if (@ViewBag.Items < 500)
+                                                {
+                                                    <span  id="ShippingCharges">₹ 50 </span>
+                                                }
+                                                else
+                                                {
+                                                    <span  id="ShippingCharges">Free Shipping </span>
+                                                }
+                                                                                    </td>
+                                        </tr>
+                                        <tr class="summary-total">
+                                            <td>Total:</td>
+                                            <td> Rs.
+                                                @if (ViewBag.Items < 500)
+                                                {
+                                                    var result = ViewBag.Items + 50;
+                                                    @result ;
+                                                }
+                                                else
+                                                {
+                                                    @ViewBag.Items
+                                                }
+                                                                                    </td>
+                                        </tr><!-- End .summary-total -->
+                                    </tbody>
+                                </table><!-- End .table table-summary -->
+
+                                
+                                
+                                <button type="submit"  class="btn btn-outline-primary-2 btn-order btn-block">
+                                    <span class="btn-text">Place Order</span>
+                                    <span class="btn-hover-text">Proceed to Checkout</span>
+                                </button>
+                                <input type="hidden" value="@ViewBag.Items" id="AllTotalvalue" />
+                                
+
+                            </div>
+                        </div>
+
+                    </aside>
+                </div>
             </div>
         </div>
     </div>
+</form>
 
     <script type="text/javascript">
         function Isvalid() {
