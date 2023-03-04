@@ -26,12 +26,12 @@ namespace TomBase.Controllers
             _context = context;
             _userManager = userManager;
         }
-        public async Task<IActionResult> Index(string category, string query, int minPrice, int maxPrice, int pageindex = 1, int PageSize = 24, string orderby = null)
+        public async Task<IActionResult> Index(string category, string query, int minPrice, int maxPrice, int pageindex = 1, int PageSize = 12, string orderby = null)
         {
 
-            IQueryable<Product> products = from s in _context.Products
+            IQueryable<Product> products = from s in _context.Products.Include(c=>c.Category).ThenInclude(s=>s.SubCategories)
                                            select s;
-
+         
             //products = products.Where(s => s.Status == true);
 
             if (category != null)

@@ -312,6 +312,37 @@
                 <!--begin::Tab pane-->
                 <div class="tab-pane fade" id="kt_ecommerce_add_product_advanced" role="tab-panel">
                     <div class="d-flex flex-column gap-7 gap-lg-10">
+
+                        <div class="card card-flush py-4">
+                            <!--begin::Card header-->
+                            <div class="card-header">
+                                <div class="card-title">
+                                    <h2>Short Description</h2>
+                                </div>
+                            </div>
+                            <!--end::Card header-->
+                            <!--begin::Card body-->
+                            <div class="card-body pt-0">
+                                <!--begin::Input group-->
+                                <div class="mb-10 fv-row fv-plugins-icon-container">
+                                    <!--begin::Label-->
+                                    <label class="required form-label">Short Description</label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                     <textarea asp-for="@Model.ShortDescription" class="form-control"></textarea>
+                                    <!--end::Input-->
+                                    <!--begin::Description-->
+                                    <div class="text-muted fs-7">Short Descriptions</div>
+                                    <!--end::Description-->
+                                    <div class="fv-plugins-message-container invalid-feedback"></div>
+                                </div>
+                                <!--end::Input group-->
+                               
+
+                            </div>
+                            <!--end::Card header-->
+
+                        </div>
                         <div class="card card-flush py-4">
                             <!--begin::Card header-->
                             <div class="card-header">
@@ -361,7 +392,7 @@
                                             Add To Deal Of The Day
                                         </label>
                                     </div>
-                                    
+
                                 </div>
                                 <!--end::Input group-->
                                 <!--begin::Input group-->
@@ -407,7 +438,7 @@
                                     <!--end::Description-->
                                 </div>
                                 <!--end::Input group-->
-                               
+
                             </div>
                             <!--end::Card header-->
                         </div>

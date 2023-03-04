@@ -2,19 +2,20 @@
 
 
 
-            @foreach (var category in Model)
-            { 
-                <li>
-                    <div class="check-box">
-                        <span>
-                            <a asp-action="Index" asp-controller="Products" asp-rote-id="@category.Id" asp-route-category="@category.Name">
-                                <label for="clothing">@category.Name </label>
-                             </a>
-</span>
-                    </div>
-                </li>
-              }
-            
+@foreach (var category in Model)
+{
+
+    <div class="filter-item">
+        <div class="custom-control custom-checkbox">
+            <a asp-action="Index" asp-controller="Products" asp-route-id="@category.Id" asp-route-category="@category.Name">
+                <label class="custom-control-label" for="cat-2">@category.Name </label>
+                </a>
+        </div><!-- End .custom-checkbox -->
+        <span class="item-count">@category.Products.Count()</span>
+    </div>
+  
+}
+
 
 
 

@@ -1,581 +1,397 @@
 ﻿@using BasePackageModule2.Extensions
 @model BasePackageModule2.Models.Product
-<!-- Bread Crumb STRAT -->
-<div class="banner inner-banner1 ">
+<nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
+    <div class="container d-flex align-items-center">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
+            <li class="breadcrumb-item"><a asp-controller="Products" asp-action="Index">Products</a></li>
+            <li class="breadcrumb-item active" aria-current="page">@Model.Name</li>
+        </ol>
+
+
+    </div><!-- End .container -->
+</nav>
+<div class="page-content">
     <div class="container">
-        <section class="banner-detail center-xs">
-            <h1 class="banner-title">@Model.Name</h1>
-            <div class="bread-crumb right-side float-none-xs">
-                <ul>
-                    <li><a asp-action="Index" asp-controller="Home">Home</a>/</li>
-                    <li><span>@Model.Name</span></li>
-                </ul>
+        <div class="product-details-top">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="product-gallery product-gallery-vertical">
+                        <div class="row">
+                            <figure class="product-main-image">
+                                <img id="product-zoom" src="@Model.Image" data-zoom-image="@Model.Image" alt="product image">
+
+                                <a href="#" id="btn-product-gallery" class="btn-product-gallery">
+                                    <i class="icon-arrows"></i>
+                                </a>
+                            </figure><!-- End .product-main-image -->
+
+                            <div id="product-zoom-gallery" class="product-image-gallery">
+
+
+                                <a class="product-gallery-item active" href="#" data-image="@Model.Image" data-zoom-image="@Model.Image">
+                                    <img src="@Model.Image" alt="product side">
+                                </a>
+
+                                @foreach (var product in Model.Images)
+                                {
+                                    <a class="product-gallery-item" href="#" data-image="@product.Img" data-zoom-image="@product.Img">
+                                        <img src="@product.Img" alt="product cross">
+                                    </a>
+                                }
+
+
+                            </div><!-- End .product-image-gallery -->
+                        </div><!-- End .row -->
+                    </div><!-- End .product-gallery --><!-- End .product-gallery -->
+                </div><!-- End .col-md-6 -->
+
+                <div class="col-md-6">
+                    <div class="product-details sticky-content">
+                        <h1 class="product-title">@Model.Name</h1><!-- End .product-title -->
+
+                        <div class="ratings-container">
+                            <div class="ratings">
+                                <div class="ratings-val" style="width: 80%;"></div><!-- End .ratings-val -->
+                            </div><!-- End .ratings -->
+                            @*<a class="ratings-text" href="#product-accordion" id="review-link">( 2 Reviews )</a>*@
+                        </div><!-- End .rating-container -->
+
+                        <div class="product-price">
+                            <span class="new-price">Rs. @Model.BasePrice</span>
+                            <span class="old-price">Rs. @Model.FinalPrice</span>
+                        </div><!-- End .product-price -->
+
+                        <div class="product-content">
+                            <p> @Model.ShortDescription </p>
+                        </div><!-- End .product-content -->
+                        <!--<div class="product-countdown" data-until="2019, 10, 29"></div>--><!-- End .product-countdown -->
+                        <!--<div class="details-filter-row details-row-size">
+                            <label for="size">Size:</label>
+                            <div class="select-custom">
+                                <select name="size" id="size" class="form-control">
+                                    <option value="#" selected="selected">Select a size</option>
+                                    <option value="s">Small</option>
+                                    <option value="m">Medium</option>
+                                    <option value="l">Large</option>
+                                    <option value="xl">Extra Large</option>
+                                </select>
+                            </div>-->
+                        <!-- End .select-custom -->
+                        <!--<a href="#" class="size-guide"><i class="icon-th-list"></i>size guide</a>
+                        </div>-->
+                        <!-- End .details-filter-row -->
+
+                        <div class="details-filter-row details-row-size">
+                            <label for="qty">Qty:</label>
+                            <div class="product-details-quantity">
+                                <input type="number" id="quantity" cartId="@Model.Id" name="quant[@Model.Id]" class="form-control" value="@Model.Id" min="1" max="10" step="1" data-decimals="0" required>
+                            </div><!-- End .product-details-quantity -->
+                        </div><!-- End .details-filter-row -->
+
+                        <div class="product-details-action">
+                            <a asp-controller="Cart" asp-action="AddToCart" asp-route-productId="@Model.Id" class="btn-product btn-cart"><span>add to cart</span></a>
+
+                            <!--<div class="details-action-wrapper">
+                                <a href="#" class="btn-product btn-wishlist" title="Wishlist"><span>Add to Wishlist</span></a>
+                                <a href="#" class="btn-product btn-compare" title="Compare"><span>Add to Compare</span></a>
+                            </div>-->
+                            <!-- End .details-action-wrapper -->
+                        </div><!-- End .product-details-action -->
+
+                        <div class="product-details-footer">
+                            <div class="product-cat">
+                                <span>Category:</span>
+
+                                <a asp-controller="Products" asp-action="Index" asp-route-Category="@Model.Category.Name">@Model.Category.Name</a>,
+
+                            </div><!-- End .product-cat -->
+
+                            <div class="social-icons social-icons-sm">
+                                <span class="social-label">Share:</span>
+
+                                <a href="https://www.facebook.com/sharer.php?u=" class="social-icon" title="Facebook" target="_blank"><i class="icon-facebook-f"></i></a>
+                                <a href="https://twitter.com/share?url=[post-url]&text=[post-title]&via=[via]&hashtags=[hashtags]" class="social-icon" title="Twitter" target="_blank"><i class="icon-twitter"></i></a>
+                                <a href="https://api.whatsapp.com/send?text=[post-title] [post-url]" class="social-icon" title="Instagram" target="_blank"><i class="icon-whatsapp"></i></a>
+                                <a href="https://pinterest.com/pin/create/bookmarklet/?media=[post-img]&url=[post-url]&is_video=[is_video]&description=[post-title]" class="social-icon" title="Pinterest" target="_blank"><i class="icon-pinterest"></i></a>
+                            </div>
+                        </div><!-- End .product-details-footer -->
+                        <!-- End .accordion -->
+                    </div><!-- End .product-details -->
+                </div><!-- End .col-md-6 -->
+            </div><!-- End .row -->
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="accordion accordion-plus product-details-accordion" id="product-accordion">
+                        <div class="card card-box card-sm">
+                            <div class="card-header" id="product-desc-heading">
+                                <h2 class="card-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" href="#product-accordion-desc" aria-expanded="false" aria-controls="product-accordion-desc">
+                                        Description
+                                    </a>
+                                </h2>
+                            </div><!-- End .card-header -->
+                            <div id="product-accordion-desc" class="collapse" aria-labelledby="product-desc-heading" data-parent="#product-accordion">
+                                <div class="card-body">
+                                    <div class="product-desc-content">
+                                        @Html.Raw(Model.Description)
+                                    </div><!-- End .product-desc-content -->
+                                </div><!-- End .card-body -->
+                            </div><!-- End .collapse -->
+                        </div><!-- End .card -->
+                        <!--<div class="card card-box card-sm">
+                            <div class="card-header" id="product-info-heading">
+                                <h2 class="card-title">
+                                    <a role="button" data-toggle="collapse" href="#product-accordion-info" aria-expanded="true" aria-controls="product-accordion-info">
+                                        Additional Information
+                                    </a>
+                                </h2>
+                            </div>-->
+                        <!-- End .card-header -->
+                        <!--<div id="product-accordion-info" class="collapse show" aria-labelledby="product-info-heading" data-parent="#product-accordion">
+                            <div class="card-body">
+                                <div class="product-desc-content">
+                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna viverra non, semper suscipit, posuere a, pede. Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. </p>
+
+                                    <h3>Fabric & care</h3>
+                                    <ul>
+                                        <li>100% Polyester</li>
+                                        <li>Do not iron</li>
+                                        <li>Do not wash</li>
+                                        <li>Do not bleach</li>
+                                        <li>Do not tumble dry</li>
+                                        <li>Professional dry clean only</li>
+                                    </ul>
+
+                                    <h3>Size</h3>
+                                    <p>S, M, L, XL</p>
+                                </div>-->
+                        <!-- End .product-desc-content -->
+                        <!--</div>--><!-- End .card-body -->
+                        <!--</div>--><!-- End .collapse -->
+                        <!--</div>--><!-- End .card -->
+                        <!--<div class="card card-box card-sm">
+                            <div class="card-header" id="product-shipping-heading">
+                                <h2 class="card-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" href="#product-accordion-shipping" aria-expanded="false" aria-controls="product-accordion-shipping">
+                                        Shipping & Returns
+                                    </a>
+                                </h2>
+                            </div>-->
+                        <!-- End .card-header -->
+                        <!--<div id="product-accordion-shipping" class="collapse" aria-labelledby="product-shipping-heading" data-parent="#product-accordion">
+                            <div class="card-body">
+                                <div class="product-desc-content">
+                                    <p>
+                                        We deliver to over 100 countries around the world. For full details of the delivery options we offer, please view our <a href="#">Delivery information</a><br>
+                                        We hope you’ll love every purchase, but if you ever need to return an item you can do so within a month of receipt. For full details of how to make a return, please view our <a href="#">Returns information</a>
+                                    </p>
+                                </div>-->
+                        <!-- End .product-desc-content -->
+                        <!--</div>--><!-- End .card-body -->
+                        <!--</div>--><!-- End .collapse -->
+                        <!--</div>--><!-- End .card -->
+                        <!--<div class="card card-box card-sm">
+                            <div class="card-header" id="product-review-heading">
+                                <h2 class="card-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" href="#product-accordion-review" aria-expanded="false" aria-controls="product-accordion-review">
+                                        Reviews (2)
+                                    </a>
+                                </h2>
+                            </div>-->
+                        <!-- End .card-header -->
+                        <!--<div id="product-accordion-review" class="collapse" aria-labelledby="product-review-heading" data-parent="#product-accordion">
+                            <div class="card-body">
+                                <div class="reviews">
+                                    <div class="review">
+                                        <div class="row no-gutters">
+                                            <div class="col-auto">
+                                                <h4><a href="#">Samanta J.</a></h4>
+                                                <div class="ratings-container">
+                                                    <div class="ratings">
+                                                        <div class="ratings-val" style="width: 80%;"></div>-->
+                        <!-- End .ratings-val -->
+                        <!--</div>--><!-- End .ratings -->
+                        <!--</div>--><!-- End .rating-container -->
+                        <!--<span class="review-date">6 days ago</span>
+                        </div>-->
+                        <!-- End .col -->
+                        <!--<div class="col">
+                            <h4>Good, perfect size</h4>
+
+                            <div class="review-content">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus cum dolores assumenda asperiores facilis porro reprehenderit animi culpa atque blanditiis commodi perspiciatis doloremque, possimus, explicabo, autem fugit beatae quae voluptas!</p>
+                            </div>-->
+                        <!-- End .review-content -->
+                        <!--<div class="review-action">
+                            <a href="#"><i class="icon-thumbs-up"></i>Helpful (2)</a>
+                            <a href="#"><i class="icon-thumbs-down"></i>Unhelpful (0)</a>
+                        </div>-->
+                        <!-- End .review-action -->
+                        <!--</div>--><!-- End .col-auto -->
+                        <!--</div>--><!-- End .row -->
+                        <!--</div>--><!-- End .review -->
+                        <!--<div class="review">
+                            <div class="row no-gutters">
+                                <div class="col-auto">
+                                    <h4><a href="#">John Doe</a></h4>
+                                    <div class="ratings-container">
+                                        <div class="ratings">
+                                            <div class="ratings-val" style="width: 100%;"></div>-->
+                        <!-- End .ratings-val -->
+                        <!--</div>--><!-- End .ratings -->
+                        <!--</div>--><!-- End .rating-container -->
+                        <!--<span class="review-date">5 days ago</span>
+                        </div>-->
+                        <!-- End .col -->
+                        <!--<div class="col">
+                            <h4>Very good</h4>
+
+                            <div class="review-content">
+                                <p>Sed, molestias, tempore? Ex dolor esse iure hic veniam laborum blanditiis laudantium iste amet. Cum non voluptate eos enim, ab cumque nam, modi, quas iure illum repellendus, blanditiis perspiciatis beatae!</p>
+                            </div>-->
+                        <!-- End .review-content -->
+                        <!--<div class="review-action">
+                            <a href="#"><i class="icon-thumbs-up"></i>Helpful (0)</a>
+                            <a href="#"><i class="icon-thumbs-down"></i>Unhelpful (0)</a>
+                        </div>-->
+                        <!-- End .review-action -->
+                        <!--</div>--><!-- End .col-auto -->
+                        <!--</div>--><!-- End .row -->
+                        <!--</div>--><!-- End .review -->
+                        <!--</div>--><!-- End .reviews -->
+                        <!--</div>--><!-- End .card-body -->
+                        <!--</div>--><!-- End .collapse -->
+                        <!--</div>--><!-- End .card -->
+                    </div>
+                </div>
             </div>
-        </section>
-    </div>
-</div>
-<!-- Bread Crumb END -->
-<!-- CONTAIN START -->
-<section class="pt-70">
+        </div><!-- End .product-details-top -->
+
+        <hr class="mt-3 mb-5">
+
+
+        <h2 class="title text-center mb-4">You May Also Like</h2><!-- End .title text-center -->
+        <div class="owl-carousel owl-simple carousel-equal-height carousel-with-shadow" data-toggle="owl"
+             data-owl-options='{
+                            "nav": false,
+                            "dots": true,
+                            "margin": 20,
+                            "loop": false,
+                            "responsive": {
+                                "0": {
+                                    "items":1
+                                },
+                                "480": {
+                                    "items":2
+                                },
+                                "768": {
+                                    "items":3
+                                },
+                                "992": {
+                                    "items":4
+                                },
+                                "1200": {
+                                    "items":4,
+                                    "nav": true,
+                                    "dots": false
+                                }
+                            }
+                        }'>
+            @foreach (var relatedproduct in ViewBag.Funds)
+            {
+                <div class="product product-7">
+                    <figure class="product-media">
+                        <span class="product-label label-new">New</span>
+                        <a href="product.html">
+                            <img src="@relatedproduct.Image" alt="Product image" class="product-image">
+                        </a>
+
+                       
+
+                        <div class="product-action">
+                            <a  asp-controller="Cart" id="addToCart" asp-action="AddToCart" asp-route-productId="@relatedproduct.Id" class="btn-product btn-cart"><span>add to cart</span></a>
+                        </div><!-- End .product-action -->
+                    </figure><!-- End .product-media -->
+
+                    <div class="product-body">
+                        <div class="product-cat">
+                            @*<a asp-controller="Products" asp-action="Index" asp-route-Category="@relatedproduct.Category.Name" >@relatedproduct.Category.Name</a>*@
+                        </div><!-- End .product-cat -->
+                        <h3 class="product-title"><a asp-controller="Products" asp-action="Details" asp-route-Id="@relatedproduct.Id"> @relatedproduct.Name</a></h3><!-- End .product-title -->
+                        <div class="product-price">
+                            Rs. @relatedproduct.Name
+                        </div><!-- End .product-price -->
+                      
+
+                    </div><!-- End .product-body -->
+                </div>
+            }
+
+            <!-- End .product -->
+
+           
+        </div><!-- End .owl-carosel -->
+    </div><!-- End .container -->
+</div><!-- End .page-content -->
+<!-- Sticky Bar -->
+<div class="sticky-bar">
     <div class="container">
         <div class="row">
-            <div class="col-xl-12 col-12">
-                <div class="row">
-                    <div class="col-lg-7 col-md-7 mb-xs-30">
-                        <div class="fotorama" data-nav="thumbs" data-allowfullscreen="native">
+            <div class="col-6">
+                <figure class="product-media">
+                    <a href="product.html">
+                        <img src="@Model.Image" alt="Product image">
+                    </a>
+                </figure><!-- End .product-media -->
+                <h4 class="product-title"><a asp-controller="Products" asp-action="Index" asp-route-Id="@Model.Id" asp-route-Slug="@Model.Slug">@Model.Name</a></h4><!-- End .product-title -->
+            </div><!-- End .col-6 -->
 
-                            @foreach (var pimg in Model.Images)
-                            {
-                                <a href="@pimg.Img"><img src="@pimg.Img" alt="online cycle shop"></a>
-                            }
+            <div class="col-6 justify-content-end">
+                <div class="product-price">
+                    @Model.FinalPrice
+                </div><!-- End .product-price -->
+                <div class="product-details-quantity">
+                    <input type="number" id="sticky-cart-qty" class="form-control" value="1" min="1" max="10" step="1" data-decimals="0" required>
+                </div><!-- End .product-details-quantity -->
 
+                <div class="product-details-action">
+                    <a asp-controller="Cart" id="addToCart" asp-action="AddToCart" asp-route-productId="@Model.Id" class="btn-product btn-cart"><span>add to cart</span></a>
 
-                        </div>
-                    </div>
-                    <div class="col-lg-5 col-md-5">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="product-detail-main">
-                                    <div class="product-item-details">
-                                        <h1 class="product-item-name">@Model.Name</h1>
-                                        <div class="rating-summary-block">
-                                            <div title="53%" class="rating-result"> <span style="width:53%"></span> </div>
-                                        </div>
-                                        <div class="price-box"> <span class="price">Rs. @Model.FinalPrice</span> <del class="price old-price">Rs.@Model.BasePrice</del> </div>
-                                        <div class="product-info-stock-sku">
-                                            <div>
-                                                <label>Availability: </label>
-                                                <span class="info-deta">In stock</span>
-                                            </div>
-                                            <div>
-                                                <label>SKU: </label>
-                                                <span class="info-deta">@Model.sku</span>
-                                            </div>
-                                        </div>
-                                        <hr class="mb-20">
-                                        <p>@Model.ShortDescription</p>
-                                        <ul class="product-list">
-                                            <li><i class="fa fa-check"></i> Satisfaction 100% Guaranteed</li>
-                                            @*<li><i class="fa fa-check"></i> Free shipping on orders over $99</li>
-                                                <li><i class="fa fa-check"></i> 14 day easy Return</li>*@
-                                        </ul>
-                                        <hr class="mb-20">
-                                        <div class="mb-20">
-                                            <div class="row">
+                </div><!-- End .product-details-action -->
+            </div><!-- End .col-6 -->
+        </div><!-- End .row -->
+    </div><!-- End .container -->
+</div><!-- End .sticky-bar -->
+<script src="~/theme/Molla/assets/js/jquery.min.js"></script>
 
-
-                                                <div class="col-12">
-                                                    <div class="row">
-                                                       
-                                                        <div class="col-xl-9 col-lg-8 col-md-8 col-sm-9">
-                                                            <div class="custom-qty">
-                                                                
-                                                                <form class="atc-form" method="post" style=" width: 330px;">
-                                                                    <div class="form-group ">
-                                                                        <label>Quantity</label>
-                                                                        <input type="number" value="1" min="0" step="1" class="qty form-control" name="quantity" value="1">
-                                                                    </div>
-                                                                    
-                                                                </form>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <hr class="mb-20">
-                                        <div class="bottom-detail cart-button">
-                                            <ul>
-                                                <li class="pro-cart-icon">
-
-                                                    <a asp-controller="Cart" style="z-index:auto;" asp-action="AddToCart" asp-route-productId="@Model.Id"  title="Add to Cart" class="btn btn-info"><i class="fa fa-shopping-basket text-white"> Add to Cart</i> </a>
-
-                                                </li>
-                                                @*<li class="pro-wishlist-icon"><a href="wishlist.html"><span><i class="fa fa-heart"></i></span>Wishlist</a></li>
-                                                    <li class="pro-compare-icon"><a href="compare.html"><span><i class="fa fa-signal"></i></span>Compare</a></li>
-                                                    <li class="pro-email-icon"><a href="javascript:void(0)"><span><i class="fa fa-envelope"></i></span>Email to Friends</a></li>*@
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<!--tab_content Start -->
-<section class="ptb-70">
-    <div class="container">
-        <div class="product-detail-tab">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div id="tabs">
-                        <ul class="nav nav-tabs">
-                            <li><a class="tab-Description selected" title="Description">Description</a></li>
-                            <li><a class="tab-Product-Tags" title="Product-Tags">Product-Tags</a></li>
-                            <li><a class="tab-Reviews" title="Reviews">Reviews</a></li>
-                        </ul>
-                    </div>
-                    <div id="items">
-                        <div class="tab_content">
-                            <ul>
-                                <li>
-                                    <div class="items-Description selected ">
-                                        <div class="Description">
-                                            <strong>The standard Lorem Ipsum passage, used since the 1500s</strong><br />
-                                            <p>Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy  took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into Roadienic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets</p>
-                                            <p>Tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="items-Product-Tags">
-                                        <strong>Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC</strong><br />
-                                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="items-Reviews">
-                                        <div class="comments-area">
-                                            <h4>Comments<span>(2)</span></h4>
-                                            <ul class="comment-list mt-30">
-                                                <li>
-                                                    <div class="comment-user"> <img src="images/comment-user.jpg" alt="Roadie"> </div>
-                                                    <div class="comment-detail">
-                                                        <div class="user-name">John Doe</div>
-                                                        <div class="post-info">
-                                                            <ul>
-                                                                <li>Fab 11, 2016</li>
-                                                                <li><a href="#"><i class="fa fa-reply"></i>Reply</a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <p>Consectetur adipiscing elit integer sit amet augue laoreet maximus nuncac.</p>
-                                                    </div>
-                                                    <ul class="comment-list child-comment">
-                                                        <li>
-                                                            <div class="comment-user"> <img src="images/comment-user2.jpg" alt="Roadie"> </div>
-                                                            <div class="comment-detail">
-                                                                <div class="user-name">Joseph</div>
-                                                                <div class="post-info">
-                                                                    <ul>
-                                                                        <li>Fab 11, 2016</li>
-                                                                        <li><a href="#"><i class="fa fa-reply"></i>Reply</a></li>
-                                                                    </ul>
-                                                                </div>
-                                                                <p>Consectetur adipiscing elit integer sit amet augue laoreet maximus nuncac.</p>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="comment-user"> <img src="images/comment-user2.jpg" alt="Roadie"> </div>
-                                                            <div class="comment-detail">
-                                                                <div class="user-name">Joseph</div>
-                                                                <div class="post-info">
-                                                                    <ul>
-                                                                        <li>Fab 11, 2016</li>
-                                                                        <li><a href="#"><i class="fa fa-reply"></i>Reply</a></li>
-                                                                    </ul>
-                                                                </div>
-                                                                <p>Consectetur adipiscing elit integer sit amet augue laoreet maximus nuncac.</p>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <div class="comment-user"> <img src="images/comment-user3.jpg" alt="Roadie"> </div>
-                                                    <div class="comment-detail">
-                                                        <div class="user-name">Kennedy Doe</div>
-                                                        <div class="post-info">
-                                                            <ul>
-                                                                <li>Fab 11, 2016</li>
-                                                                <li><a href="#"><i class="fa fa-reply"></i>Reply</a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <p>Consectetur adipiscing elit integer sit amet augue laoreet maximus nuncac.</p>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="main-form mt-30">
-                                            <h4>Leave a comments</h4>
-                                            <form>
-                                                <div class="row mt-30">
-                                                    <div class="col-md-4 mb-30">
-                                                        <input type="text" placeholder="Name" required>
-                                                    </div>
-                                                    <div class="col-md-4 mb-30">
-                                                        <input type="email" placeholder="Email" required>
-                                                    </div>
-                                                    <div class="col-md-4 mb-30">
-                                                        <input type="text" placeholder="Website" required>
-                                                    </div>
-                                                    <div class="col-12 mb-30">
-                                                        <textarea cols="30" rows="3" placeholder="Message" required></textarea>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <button class="btn btn-color" name="submit" type="submit">Submit</button>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!--tab_content End -->
-<!--Related Products Start -->
-<section class="pb-70">
-    <div class="container">
-        <div class="product-listing">
-            <div class="row">
-                <div class="col-12">
-                    <div class="heading-part align-center mb-30">
-                        <h2 class="main_title heading"><span>Related Products</span></h2>
-                    </div>
-                </div>
-            </div>
-            <div class="pro_cat">
-                <div class="row">
-                    <div class="owl-carousel pro-cat-slider">
-                        <div class="item">
-                            <div class="product-item">
-                                <div class="main-label new-label"><span>New</span></div>
-                                <div class="product-image">
-                                    <a href="product-page.html"> <img src="images/1.jpg" alt="Roadie"> </a>
-                                </div>
-                                <div class="product-details">
-                                    <div class="product-item-details">
-                                        <div class="product-item-name">
-                                            <a href="product-page.html">Defyant Reversible Dot Shorts</a>
-                                        </div>
-                                        <div class="rating-summary-block">
-                                            <div class="rating-result" title="53%"> <span style="width:53%"></span> </div>
-                                        </div>
-                                        <div class="price-box">
-                                            <span class="price">$520.00</span>
-                                            <del class="price old-price">$620.00</del>
-                                        </div>
-                                    </div>
-                                    <div class="product-detail-inner">
-                                        <div class="detail-inner-left">
-                                            <ul>
-                                                <li class="pro-cart-icon">
-                                                    <form>
-                                                        <button title="Add to Cart"></button>
-                                                    </form>
-                                                </li>
-                                                <li class="pro-wishlist-icon"><a title="Wishlist" href="wishlist.html"></a></li>
-                                                <li class="pro-compare-icon"><a title="Compare" href="compare.html"></a></li>
-                                                <li class="pro-quick-view-icon"><a title="quick-view" href="#product_popup" class="popup-with-product"></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="product-item">
-                                <div class="main-label sale-label"><span>Sale</span></div>
-                                <div class="product-image">
-                                    <a href="product-page.html"> <img src="images/2.jpg" alt="Roadie"> </a>
-                                </div>
-                                <div class="product-details">
-                                    <div class="product-item-details">
-                                        <div class="product-item-name">
-                                            <a href="product-page.html">Defyant Reversible Dot Shorts</a>
-                                        </div>
-                                        <div class="rating-summary-block">
-                                            <div class="rating-result" title="53%"> <span style="width:53%"></span> </div>
-                                        </div>
-                                        <div class="price-box">
-                                            <span class="price">$520.00</span>
-                                            <del class="price old-price">$620.00</del>
-                                        </div>
-                                    </div>
-                                    <div class="product-detail-inner">
-                                        <div class="detail-inner-left">
-                                            <ul>
-                                                <li class="pro-cart-icon">
-                                                    <form>
-                                                        <button title="Add to Cart"></button>
-                                                    </form>
-                                                </li>
-                                                <li class="pro-wishlist-icon"><a title="Wishlist" href="wishlist.html"></a></li>
-                                                <li class="pro-compare-icon"><a title="Compare" href="compare.html"></a></li>
-                                                <li class="pro-quick-view-icon"><a title="quick-view" href="#product_popup" class="popup-with-product"></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="product-item">
-                                <div class="main-label new-label"><span>New</span></div>
-                                <div class="main-label sale-label"><span>Sale</span></div>
-                                <div class="product-image">
-                                    <a href="product-page.html"> <img src="images/8.jpg" alt="Roadie"> </a>
-                                </div>
-                                <div class="product-details">
-                                    <div class="product-item-details">
-                                        <div class="product-item-name">
-                                            <a href="product-page.html">Defyant Reversible Dot Shorts</a>
-                                        </div>
-                                        <div class="rating-summary-block">
-                                            <div class="rating-result" title="53%"> <span style="width:53%"></span> </div>
-                                        </div>
-                                        <div class="price-box">
-                                            <span class="price">$520.00</span>
-                                            <del class="price old-price">$620.00</del>
-                                        </div>
-                                    </div>
-                                    <div class="product-detail-inner">
-                                        <div class="detail-inner-left">
-                                            <ul>
-                                                <li class="pro-cart-icon">
-                                                    <form>
-                                                        <button title="Add to Cart"></button>
-                                                    </form>
-                                                </li>
-                                                <li class="pro-wishlist-icon"><a title="Wishlist" href="wishlist.html"></a></li>
-                                                <li class="pro-compare-icon"><a title="Compare" href="compare.html"></a></li>
-                                                <li class="pro-quick-view-icon"><a title="quick-view" href="#product_popup" class="popup-with-product"></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="product-item">
-                                <div class="product-image">
-                                    <a href="product-page.html"> <img src="images/3.jpg" alt="Roadie"> </a>
-                                </div>
-                                <div class="product-details">
-                                    <div class="product-item-details">
-                                        <div class="product-item-name">
-                                            <a href="product-page.html">Defyant Reversible Dot Shorts</a>
-                                        </div>
-                                        <div class="rating-summary-block">
-                                            <div class="rating-result" title="53%"> <span style="width:53%"></span> </div>
-                                        </div>
-                                        <div class="price-box">
-                                            <span class="price">$520.00</span>
-                                            <del class="price old-price">$620.00</del>
-                                        </div>
-                                    </div>
-                                    <div class="product-detail-inner">
-                                        <div class="detail-inner-left">
-                                            <ul>
-                                                <li class="pro-cart-icon">
-                                                    <form>
-                                                        <button title="Add to Cart"></button>
-                                                    </form>
-                                                </li>
-                                                <li class="pro-wishlist-icon"><a title="Wishlist" href="wishlist.html"></a></li>
-                                                <li class="pro-compare-icon"><a title="Compare" href="compare.html"></a></li>
-                                                <li class="pro-quick-view-icon"><a title="quick-view" href="#product_popup" class="popup-with-product"></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="product-item">
-                                <div class="main-label sale-label"><span>Sale</span></div>
-                                <div class="product-image">
-                                    <a href="product-page.html"> <img src="images/6.jpg" alt="Roadie"> </a>
-                                </div>
-                                <div class="product-details">
-                                    <div class="product-item-details">
-                                        <div class="product-item-name">
-                                            <a href="product-page.html">Defyant Reversible Dot Shorts</a>
-                                        </div>
-                                        <div class="rating-summary-block">
-                                            <div class="rating-result" title="53%"> <span style="width:53%"></span> </div>
-                                        </div>
-                                        <div class="price-box">
-                                            <span class="price">$520.00</span>
-                                            <del class="price old-price">$620.00</del>
-                                        </div>
-                                    </div>
-                                    <div class="product-detail-inner">
-                                        <div class="detail-inner-left">
-                                            <ul>
-                                                <li class="pro-cart-icon">
-                                                    <form>
-                                                        <button title="Add to Cart"></button>
-                                                    </form>
-                                                </li>
-                                                <li class="pro-wishlist-icon"><a title="Wishlist" href="wishlist.html"></a></li>
-                                                <li class="pro-compare-icon"><a title="Compare" href="compare.html"></a></li>
-                                                <li class="pro-quick-view-icon"><a title="quick-view" href="#product_popup" class="popup-with-product"></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="product-item">
-                                <div class="product-image">
-                                    <a href="product-page.html"> <img src="images/8.jpg" alt="Roadie"> </a>
-                                </div>
-                                <div class="product-details">
-                                    <div class="product-item-details">
-                                        <div class="product-item-name">
-                                            <a href="product-page.html">Defyant Reversible Dot Shorts</a>
-                                        </div>
-                                        <div class="rating-summary-block">
-                                            <div class="rating-result" title="53%"> <span style="width:53%"></span> </div>
-                                        </div>
-                                        <div class="price-box">
-                                            <span class="price">$520.00</span>
-                                            <del class="price old-price">$620.00</del>
-                                        </div>
-                                    </div>
-                                    <div class="product-detail-inner">
-                                        <div class="detail-inner-left">
-                                            <ul>
-                                                <li class="pro-cart-icon">
-                                                    <form>
-                                                        <button title="Add to Cart"></button>
-                                                    </form>
-                                                </li>
-                                                <li class="pro-wishlist-icon"><a title="Wishlist" href="wishlist.html"></a></li>
-                                                <li class="pro-compare-icon"><a title="Compare" href="compare.html"></a></li>
-                                                <li class="pro-quick-view-icon"><a title="quick-view" href="#product_popup" class="popup-with-product"></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="product-item">
-                                <div class="main-label new-label"><span>New</span></div>
-                                <div class="product-image">
-                                    <a href="product-page.html"> <img src="images/9.jpg" alt="Roadie"> </a>
-                                </div>
-                                <div class="product-details">
-                                    <div class="product-item-details">
-                                        <div class="product-item-name">
-                                            <a href="product-page.html">Defyant Reversible Dot Shorts</a>
-                                        </div>
-                                        <div class="rating-summary-block">
-                                            <div class="rating-result" title="53%"> <span style="width:53%"></span> </div>
-                                        </div>
-                                        <div class="price-box">
-                                            <span class="price">$520.00</span>
-                                            <del class="price old-price">$620.00</del>
-                                        </div>
-                                    </div>
-                                    <div class="product-detail-inner">
-                                        <div class="detail-inner-left">
-                                            <ul>
-                                                <li class="pro-cart-icon">
-                                                    <form>
-                                                        <button title="Add to Cart"></button>
-                                                    </form>
-                                                </li>
-                                                <li class="pro-wishlist-icon"><a title="Wishlist" href="wishlist.html"></a></li>
-                                                <li class="pro-compare-icon"><a title="Compare" href="compare.html"></a></li>
-                                                <li class="pro-quick-view-icon"><a title="quick-view" href="#product_popup" class="popup-with-product"></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="product-item">
-                                <div class="main-label sale-label"><span>Sale</span></div>
-                                <div class="product-image">
-                                    <a href="product-page.html"> <img src="images/11.jpg" alt="Roadie"> </a>
-                                </div>
-                                <div class="product-details">
-                                    <div class="product-item-details">
-                                        <div class="product-item-name">
-                                            <a href="product-page.html">Defyant Reversible Dot Shorts</a>
-                                        </div>
-                                        <div class="rating-summary-block">
-                                            <div class="rating-result" title="53%"> <span style="width:53%"></span> </div>
-                                        </div>
-                                        <div class="price-box">
-                                            <span class="price">$520.00</span>
-                                            <del class="price old-price">$620.00</del>
-                                        </div>
-                                    </div>
-                                    <div class="product-detail-inner">
-                                        <div class="detail-inner-left">
-                                            <ul>
-                                                <li class="pro-cart-icon">
-                                                    <form>
-                                                        <button title="Add to Cart"></button>
-                                                    </form>
-                                                </li>
-                                                <li class="pro-wishlist-icon"><a title="Wishlist" href="wishlist.html"></a></li>
-                                                <li class="pro-compare-icon"><a title="Compare" href="compare.html"></a></li>
-                                                <li class="pro-quick-view-icon"><a title="quick-view" href="#product_popup" class="popup-with-product"></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="product-item">
-                                <div class="main-label new-label"><span>New</span></div>
-                                <div class="main-label sale-label"><span>Sale</span></div>
-                                <div class="product-image">
-                                    <a href="product-page.html"> <img src="images/2.jpg" alt="Roadie"> </a>
-                                </div>
-                                <div class="product-details">
-                                    <div class="product-item-details">
-                                        <div class="product-item-name">
-                                            <a href="product-page.html">Defyant Reversible Dot Shorts</a>
-                                        </div>
-                                        <div class="rating-summary-block">
-                                            <div class="rating-result" title="53%"> <span style="width:53%"></span> </div>
-                                        </div>
-                                        <div class="price-box">
-                                            <span class="price">$520.00</span>
-                                            <del class="price old-price">$620.00</del>
-                                        </div>
-                                    </div>
-                                    <div class="product-detail-inner">
-                                        <div class="detail-inner-left">
-                                            <ul>
-                                                <li class="pro-cart-icon">
-                                                    <form>
-                                                        <button title="Add to Cart"></button>
-                                                    </form>
-                                                </li>
-                                                <li class="pro-wishlist-icon"><a title="Wishlist" href="wishlist.html"></a></li>
-                                                <li class="pro-compare-icon"><a title="Compare" href="compare.html"></a></li>
-                                                <li class="pro-quick-view-icon"><a title="quick-view" href="#product_popup" class="popup-with-product"></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!--<!--Related Products End -->
-
+<script src="~/lib/jquery/jquery.js"></script>
+<script>
+        $(document).ready(function() {
+            $("#addToCart").click(function(event) {
+                event.preventDefault();
+                var qty = $("#qty").val();
+                if (qty < 1) {
+                    alert("Please Select Quantity more than 1.");
+                } else {
+                    $('#buy-add-form').append('<input type="hidden" name="qty" value="' + qty + '" />');
+                    $('#buy-add-form').append('<input type="hidden" name="productId" value="' + @Model.Id + '" />');
+                    $("#buy-add-form").submit();
+                }
+            });
+            $("#buyNow").click(function(event) {
+                event.preventDefault();
+                $("#buy-add-form").attr("action", "/BuyNow");
+                var qty = $("#qty").val();
+                if (qty < 1) {
+                    alert("Please Select Quantity more than 1.");
+                } else {
+                    $('#buy-add-form').append('<input type="hidden" name="qty" value="' + qty + '" />');
+                    $('#buy-add-form').append('<input type="hidden" name="productId" value="' + @Model.Id + '" />');
+                    $("#buy-add-form").submit();
+                }
+            });
+        });
+</script>
