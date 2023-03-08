@@ -126,7 +126,7 @@ var KTWidgets = function () {
                     },
                     y: {
                         formatter: function(val) {
-                            return "$" + val + " thousands"
+                            return "Rs" + val + " thousands"
                         }
                     }
                 },
@@ -266,7 +266,7 @@ var KTWidgets = function () {
                     },
                     y: {
                         formatter: function(val) {
-                            return "$" + val + " thousands"
+                            return "Rs" + val + " thousands"
                         }
                     }
                 },
@@ -384,7 +384,7 @@ var KTWidgets = function () {
                 },
                 y: {
                     formatter: function (val) {
-                        return "$" + val + " thousands"
+                        return "Rs" + val + " thousands"
                     }
                 }
             },
@@ -504,7 +504,7 @@ var KTWidgets = function () {
                 },
                 y: {
                     formatter: function (val) {
-                        return "$" + val + " thousands"
+                        return "Rs" + val + " thousands"
                     }
                 }
             },
@@ -635,7 +635,7 @@ var KTWidgets = function () {
                 },
                 y: {
                     formatter: function (val) {
-                        return "$" + val + " thousands"
+                        return "Rs" + val + " thousands"
                     }
                 }
             },
@@ -771,7 +771,7 @@ var KTWidgets = function () {
                 },
                 y: {
                     formatter: function (val) {
-                        return "$" + val + " thousands"
+                        return "Rs" + val + " thousands"
                     }
                 }
             },
@@ -900,7 +900,7 @@ var KTWidgets = function () {
                 },
                 y: {
                     formatter: function (val) {
-                        return "$" + val + " thousands"
+                        return "Rs" + val + " thousands"
                     }
                 }
             },
@@ -1033,7 +1033,7 @@ var KTWidgets = function () {
                 },
                 y: {
                     formatter: function (val) {
-                        return "$" + val + " thousands"
+                        return "Rs" + val + " thousands"
                     }
                 }
             },
@@ -1192,7 +1192,7 @@ var KTWidgets = function () {
                 },
                 y: {
                     formatter: function (val) {
-                        return "$" + val + " thousands"
+                        return "Rs" + val + " thousands"
                     }
                 }
             },
@@ -1365,7 +1365,7 @@ var KTWidgets = function () {
                 },
                 y: {
                     formatter: function (val) {
-                        return "$" + val + " thousands"
+                        return "Rs" + val + " thousands"
                     }
                 }
             },
@@ -1516,7 +1516,7 @@ var KTWidgets = function () {
                     },
                     y: {
                         formatter: function (val) {
-                            return "$" + val + " thousands"
+                            return "Rs" + val + " thousands"
                         }
                     },
                     marker: {
@@ -1660,7 +1660,7 @@ var KTWidgets = function () {
                     },
                     y: {
                         formatter: function (val) {
-                            return "$" + val + " thousands"
+                            return "Rs" + val + " thousands"
                         }
                     }
                 },
@@ -1879,7 +1879,7 @@ var KTWidgets = function () {
                     },
                     y: {
                         formatter: function (val) {
-                            return "$" + val + " thousands"
+                            return "Rs" + val + " thousands"
                         }
                     }
                 },
@@ -2020,7 +2020,7 @@ var KTWidgets = function () {
                     },
                     y: {
                         formatter: function (val) {
-                            return "$" + val + " thousands"
+                            return "Rs" + val + " thousands"
                         }
                     }
                 },
@@ -2161,7 +2161,7 @@ var KTWidgets = function () {
                     },
                     y: {
                         formatter: function (val) {
-                            return "$" + val + " thousands"
+                            return "Rs" + val + " thousands"
                         }
                     }
                 },
@@ -2286,7 +2286,7 @@ var KTWidgets = function () {
                     },
                     y: {
                         formatter: function (val) {
-                            return "$" + val + " revenue"
+                            return "Rs" + val + " revenue"
                         }
                     }
                 },
@@ -2417,7 +2417,7 @@ var KTWidgets = function () {
                     },
                     y: {
                         formatter: function (val) {
-                            return "$" + val + " thousands"
+                            return "Rs" + val + " thousands"
                         }
                     },
                     marker: {
@@ -2579,7 +2579,7 @@ var KTWidgets = function () {
                     },
                     y: {
                         formatter: function (val) {
-                            return "$" + val + " thousands"
+                            return "Rs" + val + " thousands"
                         }
                     }
                 },
@@ -2935,7 +2935,7 @@ var KTWidgets = function () {
                 },
                 y: {
                     formatter: function (val) {
-                        return "$" + val + " thousands"
+                        return "Rs" + val + " thousands"
                     }
                 }
             },
@@ -3070,7 +3070,7 @@ var KTWidgets = function () {
                 },
                 y: {
                     formatter: function (val) {
-                        return "$" + val + " thousands"
+                        return "Rs" + val + " thousands"
                     }
                 }
             },
@@ -3321,7 +3321,7 @@ var KTWidgets = function () {
             return;
         }
 
-        var picker = $('#kt_dashboard_daterangepicker');
+        var picker = Rs('#kt_dashboard_daterangepicker');
         var start = moment();
         var end = moment();
 
@@ -3339,8 +3339,8 @@ var KTWidgets = function () {
                 range = start.format('MMM D') + ' - ' + end.format('MMM D');
             }
 
-            $('#kt_dashboard_daterangepicker_date').html(range);
-            $('#kt_dashboard_daterangepicker_title').html(title);
+            Rs('#kt_dashboard_daterangepicker_date').html(range);
+            Rs('#kt_dashboard_daterangepicker_title').html(title);
         }
 
         picker.daterangepicker({

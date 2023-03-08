@@ -993,7 +993,7 @@ var KTCardWidget8 = function () {
                 },
                 y: {
                     formatter: function (val) {
-                        return "$" + val + "K"
+                        return "Rs" + val + "K"
                     }
                 }
             },
@@ -3895,7 +3895,7 @@ var KTChartsWidget20 = function () {
                         fontSize: '12px'
                     },
                     formatter: function (val) {
-                        return '$' + parseInt(10 * val)
+                        return 'Rs' + parseInt(10 * val)
                     }
                 }
             },
@@ -3926,7 +3926,7 @@ var KTChartsWidget20 = function () {
                 },
                 y: {
                     formatter: function (val) {
-                        return '$' + parseInt(10 * val)
+                        return 'Rs' + parseInt(10 * val)
                     }
                 }
             },
@@ -9624,7 +9624,7 @@ var KTChartsWidget26 = function () {
                         fontSize: '12px'
                     },
                     formatter: function (val) {
-                        return '$' + parseInt(10 * val)
+                        return 'Rs' + parseInt(10 * val)
                     }
                 }
             },
@@ -9655,7 +9655,7 @@ var KTChartsWidget26 = function () {
                 },
                 y: {
                     formatter: function (val) {
-                        return '$' + parseInt(10 * val)
+                        return 'Rs' + parseInt(10 * val)
                     }
                 }
             },
@@ -9748,7 +9748,7 @@ var KTChartsWidget27 = function () {
                 formatter: function (val, opts) {
                     var val = val * 1000;
                     var Format = wNumb({
-                        //prefix: '$',
+                        //prefix: 'Rs',
                         //suffix: ',-',
                         thousand: ','
                     });
@@ -10300,7 +10300,7 @@ var KTChartsWidget3 = function () {
                         fontSize: '12px'
                     },
                     formatter: function (val) {
-                        return '$' + val + "K"
+                        return 'Rs' + val + "K"
                     }
                 }
             },
@@ -10331,7 +10331,7 @@ var KTChartsWidget3 = function () {
                 },
                 y: {
                     formatter: function (val) {
-                        return "$" + val + "K"
+                        return "Rs" + val + "K"
                     }
                 }
             },
@@ -11078,7 +11078,7 @@ var KTChartsWidget33 = function () {
                 },
                 y: {
                     formatter: function (val) {
-                        return val + '$';
+                        return val + 'Rs';
                     }
                 }
             },
@@ -11287,7 +11287,7 @@ var KTChartsWidget34 = function () {
                 },
                 y: {
                     formatter: function (val) {
-                        return val + '$';
+                        return val + 'Rs';
                     }
                 }
             },
@@ -11496,7 +11496,7 @@ var KTChartsWidget35 = function () {
                 },
                 y: {
                     formatter: function (val) {
-                        return val + '$';
+                        return val + 'Rs';
                     }
                 }
             },
@@ -11680,7 +11680,7 @@ var KTChartsWidget4 = function () {
                         fontSize: '12px'
                     },
                     formatter: function (val) {
-                        return '$' + parseInt(10 * val)
+                        return 'Rs' + parseInt(10 * val)
                     }
                 }
             },
@@ -11711,7 +11711,7 @@ var KTChartsWidget4 = function () {
                 },
                 y: {
                     formatter: function (val) {
-                        return '$' + parseInt(10 * val)
+                        return 'Rs' + parseInt(10 * val)
                     }
                 }
             },
@@ -11916,7 +11916,7 @@ var KTChartsWidget6 = function () {
                 formatter: function (val, opts) {
                     var val = val * 1000;
                     var Format = wNumb({
-                        //prefix: '$',
+                        //prefix: 'Rs',
                         //suffix: ',-',
                         thousand: ','
                     });
@@ -12125,7 +12125,7 @@ var KTChartsWidget7 = function () {
                 },
                 y: {
                     formatter: function (val) {
-                        return "$" + val + " thousands"
+                        return "Rs" + val + " thousands"
                     }
                 }
             },
@@ -12287,7 +12287,7 @@ var KTChartsWidget8 = function () {
                 },
                 y: {
                     formatter: function (val) {
-                        return "$" + val + "K"
+                        return "Rs" + val + "K"
                     }
                 },
                 z: {
@@ -12493,7 +12493,7 @@ var KTChartsWidget9 = function () {
                 },
                 y: {
                     formatter: function (val) {
-                        return "$" + val + " thousands"
+                        return "Rs" + val + " thousands"
                     }
                 }
             },
@@ -12570,11 +12570,11 @@ var KTFormsWidget1 = (function () {
 
             span.innerHTML = template;
 
-            return $(span);
+            return Rs(span);
         }
 
         // Init Select2 --- more info: https://select2.org/
-        $('#kt_forms_widget_1_select_1').select2({
+        Rs('#kt_forms_widget_1_select_1').select2({
             placeholder: "Select coin",
             minimumResultsForSearch: Infinity,
             templateSelection: optionFormat,
@@ -12596,11 +12596,11 @@ var KTFormsWidget1 = (function () {
 
             span.innerHTML = template;
 
-            return $(span);
+            return Rs(span);
         }
 
         // Init Select2 --- more info: https://select2.org/
-        $('#kt_forms_widget_1_select_2').select2({
+        Rs('#kt_forms_widget_1_select_2').select2({
             placeholder: "Select coin",
             minimumResultsForSearch: Infinity,
             templateSelection: optionFormat,
@@ -13477,7 +13477,7 @@ var KTTablesWidget3 = function () {
     // Private methods
     const initDatatable = () => {
         // Init datatable --- more info on datatables: https://datatables.net/manual/
-        datatable = $(table).DataTable({
+        datatable = Rs(table).DataTable({
             "info": false,
             'order': [],
             'paging': false,
@@ -13516,8 +13516,8 @@ var KTTablesWidget3 = function () {
     const handleStatusFilter = () => {
         const select = document.querySelector('[data-kt-table-widget-3="filter_status"]');
 
-        $(select).on('select2:select', function (e) {
-            const value = $(this).val();
+        Rs(select).on('select2:select', function (e) {
+            const value = Rs(this).val();
             if (value === 'Show All') {
                 datatable.search('').draw();
             } else {
@@ -13571,7 +13571,7 @@ var KTTablesWidget4 = function () {
         subtable.parentNode.removeChild(subtable);
 
         // Init datatable --- more info on datatables: https://datatables.net/manual/
-        datatable = $(table).DataTable({
+        datatable = Rs(table).DataTable({
             "info": false,
             'order': [],
             "lengthChange": false,
@@ -13603,8 +13603,8 @@ var KTTablesWidget4 = function () {
     const handleStatusFilter = () => {
         const select = document.querySelector('[data-kt-table-widget-4="filter_status"]');
 
-        $(select).on('select2:select', function (e) {
-            const value = $(this).val();
+        Rs(select).on('select2:select', function (e) {
+            const value = Rs(this).val();
             if (value === 'Show All') {
                 datatable.search('').draw();
             } else {
@@ -13831,7 +13831,7 @@ var KTTablesWidget5 = function () {
         });
 
         // Init datatable --- more info on datatables: https://datatables.net/manual/
-        datatable = $(table).DataTable({
+        datatable = Rs(table).DataTable({
             "info": false,
             'order': [],
             "lengthChange": false,
@@ -13847,8 +13847,8 @@ var KTTablesWidget5 = function () {
     const handleStatusFilter = () => {
         const select = document.querySelector('[data-kt-table-widget-5="filter_status"]');
 
-        $(select).on('select2:select', function (e) {
-            const value = $(this).val();
+        Rs(select).on('select2:select', function (e) {
+            const value = Rs(this).val();
             if (value === 'Show All') {
                 datatable.search('').draw();
             } else {
@@ -14016,22 +14016,22 @@ var KTTimelineWidget1 = function () {
                 const users = item.users;
                 let userTemplate = '';
                 users.forEach(user => {
-                    userTemplate += `<div class="symbol symbol-circle symbol-25px"><img data-kt-timeline-avatar-src="${rootImagePath + user}" alt="" /></div>`;
+                    userTemplate += `<div class="symbol symbol-circle symbol-25px"><img data-kt-timeline-avatar-src="Rs{rootImagePath + user}" alt="" /></div>`;
                 });
 
-                return `<div class="rounded-pill bg-light-${item.color} d-flex align-items-center position-relative h-40px w-100 p-2 overflow-hidden">
-                    <div class="position-absolute rounded-pill d-block bg-${item.color} start-0 top-0 h-100 z-index-1" style="width: ${item.progress};"></div>
+                return `<div class="rounded-pill bg-light-Rs{item.color} d-flex align-items-center position-relative h-40px w-100 p-2 overflow-hidden">
+                    <div class="position-absolute rounded-pill d-block bg-Rs{item.color} start-0 top-0 h-100 z-index-1" style="width: Rs{item.progress};"></div>
         
                     <div class="d-flex align-items-center position-relative z-index-2">
                         <div class="symbol-group symbol-hover flex-nowrap me-3">
-                            ${userTemplate}
+                            Rs{userTemplate}
                         </div>
         
-                        <a href="#" class="fw-bold text-white text-hover-dark">${item.content}</a>
+                        <a href="#" class="fw-bold text-white text-hover-dark">Rs{item.content}</a>
                     </div>
         
                     <div class="d-flex flex-center bg-body rounded-pill fs-7 fw-bolder ms-auto h-100 px-3 position-relative z-index-2">
-                        ${item.progress}
+                        Rs{item.progress}
                     </div>
                 </div>        
                 `;
@@ -14192,22 +14192,22 @@ var KTTimelineWidget1 = function () {
                 const users = item.users;
                 let userTemplate = '';
                 users.forEach(user => {
-                    userTemplate += `<div class="symbol symbol-circle symbol-25px"><img data-kt-timeline-avatar-src="${rootImagePath + user}" alt="" /></div>`;
+                    userTemplate += `<div class="symbol symbol-circle symbol-25px"><img data-kt-timeline-avatar-src="Rs{rootImagePath + user}" alt="" /></div>`;
                 });
 
-                return `<div class="rounded-pill bg-light-${item.color} d-flex align-items-center position-relative h-40px w-100 p-2 overflow-hidden">
-                    <div class="position-absolute rounded-pill d-block bg-${item.color} start-0 top-0 h-100 z-index-1" style="width: ${item.progress};"></div>
+                return `<div class="rounded-pill bg-light-Rs{item.color} d-flex align-items-center position-relative h-40px w-100 p-2 overflow-hidden">
+                    <div class="position-absolute rounded-pill d-block bg-Rs{item.color} start-0 top-0 h-100 z-index-1" style="width: Rs{item.progress};"></div>
         
                     <div class="d-flex align-items-center position-relative z-index-2">
                         <div class="symbol-group symbol-hover flex-nowrap me-3">
-                            ${userTemplate}
+                            Rs{userTemplate}
                         </div>
         
-                        <a href="#" class="fw-bold text-white text-hover-dark">${item.content}</a>
+                        <a href="#" class="fw-bold text-white text-hover-dark">Rs{item.content}</a>
                     </div>
         
                     <div class="d-flex flex-center bg-body rounded-pill fs-7 fw-bolder ms-auto h-100 px-3 position-relative z-index-2">
-                        ${item.progress}
+                        Rs{item.progress}
                     </div>
                 </div>        
                 `;
@@ -14368,22 +14368,22 @@ var KTTimelineWidget1 = function () {
                 const users = item.users;
                 let userTemplate = '';
                 users.forEach(user => {
-                    userTemplate += `<div class="symbol symbol-circle symbol-25px"><img data-kt-timeline-avatar-src="${rootImagePath + user}" alt="" /></div>`;
+                    userTemplate += `<div class="symbol symbol-circle symbol-25px"><img data-kt-timeline-avatar-src="Rs{rootImagePath + user}" alt="" /></div>`;
                 });
 
-                return `<div class="rounded-pill bg-light-${item.color} d-flex align-items-center position-relative h-40px w-100 p-2 overflow-hidden">
-                    <div class="position-absolute rounded-pill d-block bg-${item.color} start-0 top-0 h-100 z-index-1" style="width: ${item.progress};"></div>
+                return `<div class="rounded-pill bg-light-Rs{item.color} d-flex align-items-center position-relative h-40px w-100 p-2 overflow-hidden">
+                    <div class="position-absolute rounded-pill d-block bg-Rs{item.color} start-0 top-0 h-100 z-index-1" style="width: Rs{item.progress};"></div>
         
                     <div class="d-flex align-items-center position-relative z-index-2">
                         <div class="symbol-group symbol-hover flex-nowrap me-3">
-                            ${userTemplate}
+                            Rs{userTemplate}
                         </div>
         
-                        <a href="#" class="fw-bold text-white text-hover-dark">${item.content}</a>
+                        <a href="#" class="fw-bold text-white text-hover-dark">Rs{item.content}</a>
                     </div>
         
                     <div class="d-flex flex-center bg-body rounded-pill fs-7 fw-bolder ms-auto h-100 px-3 position-relative z-index-2">
-                        ${item.progress}
+                        Rs{item.progress}
                     </div>
                 </div>        
                 `;
@@ -14677,22 +14677,22 @@ var KTTimelineWidget4 = function () {
                 const users = item.users;
                 let userTemplate = '';
                 users.forEach(user => {
-                    userTemplate += `<div class="symbol symbol-circle symbol-25px"><img data-kt-timeline-avatar-src="${rootImagePath + user}" alt="" /></div>`;
+                    userTemplate += `<div class="symbol symbol-circle symbol-25px"><img data-kt-timeline-avatar-src="Rs{rootImagePath + user}" alt="" /></div>`;
                 });
 
-                return `<div class="rounded-pill bg-light-${item.color} d-flex align-items-center position-relative h-40px w-100 p-2 overflow-hidden">
-                    <div class="position-absolute rounded-pill d-block bg-${item.color} start-0 top-0 h-100 z-index-1" style="width: ${item.progress};"></div>
+                return `<div class="rounded-pill bg-light-Rs{item.color} d-flex align-items-center position-relative h-40px w-100 p-2 overflow-hidden">
+                    <div class="position-absolute rounded-pill d-block bg-Rs{item.color} start-0 top-0 h-100 z-index-1" style="width: Rs{item.progress};"></div>
         
                     <div class="d-flex align-items-center position-relative z-index-2">
                         <div class="symbol-group symbol-hover flex-nowrap me-3">
-                            ${userTemplate}
+                            Rs{userTemplate}
                         </div>
         
-                        <a href="#" class="fw-bold text-white text-hover-dark">${item.content}</a>
+                        <a href="#" class="fw-bold text-white text-hover-dark">Rs{item.content}</a>
                     </div>
         
                     <div class="d-flex flex-center bg-body rounded-pill fs-7 fw-bolder ms-auto h-100 px-3 position-relative z-index-2">
-                        ${item.progress}
+                        Rs{item.progress}
                     </div>
                 </div>        
                 `;
@@ -14853,22 +14853,22 @@ var KTTimelineWidget4 = function () {
                 const users = item.users;
                 let userTemplate = '';
                 users.forEach(user => {
-                    userTemplate += `<div class="symbol symbol-circle symbol-25px"><img data-kt-timeline-avatar-src="${rootImagePath + user}" alt="" /></div>`;
+                    userTemplate += `<div class="symbol symbol-circle symbol-25px"><img data-kt-timeline-avatar-src="Rs{rootImagePath + user}" alt="" /></div>`;
                 });
 
-                return `<div class="rounded-pill bg-light-${item.color} d-flex align-items-center position-relative h-40px w-100 p-2 overflow-hidden">
-                    <div class="position-absolute rounded-pill d-block bg-${item.color} start-0 top-0 h-100 z-index-1" style="width: ${item.progress};"></div>
+                return `<div class="rounded-pill bg-light-Rs{item.color} d-flex align-items-center position-relative h-40px w-100 p-2 overflow-hidden">
+                    <div class="position-absolute rounded-pill d-block bg-Rs{item.color} start-0 top-0 h-100 z-index-1" style="width: Rs{item.progress};"></div>
         
                     <div class="d-flex align-items-center position-relative z-index-2">
                         <div class="symbol-group symbol-hover flex-nowrap me-3">
-                            ${userTemplate}
+                            Rs{userTemplate}
                         </div>
         
-                        <a href="#" class="fw-bold text-white text-hover-dark">${item.content}</a>
+                        <a href="#" class="fw-bold text-white text-hover-dark">Rs{item.content}</a>
                     </div>
         
                     <div class="d-flex flex-center bg-body rounded-pill fs-7 fw-bolder ms-auto h-100 px-3 position-relative z-index-2">
-                        ${item.progress}
+                        Rs{item.progress}
                     </div>
                 </div>        
                 `;
@@ -15029,22 +15029,22 @@ var KTTimelineWidget4 = function () {
                 const users = item.users;
                 let userTemplate = '';
                 users.forEach(user => {
-                    userTemplate += `<div class="symbol symbol-circle symbol-25px"><img data-kt-timeline-avatar-src="${rootImagePath + user}" alt="" /></div>`;
+                    userTemplate += `<div class="symbol symbol-circle symbol-25px"><img data-kt-timeline-avatar-src="Rs{rootImagePath + user}" alt="" /></div>`;
                 });
 
-                return `<div class="rounded-pill bg-light-${item.color} d-flex align-items-center position-relative h-40px w-100 p-2 overflow-hidden">
-                    <div class="position-absolute rounded-pill d-block bg-${item.color} start-0 top-0 h-100 z-index-1" style="width: ${item.progress};"></div>
+                return `<div class="rounded-pill bg-light-Rs{item.color} d-flex align-items-center position-relative h-40px w-100 p-2 overflow-hidden">
+                    <div class="position-absolute rounded-pill d-block bg-Rs{item.color} start-0 top-0 h-100 z-index-1" style="width: Rs{item.progress};"></div>
         
                     <div class="d-flex align-items-center position-relative z-index-2">
                         <div class="symbol-group symbol-hover flex-nowrap me-3">
-                            ${userTemplate}
+                            Rs{userTemplate}
                         </div>
         
-                        <a href="#" class="fw-bold text-white text-hover-dark">${item.content}</a>
+                        <a href="#" class="fw-bold text-white text-hover-dark">Rs{item.content}</a>
                     </div>
         
                     <div class="d-flex flex-center bg-body rounded-pill fs-7 fw-bolder ms-auto h-100 px-3 position-relative z-index-2">
-                        ${item.progress}
+                        Rs{item.progress}
                     </div>
                 </div>        
                 `;
@@ -15205,22 +15205,22 @@ var KTTimelineWidget4 = function () {
                 const users = item.users;
                 let userTemplate = '';
                 users.forEach(user => {
-                    userTemplate += `<div class="symbol symbol-circle symbol-25px"><img data-kt-timeline-avatar-src="${rootImagePath + user}" alt="" /></div>`;
+                    userTemplate += `<div class="symbol symbol-circle symbol-25px"><img data-kt-timeline-avatar-src="Rs{rootImagePath + user}" alt="" /></div>`;
                 });
 
-                return `<div class="rounded-pill bg-light-${item.color} d-flex align-items-center position-relative h-40px w-100 p-2 overflow-hidden">
-                    <div class="position-absolute rounded-pill d-block bg-${item.color} start-0 top-0 h-100 z-index-1" style="width: ${item.progress};"></div>
+                return `<div class="rounded-pill bg-light-Rs{item.color} d-flex align-items-center position-relative h-40px w-100 p-2 overflow-hidden">
+                    <div class="position-absolute rounded-pill d-block bg-Rs{item.color} start-0 top-0 h-100 z-index-1" style="width: Rs{item.progress};"></div>
         
                     <div class="d-flex align-items-center position-relative z-index-2">
                         <div class="symbol-group symbol-hover flex-nowrap me-3">
-                            ${userTemplate}
+                            Rs{userTemplate}
                         </div>
         
-                        <a href="#" class="fw-bold text-white text-hover-dark">${item.content}</a>
+                        <a href="#" class="fw-bold text-white text-hover-dark">Rs{item.content}</a>
                     </div>
         
                     <div class="d-flex flex-center bg-body rounded-pill fs-7 fw-bolder ms-auto h-100 px-3 position-relative z-index-2">
-                        ${item.progress}
+                        Rs{item.progress}
                     </div>
                 </div>        
                 `;

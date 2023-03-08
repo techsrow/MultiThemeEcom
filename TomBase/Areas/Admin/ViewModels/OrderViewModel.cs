@@ -13,6 +13,8 @@ namespace TomBase.Areas.Admin.ViewModels
 
         public List<Order> _OrderPending { get; set; }
 
+        public List<Order> CachOnDelivery { get; set; }
+
         
     }
 }

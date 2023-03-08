@@ -26,17 +26,21 @@ namespace BasePackageModule2.Areas.TomBase.Controllers
         public async Task<IActionResult> Index()
         {
             List<Order> orders = _context.Orders.ToList();
+            DateTime currentDate = DateTime.Now;
+            DateTime CurrentDay = DateTime.Now;
+           
+            int currentMonth = currentDate.Month;
+            int cuurentDayOrder = CurrentDay.Day;
 
-            var  ordersByMonth = from order in _context.Orders
-                                group order by new { order.Date.Year, order.Date.Month } into monthGroup
-                                select new 
-                                {
-                                    Month = new DateTime(monthGroup.Key.Year, monthGroup.Key.Month, 1),
-                                    TotalOrders = monthGroup.Sum(o => o.Amount)
-                                };
+            double result = orders.Where(d => d.Date.Month == currentMonth).Sum(s => s.Amount);
+
+            double result1 = orders.OrderBy(s=>s.Date.Day == cuurentDayOrder).Sum(s => s.Amount);
 
 
-            ViewBag.OrderMyMonth = ordersByMonth;
+
+            ViewBag.OrderMyMonth = result;
+
+            ViewBag.OrderByDay = result1;
 
             var model = new AdminViewModel
             {
@@ -45,6 +49,7 @@ namespace BasePackageModule2.Areas.TomBase.Controllers
                 Categories = await _context.Categories.CountAsync(),
                 Products = await _context.Products.CountAsync(),
                 Order = await _context.Orders.CountAsync(),
+                Users = await _context.Users.CountAsync()
                 
                 
 

@@ -1,20 +1,19 @@
 ﻿@model BasePackageModule2.Models.AboutUs
 
-
+@await Component.InvokeAsync("PageBanner")
 <div class="container-fluid p-0 m-0">
+    <div class="page-header page-header-big text-center">
+        <h1 class="page-title text-white">@Model.Title</h1>
+    </div><!-- End .page-header -->
 
-    @if (Model.PageBanner != null)
-    {
 
-    }
-    else
-    {
-        <div class="page-header page-header-big text-center" style="background-image: url('theme/Molla/assets/images/about-header-bg.jpg')">
-            <h1 class="page-title text-white">About us<span class="text-white">Who we are</span></h1>
-        </div><!-- End .page-header -->
-    }
 
-</div><!-- End .container -->
+
+
+</div>
+
+
+<!-- End .container -->
 <!-- End .breadcrumb-nav -->
 <!-- End .page-content -->
 

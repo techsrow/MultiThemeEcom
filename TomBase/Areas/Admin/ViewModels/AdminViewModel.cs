@@ -10,6 +10,8 @@ namespace BasePackageModule2.Areas.Admin.ViewModels
         public int Products { get; set; }
         public int Categories { get; set; }
 
+        public int Users { get; set; }
+
 
 
         public int Order { get; set; }
