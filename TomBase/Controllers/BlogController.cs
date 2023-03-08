@@ -4,7 +4,9 @@ using System.Threading.Tasks;
 using BasePackageModule2.Data;
 using BasePackageModule2.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using X.PagedList;
 
 namespace BasePackageModule2.Controllers
 {
@@ -16,11 +18,22 @@ namespace BasePackageModule2.Controllers
             _context = context;
         }
         [Route("blog")]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int pageindex = 1, int PageSize = 12, string orderby = null)
         {
-            List<Post> posts = await _context.Posts.OrderBy(o => o.CreatedAt).ToListAsync();
+            IQueryable<Post> posts = from s in _context.Posts select s;
 
-            return View(posts);
+            ViewBag.PageSize = new List<SelectListItem>()
+            {
+                new SelectListItem() { Value="6", Text= "6" },
+                new SelectListItem() { Value="12", Text= "12" },
+                new SelectListItem() { Value="24", Text= "24" },
+                new SelectListItem() { Value="48", Text= "48" },
+                new SelectListItem() { Value="100", Text= "100" },
+            };
+            ViewBag.orderby = orderby;
+            return View(
+               await posts
+                   .ToPagedListAsync(pageNumber: pageindex, pageSize: PageSize));
         }
 
         [Route("blog/{Id?}/{slug?}")]

@@ -15,6 +15,9 @@ namespace TomBase.Models
         public Product Product { get; set; }
         public int ProductId { get; set; }
 
+
+
+
         public string Question { get; set; }
         public string Answer { get; set; }
         public DateTime QuestionPostedDate { get; set; } = DateTime.Now;

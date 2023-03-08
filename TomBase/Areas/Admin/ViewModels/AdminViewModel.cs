@@ -13,7 +13,10 @@ namespace BasePackageModule2.Areas.Admin.ViewModels
 
 
         public int Order { get; set; }
+        
 
         public BusinessProfile BusinessProfile { get; set; }
+
+     
     }
 }

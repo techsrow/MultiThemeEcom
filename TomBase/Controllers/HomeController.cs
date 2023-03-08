@@ -206,7 +206,7 @@ namespace BasePackageModule2.Controllers
             {
                 _context.Add(contactMessage);
                 await _context.SaveChangesAsync();
-
+               
                 EmailService.EmailMessage emailMessage = new EmailService.EmailMessage
                 {
                     FromAddress = new EmailService.EmailAddress
@@ -216,7 +216,7 @@ namespace BasePackageModule2.Controllers
                     },
                     ToAddress = new EmailService.EmailAddress
                     {
-                        Name = "Spinners",
+                        Name = "Demo Company",
                         Address = _emailConfiguration.SmtpUsername
                     },
                     Subject = "You received a Inquiry!",

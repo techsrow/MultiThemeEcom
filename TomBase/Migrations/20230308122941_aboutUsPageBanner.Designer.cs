@@ -4,14 +4,16 @@ using BasePackageModule2.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace TomBase.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230308122941_aboutUsPageBanner")]
+    partial class aboutUsPageBanner
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -668,9 +670,6 @@ namespace TomBase.Migrations
                     b.Property<string>("ProductTags")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ShopPageHeeaderImage")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("ShortDescription")
                         .HasColumnType("nvarchar(200)")
                         .HasMaxLength(200);
@@ -1008,27 +1007,6 @@ namespace TomBase.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("TomBase.Models.AboutUsPageHeader", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("HeaderImage")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("AboutUsPageHeaders");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("AboutUsPageHeader");
-                });
-
             modelBuilder.Entity("TomBase.Models.Brand", b =>
                 {
                     b.Property<int>("Id")
@@ -1355,27 +1333,6 @@ namespace TomBase.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("WomenImpowerments");
-                });
-
-            modelBuilder.Entity("TomBase.Models.AllPageHeader", b =>
-                {
-                    b.HasBaseType("TomBase.Models.AboutUsPageHeader");
-
-                    b.HasDiscriminator().HasValue("AllPageHeader");
-                });
-
-            modelBuilder.Entity("TomBase.Models.BlogPage", b =>
-                {
-                    b.HasBaseType("TomBase.Models.AboutUsPageHeader");
-
-                    b.HasDiscriminator().HasValue("BlogPage");
-                });
-
-            modelBuilder.Entity("TomBase.Models.ShopPageHeader", b =>
-                {
-                    b.HasBaseType("TomBase.Models.AboutUsPageHeader");
-
-                    b.HasDiscriminator().HasValue("ShopPageHeader");
                 });
 
             modelBuilder.Entity("TomBase.Models.CustomerServicePage", b =>

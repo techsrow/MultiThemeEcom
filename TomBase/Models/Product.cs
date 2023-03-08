@@ -61,6 +61,9 @@ namespace BasePackageModule2.Models
         public DateTime CreatedAt { get; set; }
 
 
+        public string ShopPageHeeaderImage { get; set; }
+
+
         public bool Featured { get; set; }
         public bool Essential { get; set; }
         public bool hotselling { get; set; }

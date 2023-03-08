@@ -72,7 +72,7 @@ namespace BasePackageModule2.Areas.Admin.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
 
-        public async Task<IActionResult> Create(IFormFile formImage, AboutUs aboutUs)
+        public async Task<IActionResult> Create(IFormFile formImage, IFormFile bannerImage, AboutUs aboutUs)
         {
             if (ModelState.IsValid)
             {
@@ -82,6 +82,7 @@ namespace BasePackageModule2.Areas.Admin.Controllers
                     return View(aboutUs);
                 }
                 var imageName = Guid.NewGuid() + Path.GetExtension(formImage.FileName);
+                var bannerImageName = Guid.NewGuid() + Path.GetExtension(bannerImage.FileName);
 
                 if (!Directory.Exists(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/Abouts")))
                 {
@@ -91,12 +92,20 @@ namespace BasePackageModule2.Areas.Admin.Controllers
                 //Get url To Save
                 var savePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/Abouts", imageName);
 
+                //Save Url For Banner Image
+                var saveBannerPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/Abouts", bannerImageName);
+
                 await using (var stream = new FileStream(savePath, FileMode.Create))
                 {
                     formImage.CopyTo(stream);
                 }
 
+                await using (var stream = new FileStream(savePath, FileMode.Create))
+                {
+                    bannerImage.CopyTo(stream);
+                }
                 aboutUs.Image = $"/img/Abouts/{imageName}";
+                aboutUs.PageBanner = $"/img/Abouts/{bannerImageName}";
                 aboutUs.Slug = UrlHelper.GetFriendlyTitle(aboutUs.Title);
 
                 _context.Add(aboutUs);
@@ -109,7 +118,7 @@ namespace BasePackageModule2.Areas.Admin.Controllers
         // GET: Admin/AboutUs/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, IFormFile image, AboutUs post)
+        public async Task<IActionResult> Edit(int id, IFormFile image, IFormFile bannerImage, AboutUs post)
         {
             if (id != post.AboutUsId)
             {
@@ -128,6 +137,7 @@ namespace BasePackageModule2.Areas.Admin.Controllers
             {
                 //Set Key Name
                 var imageName = Guid.NewGuid() + Path.GetExtension(image.FileName);
+                var bannerImageName = Guid.NewGuid() + Path.GetExtension(bannerImage.FileName);
 
                 if (!Directory.Exists(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/Abouts")))
                 {
@@ -137,12 +147,19 @@ namespace BasePackageModule2.Areas.Admin.Controllers
                 //Get url To Save
                 var savePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/Abouts", imageName);
 
+                //Save Url For Banner Image
+                var saveBannerPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/Abouts", bannerImageName);
                 await using (var stream = new FileStream(savePath, FileMode.Create))
                 {
                     image.CopyTo(stream);
                 }
+                await using (var stream = new FileStream(savePath, FileMode.Create))
+                {
+                    bannerImage.CopyTo(stream);
+                }
 
                 thisPost.Image = $"/img/Abouts/{imageName}";
+                thisPost.PageBanner = $"/img/Abouts/{bannerImageName}";
 
             }
             try

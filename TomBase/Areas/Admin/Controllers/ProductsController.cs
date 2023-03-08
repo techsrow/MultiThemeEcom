@@ -75,6 +75,8 @@ namespace BasePackageModule2.Areas.TomBase.Controllers
                     ModelState.AddModelError("Image", "Product Image is required.");
                     return View(product);
                 }
+
+                
                 if (!Directory.Exists(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/products")))
                 {
                     Directory.CreateDirectory(Path.Combine(Directory.GetCurrentDirectory(),
@@ -82,15 +84,23 @@ namespace BasePackageModule2.Areas.TomBase.Controllers
                 }
                 var mainImageName = Guid.NewGuid() + Path.GetExtension(mainImage.FileName);
 
+               
+
                 //Get url To Save
                 var mainImageSavePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/products", mainImageName);
+
+                //Get url To Save for Banner Image
+              
 
                 await using (var stream = new FileStream(mainImageSavePath, FileMode.Create))
                 {
                     await mainImage.CopyToAsync(stream);
                 }
 
+                
+
                 product.Image = $"/img/products/{mainImageName}";
+               
 
                 _context.Add(product);
                 await _context.SaveChangesAsync();
@@ -189,6 +199,7 @@ namespace BasePackageModule2.Areas.TomBase.Controllers
                         thisProduct.Image = $"/img/products/{mainImageName}";
                     }
 
+                   
                     if (images != null)
                     {
                         if (!Directory.Exists(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/products")))

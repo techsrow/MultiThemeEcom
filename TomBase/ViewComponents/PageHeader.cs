@@ -22,6 +22,8 @@ namespace TomBase.ViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
+
+
             return View();
         }
     }

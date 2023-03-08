@@ -1,69 +1,71 @@
-﻿@model IEnumerable<BasePackageModule2.Models.Post>
-    <!-- Bread Crumb STRAT -->
-    <div class="banner inner-banner1 ">
-        <div class="container">
-            <section class="banner-detail center-xs">
-                <h1 class="banner-title">Blog</h1>
-                <div class="bread-crumb right-side float-none-xs">
-                    <ul>
-                        <li><a asp-action="Index" asp-controller="Home">Home</a>/</li>
-                        <li><span>Blog</span></li>
-                    </ul>
-                </div>
-            </section>
-        </div>
-    </div>
-    <!-- Bread Crumb END -->
-    <!-- CONTAIN START -->
-    <section class="ptb-70">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="blog-listing">
-                        <div class="row">
-                            @foreach (var item in Model)
-                            {
-                                <div class="col-xl-4 col-lg-6 col-12">
-                                    <div class="blog-item">
-                                        <div class="blog-media mb-20">
-                                            <img src="@item.Image" alt="spinners">
-                                            <div class="blog-effect"></div>
-                                            <a asp-action="Details" asp-controller="Blog" asp-route-id="@item.Id" asp-route-slug="@item.Slug" title="Click For Read More" class="read">&nbsp;</a>
-                                        </div>
-                                        <div class="blog-detail">
-                                            <span class="post-date">01 jan 2017</span>
-                                            <div class="blog-title"><a href="single-blog.html">Combined with a handful of model</a></div>
-                                            <p>Uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures donec sollicitudin erat eget malesuada scelerisque. Nullam consectetur, arcu sed tincidunt mattis, massa nunc sodales mauris, ut lobortis arcu tortor in risus.</p>
-                                            <hr>
-                                            @*<div class="post-info">
-                                                <ul>
-                                                    <li><span>By</span><a href="javascript:void(0)"> cormon jons</a></li>
-                                                    <li><a href="javascript:void(0)">(5) comments</a></li>
-                                                </ul>
-                                            </div>*@
-                                        </div>
-                                    </div>
-                                </div>
-                            }
+﻿@model X.PagedList.IPagedList<BasePackageModule2.Models.Post>
+@using X.PagedList.Mvc.Core
 
-                            
-                        </div>
-                        @*<div class="row">
-                            <div class="col-12">
-                                <div class="pagination-bar">
-                                    <ul>
-                                        <li><a href="javascript:void(0)"><i class="fa fa-angle-left"></i></a></li>
-                                        <li class="active"><a href="javascript:void(0)">1</a></li>
-                                        <li><a href="javascript:void(0)">2</a></li>
-                                        <li><a href="javascript:void(0)">3</a></li>
-                                        <li><a href="javascript:void(0)"><i class="fa fa-angle-right"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>*@
-                    </div>
+<div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
+    <div class="container">
+        <h1 class="page-title">Latest Updates<span>Blog</span></h1>
+    </div><!-- End .container -->
+</div><!-- End .page-header -->
+<nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
+    <div class="container">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
+            <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Blog">Blog</a></li>
+
+        </ol>
+    </div><!-- End .container -->
+</nav><!-- End .breadcrumb-nav -->
+
+<div class="page-content">
+    <div class="container">
+        <!-- End .blog-nav -->
+
+        <div class="entry-container max-col-3" data-layout="fitRows">
+
+            @foreach (var blog in Model)
+            {
+                <div class="entry-item  shopping col-sm-6 col-lg-4">
+                    <article class="entry entry-grid text-center">
+                        <figure class="entry-media">
+                            <a asp-controller="Blog" asp-action="Details" asp-route-Id="@blog.Id" asp-route-Slug="@blog.Slug">
+                                <img src="@blog.Image" style="cursor:pointer;" alt="@blog.Title">
+                            </a>
+                        </figure><!-- End .entry-media -->
+
+                        <div class="entry-body">
+                            <div class="entry-meta">
+
+                                <span class="meta-separator">|</span>
+                                <a asp-controller="Blog" asp-action="Details" asp-route-Id="@blog.Id" asp-route-Slug="@blog.Slug">@blog.CreatedAt.Month @blog.CreatedAt.Day, @blog.CreatedAt.Year</a>
+                                <span class="meta-separator">|</span>
+
+                            </div><!-- End .entry-meta -->
+
+                            <h2 class="entry-title">
+                                <a asp-controller="Blog" asp-action="Details" asp-route-Id="@blog.Id" asp-route-Slug="@blog.Slug">@blog.Title</a>
+                            </h2><!-- End .entry-title -->
+
+
+
+                            <div class="entry-content">
+                                <p>@blog.ShortDescription</p>
+                                <a asp-controller="Blog" asp-action="Details" asp-route-Id="@blog.Id" asp-route-Slug="@blog.Slug" class="read-more">Continue Reading</a>
+                            </div><!-- End .entry-content -->
+                        </div><!-- End .entry-body -->
+                    </article><!-- End .entry -->
                 </div>
-            </div>
-        </div>
-    </section>
-    <!-- CONTAINER END -->
+            }
+
+        </div><!-- End .entry-container -->
+
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+
+                @Html.PagedListPager(Model, pageindex => Url.Action("Index", new { pageindex, pageSize = ViewBag.PerPageItems, orderby = ViewBag.orderby }), new X.PagedList.Mvc.Core.Common.PagedListRenderOptions { LiElementClasses = new string[] { "page-item" }, PageClasses = new string[] { "page-link" } })
+
+
+
+            </ul>
+        </nav>
+    </div><!-- End .container -->
+</div><!-- End .page-content -->

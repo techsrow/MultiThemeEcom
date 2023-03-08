@@ -80,6 +80,11 @@ namespace BasePackageModule2.Data
 
         public DbSet<InformationPage> InformationPages { get; set; }
 
+        public DbSet<BlogPage> BlogPages { get; set; }
+        public DbSet<AboutUsPageHeader> AboutUsPageHeaders { get; set; }
+        public DbSet<ShopPageHeader> ShopPageHeaders { get; set; }
+        public DbSet<AllPageHeader> AllPageHeaders { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

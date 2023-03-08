@@ -14,5 +14,7 @@
 
 
 
+       public string PageBanner { get; set; }
+
     }
 }
