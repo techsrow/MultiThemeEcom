@@ -1,16 +1,22 @@
 ﻿@model BasePackageModule2.ViewModels.ContactViewModel
 
-<div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
-    <div class="container">
-        <h1 class="page-title">Contact us<span>Pages</span></h1>
-    </div><!-- End .container -->
+@await Component.InvokeAsync("PageBanner")
+<div class="container-fluid p-0 m-0">
+    <div class="page-header page-header-big text-center">
+        <h1 class="page-title text-white">Contact Us</h1>
+    </div><!-- End .page-header -->
+
+
+
+
+
 </div><!-- End .page-header -->
 <nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
     <div class="container">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index" >Home</a></li>
+            <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
             <li class="breadcrumb-item"><a>Contact us</a></li>
-            
+
         </ol>
     </div><!-- End .container -->
 </nav><!-- End .breadcrumb-nav -->
@@ -27,7 +33,7 @@
                 </div><!-- End .contact-box -->
             </div><!-- End .col-md-4 -->
 
-               <div class="col-md-4">
+            <div class="col-md-4">
                 <div class="contact-box text-center">
                     <h3>Start a Conversation</h3>
 
@@ -35,7 +41,7 @@
                     <div><a href="tel:@Model.BusinessProfile.DisplayContact1">@Model.BusinessProfile.DisplayContact1</a>, <a href="tel:@Model.BusinessProfile.DisplayContact2">@Model.BusinessProfile.DisplayContact2</a>, <a href="tel:@Model.BusinessProfile.DisplayContact3">@Model.BusinessProfile.DisplayContact3,</a></div>
                 </div><!-- End .contact-box -->
             </div><!-- End .col-md-4 -->
-        
+
             <div class="col-md-4">
                 <div class="contact-box text-center">
                     <h3>Social</h3>
@@ -62,38 +68,109 @@
                     <p class="mb-3">Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
                 </div><!-- End .text-center -->
 
-                <form asp-action="Contact" class="contact-form mb-2">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <label for="cname" class="sr-only">Name</label>
-                            <input type="text" class="form-control" asp-for="Name" id="cname" placeholder="Name *" required>
-                        </div><!-- End .col-sm-4 -->
+             
 
-                        <div class="col-sm-4">
-                            <label for="cemail" class="sr-only">Name</label>
-                            <input type="email" asp-for="Email" class="form-control" id="cemail" placeholder="Email *" required>
-                        </div><!-- End .col-sm-4 -->
+                    <input type="text" placeholder="Enter Your Name" class="form-control" name="FullName" value="" data-val="true" data-val-required="The Full Name field is required." id="ContactUs_FullName">
 
-                        <div class="col-sm-4">
-                            <label for="cphone" class="sr-only">Phone</label>
-                            <input type="tel" asp-for="PhoneNumber" class="form-control" id="cphone" placeholder="Phone">
-                        </div><!-- End .col-sm-4 -->
-                    </div><!-- End .row -->
 
-                    <label for="csubject" class="sr-only">Subject</label>
-                    <input type="text" class="form-control" id="csubject" placeholder="Subject">
+                    <input type="email" placeholder="Enter Your Email" class="form-control" name="Email" value="" data-val="true" data-val-required="The Email field is required." id="ContactUs_Email">
 
-                    <label for="cmessage" class="sr-only">Message</label>
-                    <textarea class="form-control" asp-for="Message" cols="30" rows="4" id="cmessage" required placeholder="Message *"></textarea>
 
-                    <div class="text-center">
+                    <input type="number" placeholder="Enter Your Phone" class="form-control" name="Number" value="" id="ContactUs_Number">
+
+
+                    <input type="text" placeholder="Enter Subject" class="form-control" name="Subject" value="" data-val="true" data-val-required="The Subject field is required." id="ContactUs_Subject">
+
+
+                    <textarea name="Message" class="form-control" placeholder="Type your message" rows="8" data-val="true" data-val-required="The Message field is required." id="ContactUs_Message"></textarea>
+
+
+                    <div id="ShowToster"></div>
+                    <button type="submit" class="btn-custom primary" name="BtnSave" id="BtnSave">
+                        Submit <i class="fas fa-arrow-right"></i>
+                    </button>
+
+                    @*<div class="text-center">
                         <button type="submit" class="btn btn-outline-primary-2 btn-minwidth-sm">
                             <span>SUBMIT</span>
                             <i class="icon-long-arrow-right"></i>
                         </button>
-                    </div><!-- End .text-center -->
-                </form><!-- End .contact-form -->
-            </div><!-- End .col-md-9 col-lg-7 -->
+                    </div>*@<!-- End .text-center -->
+               
+        </div><!-- End .col-md-9 col-lg-7 -->
         </div><!-- End .row -->
     </div><!-- End .container -->
 </div><!-- End .page-content -->
+
+<script src="~/lib/jquery/jquery.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#BtnSave").click(function () {
+            var btn = $(this);
+            btn.prop('disabled', true);
+            debugger;
+            let FullName = $("#ContactUs_FullName").val()
+            let Email = $("#ContactUs_Email").val()
+            let Subject = $("#ContactUs_Subject").val()
+            let Message = $("#ContactUs_Message").val()
+            let AlertPopUp = "   <div class='toast' data-autohide='false'> " +
+                                        "  <div class='toast-body {{COLOR}}'> " +
+                                        "    {{MESSAGE}} " +
+                                        "    <button type='button' class='ml-2 mb-1 close' data-dismiss='toast'>&times;</button> " +
+                                        "  </div> " +
+                                        "</div> ";
+            $.ajax({
+                type: "POST",
+                url: "/Home/SaveContactUs",
+                data: { Id: 0, FullName: FullName, Email: Email, Number: "", Subject: Subject, Message: Message , FormType : 1},
+                success: function (response) {
+                    btn.prop('disabled', false);
+                    var a = response;
+                    if (a == 1) {
+
+                        AlertPopUp = AlertPopUp.replace("{{MESSAGE}}", "Email Send");
+                        AlertPopUp = AlertPopUp.replace("{{COLOR}}", "btn-success");
+                        $("#ShowToster").append(AlertPopUp);
+                        $('.toast').toast('show');
+
+                    }
+                    else{
+                        alert("Email Send Failed");
+                        AlertPopUp = AlertPopUp.replace("{{MESSAGE}}", "Email Send Failed");
+                        AlertPopUp = AlertPopUp.replace("{{COLOR}}", "btn-danger");
+                        $("#ShowToster").append(AlertPopUp);
+                        $('.toast').toast('show');
+                    }
+
+
+                },
+                failure: function (response) {
+                    alert(response.responseText);
+                    AlertPopUp = AlertPopUp.replace("{{MESSAGE}}", "Email Send Failed");
+                    AlertPopUp = AlertPopUp.replace("{{COLOR}}", "btn-danger");
+                    $("#ShowToster").append(AlertPopUp);
+                    $('.toast').toast('show');
+                    btn.prop('disabled', false);
+                },
+                error: function (response) {
+                    alert(response.responseText);
+                    AlertPopUp = AlertPopUp.replace("{{MESSAGE}}", "Email Send Failed");
+                    AlertPopUp = AlertPopUp.replace("{{COLOR}}", "btn-danger");
+                    $("#ShowToster").append(AlertPopUp);
+                    $('.toast').toast('show');
+                    btn.prop('disabled', false);
+                }
+            });
+        });
+    });
+
+    function SetPopUpValue(  PopupHtml , Message ,color ) {
+
+        PopupHtml = PopupHtml.replace("{{MESSAGE}}", Message);
+        PopupHtml = PopupHtml.replace("{{COLOR}}", color);
+        $("#ShowToster").append(AlertPopUp);
+        $('.toast').toast('show');
+
+    }
+
+</script>

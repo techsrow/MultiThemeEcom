@@ -1,99 +1,65 @@
 ﻿@model IEnumerable<BasePackageModule2.Models.Testimonail>
 
+@await Component.InvokeAsync("PageBanner")
+<div class="container-fluid p-0 m-0">
+    <div class="page-header page-header-big text-center">
+        <h1 class="page-title text-white">Testimonials</h1>
+    </div><!-- End .page-header -->
 
-    <!-- Subheader Start -->
-    <div class="subheader bg-cover dark-overlay dark-overlay-2" style="background-image: url('Khamkar/assets/img/subheader.jpg')">
-        <div class="absolute-subheader">
-            <div class="container">
-                <div class="subheader-inner">
-                    <h1>Testimonial</h1>
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Home">Home</a></li>
 
-                            <li class="breadcrumb-item active" aria-current="page">Testimonial</li>
-                        </ol>
-                    </nav>
-                    <img src="~/khamkar/assets/img/veg/8.png" class="image-1" alt="img">
-                    <img src="~/khamkar/assets/img/veg/5.png" class="image-2" alt="img">
-                </div>
-            </div>
-        </div>
+
+
+
+</div>
+
+<div class="page-content">
+    <div class="container">
+        
+
+       
+
+        <hr class="mt-5 mb-5">
+        
+        
+
+        <div class="owl-carousel owl-theme owl-testimonials" data-toggle="owl"
+             data-owl-options='{
+                            "nav": false,
+                            "dots": true,
+                            "margin": 20,
+                            "loop": true,
+                            "responsive": {
+                                "0": {
+                                    "items":1
+                                },
+                                "768": {
+                                    "items":2
+                                },
+                                "992": {
+                                    "items":3
+                                },
+                                "1200": {
+                                    "items":3,
+                                    "nav": true
+                                }
+                            }
+                        }'>
+
+            @foreach (var testimonial in Model)
+            {
+                <blockquote class="testimonial testimonial-icon text-center">
+                    <p>“ @testimonial.Content ”</p>
+                    <cite>
+                        @testimonial.FullName
+                        @*<span>Verified Customer</span>*@
+                    </cite>
+                </blockquote>
+            }
+            <!-- End .testimonial -->
+
+           
+        </div><!-- End .testimonials-slider owl-carousel -->
+    </div><!-- End .container -->
+
     </div>
-
-    <!-- Subheader End -->
-    <section class="section testimonial-style-2 style-4 bg-cover mt-4" style="background-image:url('Khamkar/assets/img/bg/2.jpg')">
-        <div class="container">
-            <div class="section-title-wrap section-header">
-                <h2 class="title text-center mt-4">What Our Client's Say</h2>
-            </div>
-            <div class="ct-testimonials">
-                <div class="ct-testimonials-slider-3">
-                    @foreach (var feedback in Model)
-                    {
-                        <div class="ct-testimonial-item">
-                            <div class="ct-testimonial-item-inner">
-                                <div class="testi-box d-flex">
-                                   
-                                    <div class="testi-descr">
-                                        <p>
-                                            "@feedback.Content"
-                                        </p>
-                                        <div class="author-descr">
-                                            <span>@feedback.FullName</span>
-                                           
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    }
-
-                   
-                </div>
-            </div>
-        </div>
-    </section>
-    <div class="section section-padding  posts">
-        <div class="container">
-
-            <div class="row">
-                @foreach (var news in Model)
-                {
-                    <!-- Post Start -->
-                    <div class="col-lg-6 col-md-6">
-                        <!-- 21:9 aspect ratio -->
-                        <div class="embed-responsive embed-responsive-21by9">
-                            <iframe class="embed-responsive-item" src="@news.Video"></iframe>
-                        </div>
-
-
-                    </div>
-                    <!-- Post End -->
-                }
-
-            </div>
-
-        </div>
-    </div>
-
-    <section class="section light-bg bg-cover" style="background-image:url('Khamkar/assets/img/bg/1.jpg')">
-        <div class="container">
-            <div class="section-title-wrap section-header text-center">
-                <h2 class="title">Subscribe to My Newsletter</h2>
-                <p class="subtitle">
-                    Get access to my latest recipes by joining the weekly newsletter
-                </p>
-            </div>
-
-            <form class="ct-newsletter" method="post">
-                <input type="email" class="form-control" placeholder="Enter your email address" value="">
-                <button type="submit" class="btn-custom primary" name="button"> Submit <i class="far fa-paper-plane"></i> </button>
-                <input name="__RequestVerificationToken" type="hidden" value="CfDJ8MVgwQni6BFAvevjEtkdbM92Zuikz9blxQAtRuPLsxEqFD2Uvrn9gGwsn1gVir_F4PaZV1CxckRmjrg1DwQ7ycSLJ2kfaQD4JNXA61QzOKFEIWLs_pOQWW_di_QIWic60kn9HZ639G1Rt2exS0Bv4Ec">
-            </form>
-
-        </div>
-    </section>
-
-
     

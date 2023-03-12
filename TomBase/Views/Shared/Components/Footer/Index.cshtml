@@ -133,14 +133,18 @@
                                     <h4 class="widget-title">Information</h4><!-- End .widget-title -->
 
                                     <ul class="widget-list">
-                                        @if (Model.InformationPages != null)
-                                        {
-                                            foreach (var infopage in Model.InformationPages)
-
+                                       
+                                            @if (Model.Menus != null)
                                             {
-                                                <li><a href="@infopage.PageUrl">@infopage.PageName</a></li>
+                                                @foreach (var menu in Model.Menus.OrderBy(o => o.Order))
+                                                {
+                                                    if (menu.Type == "usefulLinks")
+                                                    {
+                                                        <li><a href="@menu.Url">@menu.Name</a></li>
+                                                    }
+                                                }
                                             }
-                                        }
+                                        
 
 
                                     </ul><!-- End .widget-list -->
@@ -152,14 +156,22 @@
                                     <h4 class="widget-title">Customer Service</h4><!-- End .widget-title -->
 
                                     <ul class="widget-list">
-                                        @if (Model.CustomerServicePages != null)
-                                        {
-                                            foreach (var infopage in Model.CustomerServicePages)
+                                      
 
-                                            {
-                                                <li><a href="@infopage.PageUrl">@infopage.PageName</a></li>
-                                            }
-                                        }
+                                                @if (Model.Menus != null)
+                                                {
+                                                    @foreach (var menu in Model.Menus.OrderBy(o=>o.Order))
+                                                    {
+                                                        if (menu.Type == "customerService")
+                                                        {
+                                                            <li><a href="@menu.Url">@menu.Name</a></li>
+                                                        }
+                                                    }
+                                                }
+
+
+                                          
+                                      
 
                                     </ul><!-- End .widget-list -->
                                 </div><!-- End .widget -->
@@ -170,12 +182,14 @@
                                     <h4 class="widget-title">My Account</h4><!-- End .widget-title -->
 
                                     <ul class="widget-list">
-                                        @if (Model.MyAccountPages != null)
+                                        @if (Model.Menus != null)
                                         {
-                                            foreach (var infopage in Model.MyAccountPages)
-
+                                            @foreach (var menu in Model.Menus.OrderBy(o => o.Order))
                                             {
-                                                <li><a href="@infopage.PageUrl">@infopage.PageName</a></li>
+                                                if (menu.Type == "myAccount")
+                                                {
+                                                    <li><a href="@menu.Url">@menu.Name</a></li>
+                                                }
                                             }
                                         }
 

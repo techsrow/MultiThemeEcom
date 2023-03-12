@@ -1,0 +1,131 @@
+﻿@model IEnumerable<TomBase.Models.Faq>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div id="kt_content_container" class="container-xxl">
+    <div class="card mb-5 mb-xl-8">
+        <!--begin::Header-->
+        <div class="card-header border-0 pt-5">
+            <h3 class="card-title align-items-start flex-column">
+                <span class="card-label fw-bolder fs-3 mb-1">FAQ</span>
+
+            </h3>
+            <div class="card-toolbar">
+                <a asp-action="Create" class="btn btn-sm btn-light-primary">
+                    <!--begin::Svg Icon | path: icons/duotune/arrows/arr075.svg-->
+                    <span class="svg-icon svg-icon-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <rect opacity="0.5" x="11.364" y="20.364" width="16" height="2" rx="1" transform="rotate(-90 11.364 20.364)" fill="currentColor"></rect>
+                            <rect x="4.36396" y="11.364" width="16" height="2" rx="1" fill="currentColor"></rect>
+                        </svg>
+                    </span>
+                    <!--end::Svg Icon-->Add FAQ
+                </a>
+            </div>
+        </div>
+        <div class="card-body py-3">
+            <!--begin::Table container-->
+            <div class="table-responsive">
+                <table id="simpletable" class="table table-striped table-bordered nowrap">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Qus)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Ans)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Qus)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Ans)
+                                </td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                                   
+                                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+
+
+@section styles {
+    <link rel="stylesheet" type="text/css" href="/lib/DataTables/DataTables-1.10.20/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" type="text/css" href="/lib/DataTables/Buttons-1.6.1/css/buttons.dataTables.min.css" />
+}
+
+@section Scripts {
+    <script type="text/javascript" src="/lib/DataTables/DataTables-1.10.20/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="/lib/DataTables/JSZip-2.5.0/jszip.min.js"></script>
+    <script type="text/javascript" src="/lib/DataTables/Buttons-1.6.1/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="/lib/DataTables/pdfmake-0.1.36/pdfmake.min.js"></script>
+    <script type="text/javascript" src="/lib/DataTables/pdfmake-0.1.36/vfs_fonts.js"></script>
+    <script type="text/javascript" src="/lib/DataTables/Buttons-1.6.1/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="/lib/DataTables/Buttons-1.6.1/js/buttons.print.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#simpletable').DataTable({
+                dom: 'lBfrtip',
+                buttons: [{
+                        extend: 'pdf',
+                        title: 'BasePackage1._0',
+                        filename: "@DateTime.Now.ToFileTime()",
+                        exportOptions: {
+                            columns: [ 0, 1, 2]
+                        }
+                    }, {
+                        extend: 'excel',
+                        title: 'BasePackage1._0',
+                        filename: "@DateTime.Now.ToFileTime()",
+                        exportOptions: {
+                            columns: [ 0, 1, 2]
+                        }
+                    }, {
+                        extend: 'csv',
+                        title: 'BasePackage1._0',
+                        filename: "@DateTime.Now.ToFileTime()",
+                        exportOptions: {
+                            columns: [ 0, 1, 2]
+                        }
+                    },
+                    {
+                        extend: 'print',
+                        title: 'BasePackage1._0',
+                        filename: "@DateTime.Now.ToFileTime()",
+                        exportOptions: {
+                            columns: [ 0, 1, 2]
+                        }
+                    }],
+                "order": [],
+                "columnDefs": [ {
+                    "targets"  : 'no-sort',
+                    "orderable": false,
+                }],
+
+            });
+
+        });
+
+    </script>
+}

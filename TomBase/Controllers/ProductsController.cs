@@ -93,7 +93,7 @@ namespace TomBase.Controllers
 
         [HttpGet]
         [Route("search/{min}/{max}")]
-        public IActionResult Search( double min, double max)
+        public IActionResult Search( double min, double max, string query)
         {
             ProductViewModel productViewModel = new ProductViewModel()
             {

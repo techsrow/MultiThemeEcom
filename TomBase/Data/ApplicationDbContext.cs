@@ -85,6 +85,8 @@ namespace BasePackageModule2.Data
         public DbSet<ShopPageHeader> ShopPageHeaders { get; set; }
         public DbSet<AllPageHeader> AllPageHeaders { get; set; }
 
+        public DbSet<Faq> Faqs { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

@@ -199,47 +199,30 @@ namespace BasePackageModule2.Controllers
             return View(model);
         }
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Contact(ContactMessage contactMessage)
+        public async Task<JsonResult> SaveContactUs(ContactUs ContactUs, int FormType)
         {
+            int value = 0;
             if (ModelState.IsValid)
             {
-                _context.Add(contactMessage);
+                _context.Add(ContactUs);
                 await _context.SaveChangesAsync();
-               
-                EmailService.EmailMessage emailMessage = new EmailService.EmailMessage
-                {
-                    FromAddress = new EmailService.EmailAddress
-                    {
-                        Name = contactMessage.Name,
-                        Address = contactMessage.Email
-                    },
-                    ToAddress = new EmailService.EmailAddress
-                    {
-                        Name = "Demo Company",
-                        Address = _emailConfiguration.SmtpUsername
-                    },
-                    Subject = "You received a Inquiry!",
-                    Content = await _templateHelper.GetTemplateHtmlAsStringAsync("Templates/ContactMessage", contactMessage)
-                };
-
-                _emailService.Send(emailMessage);
-
-                return RedirectToAction("Index").WithSuccess("Your message has been sent.", null); ;
+                var EmailTemplate = new EmailContactUsManager();
+                var val = EmailTemplate.GetContactUsTemplate(_hostingEnvironment.WebRootPath, FormType, ContactUs);
+                var EmailMessage = new EmailService.EmailMessage();
+                EmailMessage.FromAddress = new EmailService.EmailAddress();
+                EmailMessage.ToAddress = new EmailService.EmailAddress();
+                EmailMessage.Subject = val.Subject;
+                EmailMessage.Content = val.Content;
+                EmailMessage.FromAddress.Name = ContactUs.FullName;
+                EmailMessage.FromAddress.Address = _emailService.GetDefaultEmail();
+                EmailMessage.ToAddress.Address = _emailService.GetDefaultEmail();
+                EmailMessage.ToAddress.Name = _emailService.GetDefaultEmail();
+                _emailService.Send(EmailMessage);
+                value = 1;
             }
-
-            var item = _context.ContactUs.FirstOrDefault();
-            var footer = _context.BusinessProfile.FirstOrDefault();
-
-            ContactViewModel model = new ContactViewModel()
-            {
-                _contact = item,
-                BusinessProfile = footer
-
-
-            };
-            return View(model).WithWarning("Please Try again.", null);
+            return new JsonResult(value);
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Email")] Subscriber subscriber)

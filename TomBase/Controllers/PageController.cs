@@ -17,7 +17,8 @@ namespace BasePackageModule2.Controllers
             return View(await _context.Pages.ToListAsync());
         }
 
-        public async Task<IActionResult> Details(int? id)
+        [Route("page/{Id?}/{name?}")]
+        public async Task<IActionResult> Details(int? id, string? name)
         {
             if (id == null)
             {

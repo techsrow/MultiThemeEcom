@@ -1,0 +1,50 @@
+﻿@model IEnumerable<TomBase.Models.Faq>
+
+@await Component.InvokeAsync("PageBanner")
+<div class="container-fluid p-0 m-0">
+    <div class="page-header page-header-big text-center">
+        <h1 class="page-title text-white">FAQ</h1>
+    </div><!-- End .page-header -->
+
+
+
+
+
+</div>
+
+<div class="page-content">
+    <div class="container">
+
+
+        @{int i = 0;}
+
+        @foreach (var faq in Model)
+        {
+            i++;
+            var show = i == 1 ? "show" : "";
+            <div class="accordion accordion-rounded" id="accordion-@faq.Id">
+                <div class="card card-box card-sm bg-light">
+                    <div class="card-header" id="heading-@faq.Id">
+                        <h2 class="card-title">
+                            <a role="button" data-toggle="collapse" href="#collapse-@faq.Id" aria-expanded="true" aria-controls="collapse-@faq.Id">
+                                @faq.Qus
+                            </a>
+                        </h2>
+                    </div><!-- End .card-header -->
+                    <div id="collapse-@faq.Id" class="collapse  @show" aria-labelledby="heading-@faq.Id" data-parent="#accordion-@faq.Id">
+                        <div class="card-body">
+                            @faq.Ans
+                        </div><!-- End .card-body -->
+                    </div><!-- End .collapse -->
+                </div>
+            </div>
+
+        }
+
+
+
+
+    </div><!-- End .container -->
+</div><!-- End .page-content -->
+
+<!-- End .cta -->
