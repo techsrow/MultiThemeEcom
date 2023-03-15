@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿@*<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -29,8 +29,8 @@
 </head>
 <body class="homepage">
     <div class="se-pre-con"></div>
-  
-    
+
+
     <div class="main">
         @await Component.InvokeAsync("Navigation")
         @await RenderSectionAsync("Header", required: false);
@@ -46,7 +46,7 @@
             </div>
         </div>
 
-        
+
         @await Component.InvokeAsync("Footer")
 
         @await Component.InvokeAsync("ChatBot")
@@ -66,6 +66,113 @@
     <script src="~/theme/js/owl.carousel.min.js"></script>
     <script src="~/theme/js/custom.js"></script>
 
-    
+
+</body>
+</html>*@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @await Component.InvokeAsync("Favicon")
+    @await Component.InvokeAsync("Seo")
+    @await RenderSectionAsync("MetaTags", required: false)
+
+
+
+
+
+
+
+    <meta name="msapplication-TileColor" content="#cc9966">
+    <meta name="msapplication-config" content="~/theme/Molla/assets/images/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="~/theme/Molla/assets/vendor/line-awesome/line-awesome/line-awesome/css/line-awesome.min.css">
+    <!-- Plugins CSS File -->
+    <link rel="stylesheet" href="~/theme/Molla/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/theme/Molla/assets/css/plugins/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="~/theme/Molla/assets/css/plugins/magnific-popup/magnific-popup.css">
+    <link rel="stylesheet" href="~/theme/Molla/assets/css/plugins/jquery.countdown.css">
+    <!-- Main CSS File -->
+    @*Theme Skin Type*@
+    <script src="~/lib/jquery/jquery.js"></script>
+    @await Component.InvokeAsync("ThemeSkin")
+
+
+</head>
+<body>
+
+
+    <div class="page-wrapper">
+
+        @await Component.InvokeAsync("Navigation")
+        <main class="main">
+
+            <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
+                <div class="container">
+                    <h1 class="page-title">My Account</h1>
+                </div><!-- End .container -->
+            </div><!-- End .page-header -->
+            <nav aria-label="breadcrumb" class="breadcrumb-nav mb-3">
+                <div class="container">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                      
+                        <li class="breadcrumb-item active" aria-current="page">My Account</li>
+                    </ol>
+                </div><!-- End .container -->
+            </nav><!-- End .breadcrumb-nav -->
+
+
+            <div class="page-content">
+                <div class="dashboard">
+                    <div class="container">
+                        <div class="row">
+                            <aside class="col-md-4 col-lg-3">
+                                <partial name="_ManageNav" />
+                            </aside><!-- End .col-lg-3 -->
+                            <div class="col-md-8 col-lg-9">
+                                @RenderBody()
+                            </div><!-- End .col-lg-9 -->
+
+                          
+                        </div>
+                        </div>
+                    </div>
+                </div>
+        </main>
+        @await Component.InvokeAsync("Footer")
+
+
+
+
+    </div>
+    @await Component.InvokeAsync("MobileMenu")
+
+
+    <!-- Plugins JS File -->
+    <script src="~/theme/Molla/assets/js/jquery.min.js"></script>
+    <script src="~/theme/Molla/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="~/theme/Molla/assets/js/jquery.hoverIntent.min.js"></script>
+    <script src="~/theme/Molla/assets/js/jquery.waypoints.min.js"></script>
+    <script src="~/theme/Molla/assets/js/superfish.min.js"></script>
+    <script src="~/theme/Molla/assets/js/owl.carousel.min.js"></script>
+    <script src="~/theme/Molla/assets/js/jquery.magnific-popup.min.js"></script>
+
+
+    <script src="~/theme/Molla/assets/js/bootstrap-input-spinner.js"></script>
+    <script src="~/theme/Molla/assets/js/jquery.plugin.min.js"></script>
+
+    <script src="~/theme/Molla/assets/js/jquery.elevateZoom.min.js"></script>
+    <script src="~/theme/Molla/assets/js/bootstrap-input-spinner.js"></script>
+    <script src="~/theme/Molla/assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/theme/Molla/assets/js/jquery.sticky-kit.min.js"></script>
+
+    <!-- Footer Skin Js-->
+    @await Component.InvokeAsync("FooterSkin")
+  
+
 </body>
 </html>

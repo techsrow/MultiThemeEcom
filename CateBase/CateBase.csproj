@@ -444,6 +444,11 @@
     <None Include="wwwroot\mobiletheme\js\owl.carousel.js" />
     <None Include="wwwroot\mobiletheme\js\owl.carousel.min.js" />
     <None Include="wwwroot\mobiletheme\js\slick.min.js" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\TomBase\TomBase.csproj" />
   </ItemGroup>    
 
 </Project>

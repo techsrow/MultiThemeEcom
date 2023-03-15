@@ -6,6 +6,7 @@
 @using Microsoft.AspNetCore.Http
 @using Microsoft.EntityFrameworkCore
 
+@{ var user = await UserManager.Users.Include(a => a.Cart).FirstOrDefaultAsync(a => a.Id == UserManager.GetUserId(User)); }
 <!-- Mobile Menu -->
 <div class="mobile-menu-overlay"></div><!-- End .mobil-menu-overlay -->
 
@@ -36,20 +37,43 @@
                             @foreach (var menu in Model.Menus)
                             {
                                 @if (menu.Type == "interLink" || menu.Type == null)
-                    {
-                            <li>
-                                <a href="@menu.Url">@menu.Name</a>
+                                {
+                                    <li>
+                                        <a href="@menu.Url">@menu.Name</a>
 
 
-                            </li>
-                    }
-}
-                            
+                                    </li>
+                                }
+                            }
+
+                        <li>
+                            @if (SignInManager.IsSignedIn(User))
+                            {
+
+                            <a asp-area="Identity" asp-page="/Account/Manage/Index" title="My account">
+                                
+                                <p>@user.FirstName</p>
+                                <form id="logout"  asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new {area = ""})" method="post">
+                                    <button type="submit" class="nav-link btn btn-link dropdown-item">Logout</button>
+                                </form>
+
+                            </a>
+                            }
+                            else
+                            {
+                                <a href="/Identity/Account/Login" title="My account">
+                                    <div class="icon">
+                                        <i class="ui-icon-locked"></i>
+                                    </div>
+                                    <p>Log In</p>
+                                </a>
+                            }
+                        </li>
 
                         </ul>
                     </nav><!-- End .mobile-nav -->
                 </div><!-- .End .tab-pane -->
-              
+
 
 
                 <div class="tab-pane fade" id="mobile-cats-tab" role="tabpanel" aria-labelledby="mobile-cats-link">
@@ -66,8 +90,8 @@
                                     }
                                 }
                             }
-                                
-                            </ul><!-- End .mobile-cats-menu -->
+
+                        </ul><!-- End .mobile-cats-menu -->
                     </nav><!-- End .mobile-cats-nav -->
                 </div><!-- .End .tab-pane -->
             </div><!-- End .tab-content -->
@@ -82,5 +106,5 @@
         </div><!-- End .social-icons -->
     </div><!-- End .mobile-menu-wrapper -->
 
-      
+
 </div><!-- End .mobile-menu-container -->

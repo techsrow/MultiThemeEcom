@@ -21,19 +21,36 @@ namespace BasePackageModule2.Areas.Identity.Pages.Account.Manage
 
         public static string EditAddress => "EditAddress";
 
+        public static string Orders => "Orders";
+
+        public static string Logout => "Logout";
+
+        public static string ForgotPassword => "ForgotPassword";
+
+
+
+
         public static string IndexNavClass(ViewContext viewContext) => PageNavClass(viewContext, Index);
 
         public static string EmailNavClass(ViewContext viewContext) => PageNavClass(viewContext, Email);
+        public static string OrdersNavClass(ViewContext viewContext) => PageNavClass(viewContext, Orders);
 
         public static string ChangePasswordNavClass(ViewContext viewContext) => PageNavClass(viewContext, ChangePassword);
 
         public static string AddressNavClass(ViewContext viewContext) => PageNavClass(viewContext, Address);
         public static string EditAddressNavClass(ViewContext viewContext) => PageNavClass(viewContext, EditAddress);
 
+        public static string PersonalDataNavClass(ViewContext viewContext) => PageNavClass(viewContext, PersonalData);
+
 
         public static string ExternalLoginsNavClass(ViewContext viewContext) => PageNavClass(viewContext, ExternalLogins);
 
-        public static string PersonalDataNavClass(ViewContext viewContext) => PageNavClass(viewContext, PersonalData);
+
+        public static string LogoutNavClass(ViewContext viewContext) => PageNavClass(viewContext, Logout);
+
+        public static string ForgotPasswordNavClass(ViewContext viewContext) => PageNavClass(viewContext, ForgotPassword);
+
+
 
         public static string TwoFactorAuthenticationNavClass(ViewContext viewContext) => PageNavClass(viewContext, TwoFactorAuthentication);
 
