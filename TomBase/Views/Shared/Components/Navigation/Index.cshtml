@@ -30,18 +30,49 @@
                                     <ul>
                                         <li>
                                             <div class="header-dropdown">
-                                              
-                                               
+
+
                                             </div>
                                         </li>
                                         <li>
                                             <div class="header-dropdown">
-                                               
-                                                
+
+
                                             </div>
                                         </li>
-                                        <li><a asp-area="Identity"  asp-page="/Account/Login">Sign in</a></li>
+
+                                        @if (SignInManager.IsSignedIn(User)  &&  User.IsInRole("Admin"))
+                                {
+
+                                        <li style="padding:5px;">
+                                            <a asp-area="Admin" asp-controller="Admin" target="_blank" asp-action="Index" title="My Dashborad">
+                                              
+                                                    
+                                                        <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                                                       
+                                                        <!--end::Svg Icon-->
+                                             
+                                              
+                                                <p>
+                                                    <span class="svg-icon svg-icon-2">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                            <rect x="2" y="2" width="9" height="9" rx="2" fill="currentColor"></rect>
+                                                            <rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2" fill="currentColor"></rect>
+                                                            <rect opacity="0.3" x="13" y="13" width="9" height="9" rx="2" fill="currentColor"></rect>
+                                                            <rect opacity="0.3" x="2" y="13" width="9" height="9" rx="2" fill="currentColor"></rect>
+                                                        </svg>
+                                                    </span>Admin Dashboard
+                                                </p>
+                                            </a>
+                                        </li>
+                                }
+                                 else{
+                                        <li><a asp-area="Identity" asp-page="/Account/Login">Sign in</a></li>
                                         <li><a asp-area="Identity" asp-page="/Account/Register"> Sign up</a></li>
+                                        }
+
+
+
                                     </ul>
                                 </li>
                             </ul><!-- End .top-menu -->
@@ -62,23 +93,23 @@
 
                                 @if (Model.Logo != null)
                                 {
-                                    <img src="assets/images/demos/demo-2/logo.png" alt="Molla Logo" width="105" height="25">
+                                    <img src="@Model.Logo.HeaderLogo" alt="@Model.BusinessProfile.BusinessName" width="105" height="25">
                                 }
-                        else
-                        {
-                             <img src="https://4m4you.com/wp-content/uploads/2020/06/logo-placeholder.png" width="105" height="25" />
-                        }
-                                
+                                else
+                                {
+                                    <img src="https://4m4you.com/wp-content/uploads/2020/06/logo-placeholder.png" width="105" height="25" />
+                                }
+
                             </a>
                         </div><!-- End .header-left -->
 
                         <div class="header-center">
                             <div class="header-search header-search-extended header-search-visible header-search-no-radius d-none d-lg-block">
                                 <a href="#" class="search-toggle" role="button"><i class="icon-search"></i></a>
-                                <form method="get" role="search" asp-area=""  asp-controller="Search" asp-action="Index">
+                                <form method="get" role="search" asp-area="" asp-controller="Search" asp-action="Index">
                                     <div class="header-search-wrapper search-wrapper-wide">
                                         <label for="q" class="sr-only">Search</label>
-                                        <input type="search" class="form-control" name="q" id="q" placeholder="Search product ..." required>
+                                        <input type="text" class="form-control" name="query" @ViewBag.categoryName  placeholder="Search product ..." required>
                                         <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
                                     </div><!-- End .header-search-wrapper -->
                                 </form>
@@ -97,17 +128,16 @@
                                         <p>@user.FirstName</p>
                                     </a>
                                 }
-                        else
-                        {
-                            <a href="/Identity/Account/Login" title="My account">
-                                <div class="icon">
-                                    <i class="ui-icon-locked"></i>
-                                </div>
-                                <p>Log In</p>
-                            </a>
-                        }
-                                </div><!-- End .compare-dropdown -->
-
+                                else
+                                {
+                                    <a href="/Identity/Account/Login" title="My account">
+                                        <div class="icon">
+                                            <i class="ui-icon-locked"></i>
+                                        </div>
+                                        <p>Log In</p>
+                                    </a>
+                                }
+                            </div><!-- End .compare-dropdown -->
                             <!-- End .compare-dropdown -->
                             @if (SignInManager.IsSignedIn(User))
                             {
@@ -137,6 +167,8 @@
 
 
                         </div><!-- End .header-right -->
+
+                        <!-- End .header-dropdown -->
                     </div><!-- End .container -->
                 </div><!-- End .header-middle -->
 

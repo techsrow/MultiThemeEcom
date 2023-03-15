@@ -18,6 +18,8 @@ namespace BasePackageModule2.ViewModels
 
         public List<ThemeSetting> ThemeSetting { get; set; }
 
+        public SkinSetting SkinSetting { get; set; }
+
         public BusinessProfile BusinessProfile { get; set; }
 
         public List<Category> Categories { get; set; }

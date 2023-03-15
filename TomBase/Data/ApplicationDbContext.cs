@@ -87,6 +87,8 @@ namespace BasePackageModule2.Data
 
         public DbSet<Faq> Faqs { get; set; }
 
+        public DbSet<SkinSetting> SkinSettings { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
